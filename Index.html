@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-en="Smart Leader" data-th="Smart Leader">Smart Leader</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0a0a; /* Dark background */
+      color: #e5e7eb; /* Light text for contrast */
+    }
+    .container {
+      max-width: 900px;
+    }
+    .test-card {
+      background: #111; /* Slightly lighter than body for depth */
+      padding: 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+    .question {
+      background: #1f2937; /* Even lighter for questions */
+      padding: 1.25rem;
+      border-radius: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #374151;
+    }
+    label {
+      display: block;
+      margin: 0.75rem 0;
+      cursor: pointer;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      transition: background-color 0.2s, color 0.2s;
+    }
+    label:hover {
+      background-color: #374151;
+    }
+    input[type="radio"] {
+      accent-color: #FFD700; /* Gold radio button color */
+      margin-right: 0.75rem;
+    }
+    button {
+      transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+      border-radius: 0.75rem;
+    }
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255, 215, 0, 0.2);
+    }
+    .active-tab {
+      background-color: #FFD700 !important;
+      color: #000 !important;
+      box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+    }
+    .gold-text {
+      color: #FFD700;
+    }
+    .fade-in {
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .logo-placeholder {
+      width: 50px;
+      height: 50px;
+      border: 2px dashed #FFD700;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #FFD700;
+      font-size: 0.75rem;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body class="bg-gray-950 text-gray-200 font-sans">
+  <div class="bg-black p-6 mb-8 shadow-lg">
+    <div class="container mx-auto flex items-center justify-between">
+      <div class="flex items-center space-x-4">
+        <div class="logo-placeholder">Logo</div>
+        <h1 class="text-4xl font-bold gold-text" data-en="Smart Leader" data-th="Smart Leader">Smart Leader</h1>
+      </div>
+      <div class="flex space-x-2">
+        <button id="lang-en" class="bg-gray-800 text-gray-200 font-bold py-1 px-3 rounded-lg hover:bg-gray-700 transition-colors">EN</button>
+        <button id="lang-th" class="bg-blue-600 text-white font-bold py-1 px-3 rounded-lg hover:bg-blue-700 transition-colors">TH</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mx-auto p-6">
+    <div class="flex flex-col sm:flex-row justify-center mb-8 space-y-4 sm:space-y-0 sm:space-x-4">
+      <button id="show-aptitude-12" class="bg-blue-500 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-blue-600 transition-colors active-tab" data-en="Aptitude (Grade 12)" data-th="ความถนัด (ม.6)">
+        ความถนัด (ม.6)
+      </button>
+      <button id="show-personality-12" class="bg-purple-500 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-purple-600 transition-colors" data-en="Personality (Grade 12)" data-th="บุคลิกภาพ (ม.6)">
+        บุคลิกภาพ (ม.6)
+      </button>
+      <button id="show-aptitude-9" class="bg-yellow-500 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-yellow-600 transition-colors" data-en="Aptitude (Grade 9)" data-th="ความถนัด (ม.3)">
+        ความถนัด (ม.3)
+      </button>
+      <button id="show-personality-9" class="bg-pink-500 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-pink-600 transition-colors" data-en="Personality (Grade 9)" data-th="บุคลิกภาพ (ม.3)">
+        บุคลิกภาพ (ม.3)
+      </button>
+    </div>
+
+    <!-- Grade 12 Aptitude Test Section -->
+    <div id="aptitude-12" class="test-section fade-in test-card">
+      <h2 class="text-2xl font-bold text-center gold-text mb-4" data-en="Aptitude Test (Grade 12)" data-th="แบบทดสอบความถนัด (ม.6)">
+        แบบทดสอบความถนัด (ม.6)
+      </h2>
+      <p class="text-sm text-gray-400 mb-6 text-center" data-en="Instructions: Choose the answer that suits you best (A, B, C, or D), only one." data-th="<strong>วิธีทำ:</strong> เลือกคำตอบที่เหมาะกับคุณที่สุด (ก, ข, ค, ง) เพียง 1 ข้อ">
+        <strong>วิธีทำ:</strong> เลือกคำตอบที่เหมาะกับคุณที่สุด (ก, ข, ค, ง) เพียง 1 ข้อ
+      </p>
+      <div id="aptitude-12-message" class="text-red-500 text-center mb-4 hidden"></div>
+      <form id="aptitude-12-form" class="space-y-4"></form>
+      <button id="aptitude-12-result-btn" class="mt-6 bg-gold-500 text-black font-bold py-3 px-6 rounded-lg w-full shadow-lg hover:bg-gold-600" style="background-color: #FFD700;">
+        <span data-en="View Aptitude Results" data-th="ดูผลลัพธ์ความถนัด">ดูผลลัพธ์ความถนัด</span>
+      </button>
+      <div id="aptitude-12-result" class="mt-8 bg-gray-800 rounded-lg shadow-xl p-8 hidden fade-in">
+        <h2 class="text-2xl font-bold text-center gold-text mb-4" data-en="Your Results" data-th="ผลลัพธ์ของคุณ">ผลลัพธ์ของคุณ</h2>
+        <div id="aptitude-12-report" class="text-gray-300 leading-relaxed"></div>
+      </div>
+    </div>
+
+    <!-- Grade 12 Personality Test Section -->
+    <div id="personality-12" class="test-section hidden fade-in test-card">
+      <h2 class="text-2xl font-bold text-center gold-text mb-4" data-en="Personality Test (Grade 12)" data-th="แบบทดสอบบุคลิกภาพ (ม.6)">แบบทดสอบบุคลิกภาพ (ม.6)</h2>
+      <p class="text-sm text-gray-400 mb-6 text-center" data-en="Instructions: This test will help you get to know yourself better, based on the Holland Code (RIASEC) theory, which links personality to careers." data-th="แบบทดสอบนี้จะช่วยให้คุณรู้จักตัวเองมากขึ้น โดยอิงจากทฤษฎี Holland Code (RIASEC) ซึ่งเชื่อมโยงบุคลิกภาพเข้ากับอาชีพ">
+        แบบทดสอบนี้จะช่วยให้คุณรู้จักตัวเองมากขึ้น โดยอิงจากทฤษฎี Holland Code (RIASEC) ซึ่งเชื่อมโยงบุคลิกภาพเข้ากับอาชีพ
+      </p>
+      <div id="personality-12-message" class="text-red-500 text-center mb-4 hidden"></div>
+      <form id="personality-12-form" class="space-y-4">
+        <div id="personality-12-questions"></div>
+      </form>
+      <button id="personality-12-result-btn" type="button" class="w-full bg-gold-500 text-black font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-gold-600" style="background-color: #FFD700;">
+        <span data-en="View Personality Results" data-th="ดูผลลัพธ์บุคลิกภาพ">ดูผลลัพธ์บุคลิกภาพ</span>
+      </button>
+      <div id="personality-12-result" class="bg-gray-800 rounded-lg shadow-md p-6 mt-8 hidden fade-in">
+        <h2 class="text-2xl font-bold text-center gold-text mb-4" data-en="Your Personality Profile" data-th="โปรไฟล์บุคลิกภาพของคุณ">โปรไฟล์บุคลิกภาพของคุณ</h2>
+        <div id="personality-12-report" class="text-gray-300 leading-relaxed"></div>
+      </div>
+    </div>
+
+    <!-- Grade 9 Aptitude Test Section -->
+    <div id="aptitude-9" class="test-section hidden fade-in test-card">
+        <h2 class="text-2xl font-bold text-center gold-text mb-4" data-en="Aptitude Test (Grade 9)" data-th="แบบทดสอบความถนัด (ม.3)">
+            แบบทดสอบความถนัด (ม.3)
+        </h2>
+        <p class="text-sm text-gray-400 mb-6 text-center" data-en="Instructions: This test is based on the O-NET curriculum for Grade 9. It covers Math, Science, English, and Logic. Choose the best answer for each question." data-th="<strong>วิธีทำ:</strong> แบบทดสอบนี้อิงตามหลักสูตร O-NET สำหรับ ม.3 ครอบคลุมวิชาคณิตศาสตร์, วิทยาศาสตร์, ภาษาอังกฤษ และตรรกะ เลือกคำตอบที่ดีที่สุดสำหรับแต่ละข้อ">
+            <strong>วิธีทำ:</strong> แบบทดสอบนี้อิงตามหลักสูตร O-NET สำหรับ ม.3 ครอบคลุมวิชาคณิตศาสตร์, วิทยาศาสตร์, ภาษาอังกฤษ และตรรกะ เลือกคำตอบที่ดีที่สุดสำหรับแต่ละข้อ
+        </p>
+        <div id="aptitude-9-message" class="text-red-500 text-center mb-4 hidden"></div>
+        <form id="aptitude-9-form" class="space-y-4"></form>
+        <button id="aptitude-9-result-btn" class="mt-6 bg-gold-500 text-black font-bold py-3 px-6 rounded-lg w-full shadow-lg hover:bg-gold-600" style="background-color: #FFD700;">
+            <span data-en="View Aptitude Results" data-th="ดูผลลัพธ์ความถนัด">ดูผลลัพธ์ความถนัด</span>
+        </button>
+        <div id="aptitude-9-result" class="mt-8 bg-gray-800 rounded-lg shadow-xl p-8 hidden fade-in">
+          <h2 class="text-2xl font-bold text-center gold-text mb-4" data-en="Your Results" data-th="ผลลัพธ์ของคุณ">ผลลัพธ์ของคุณ</h2>
+          <div id="aptitude-9-report" class="text-gray-300 leading-relaxed"></div>
+        </div>
+    </div>
+
+    <!-- Grade 9 Personality Test Section -->
+    <div id="personality-9" class="test-section hidden fade-in test-card">
+      <h2 class="text-2xl font-bold text-center gold-text mb-4" data-en="Personality Test (Grade 9)" data-th="แบบทดสอบบุคลิกภาพ (ม.3)">แบบทดสอบบุคลิกภาพ (ม.3)</h2>
+      <p class="text-sm text-gray-400 mb-6 text-center" data-en="Instructions: Choose the answer that sounds most like you. Be honest — there are no right or wrong answers." data-th="<strong>วิธีทำ:</strong> เลือกคำตอบที่ตรงกับคุณมากที่สุด ไม่ต้องกังวลว่าจะมีคำตอบถูกหรือผิด">
+        <strong>วิธีทำ:</strong> เลือกคำตอบที่ตรงกับคุณมากที่สุด ไม่ต้องกังวลว่าจะมีคำตอบถูกหรือผิด
+      </p>
+      <div id="personality-9-message" class="text-red-500 text-center mb-4 hidden"></div>
+      <form id="personality-9-form" class="space-y-4">
+        <div id="personality-9-questions"></div>
+      </form>
+      <button id="personality-9-result-btn" type="button" class="w-full bg-gold-500 text-black font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-gold-600" style="background-color: #FFD700;">
+        <span data-en="View Personality Results" data-th="ดูผลลัพธ์บุคลิกภาพ">ดูผลลัพธ์บุคลิกภาพ</span>
+      </button>
+      <div id="personality-9-result" class="bg-gray-800 rounded-lg shadow-md p-6 mt-8 hidden fade-in">
+        <h2 class="text-2xl font-bold text-center gold-text mb-4" data-en="Your Personality Profile" data-th="โปรไฟล์บุคลิกภาพของคุณ">โปรไฟล์บุคลิกภาพของคุณ</h2>
+        <div id="personality-9-report" class="text-gray-300 leading-relaxed"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // General function to show a temporary message instead of using alert()
+    function showMessage(elementId, message) {
+      const messageDiv = document.getElementById(elementId);
+      messageDiv.textContent = message;
+      messageDiv.classList.remove('hidden');
+      setTimeout(() => {
+        messageDiv.classList.add('hidden');
+      }, 5000);
+    }
+
+    // --- TEST DATA & LOGIC FOR ALL GRADES ---
+
+    // Grade 12 Aptitude Test Data
+    const APTITUDE_12_QUESTIONS = [
+      {q: "1. คุณสนใจข่าวประเภทใดมากที่สุด?", options: ["ก) ข่าวเทคโนโลยีและวิทยาศาสตร์", "ข) ข่าวศิลปะ, วัฒนธรรม, การออกแบบ", "ค) ข่าวเศรษฐกิจและการเงิน", "ง) ข่าวสิ่งแวดล้อมและสังคม"]},
+      {q: "2. ในการทำโครงงานกลุ่ม คุณมักจะทำอะไร?", options: ["ก) เป็นผู้วางแผนและจัดการข้อมูล", "ข) เป็นคนนำเสนอไอเดียใหม่ๆ หรือดูแลด้านความสวยงาม", "ค) เป็นคนคำนวณต้นทุนหรือจัดทำงบประมาณ", "ง) เป็นผู้ที่ช่วยดูแลให้โครงการเป็นมิตรต่อสิ่งแวดล้อม"]},
+      {q: "3. ถ้าคุณมีเงินหนึ่งล้านบาท คุณจะลงทุนในอะไร?", options: ["ก) สตาร์ทอัพด้าน AI หรือนวัตกรรมใหม่ๆ", "ข) ธุรกิจที่เกี่ยวข้องกับแฟชั่น, ร้านกาแฟ, หรือแกลเลอรี่", "ค) หุ้น, กองทุน, หรือธุรกิจอสังหาริมทรัพย์", "ง) ธุรกิจพลังงานสะอาดหรือสินค้าเกษตรอินทรีย์"]},
+      {q: "4. คุณชอบอ่านหนังสือประเภทไหน?", options: ["ก) ประวัติศาสตร์โลก, ชีวประวัติผู้ประกอบการ", "ข) บทกวี, นิยาย, หรือหนังสือการ์ตูน", "ค) หนังสือการบริหาร, การตลาด, หรือการลงทุน", "ง) หนังสือเกี่ยวกับสิ่งแวดล้อม, การพัฒนาที่ยั่งยืน"]},
+      {q: "5. คุณชื่นชอบบุคคลใดต่อไปนี้?", options: ["ก) สตีฟ จ็อบส์ (ผู้ก่อตั้ง Apple)", "ข) อเล็กซ์ เฟดเดอร์ (ศิลปินชื่อดัง)", "ค) วอร์เรน บัฟเฟตต์ (นักลงทุนระดับโลก)", "ง) เกรตา ทุนแบร์ย (นักเคลื่อนไหวด้านสิ่งแวดล้อม)"]},
+      {q: "6. ถ้าคุณเป็นผู้นำ คุณจะเน้นที่...", options: ["ก) การสร้างนวัตกรรมใหม่ๆ และการพัฒนาเทคโนโลยี", "ข) การสร้างสรรค์บรรยากาศที่สนุกสนานและเป็นกันเอง", "ค) การวางแผนธุรกิจและเพิ่มรายได้ให้องค์กร", "ง) การสร้างธุรกิจที่รับผิดชอบต่อสังคมและสิ่งแวดล้อม"]},
+      {q: "7. คุณชอบเรียนวิชาอะไรในโรงเรียน?", options: ["ก) ฟิสิกส์, เคมี, หรือคอมพิวเตอร์", "ข) ศิลปะ, ภาษาอังกฤษ, หรือวรรณคดี", "ค) คณิตศาสตร์, เศรษฐศาสตร์, หรือการบัญชี", "ง) ชีววิทยา, วิทยาศาสตร์สิ่งแวดล้อม"]},
+      {q: "8. ในอนาคต คุณมองตัวเองทำงานที่ไหน?", options: ["ก) ห้องทดลอง, บริษัทเทคโนโลยี, หรือสตาร์ทอัพ", "ข) สตูดิโอออกแบบ, กองถ่าย, หรือบริษัทโฆษณา", "ค) ธนาคาร, บริษัทหลักทรัพย์, หรือบริษัทใหญ่", "ง) องค์กรไม่แสวงหาผลกำไร, บริษัทที่เน้นสิ่งแวดล้อม"]},
+      {q: "9. ในการทำงาน คุณสนใจอะไรมากที่สุด?", options: ["ก) การแก้ไขปัญหาที่ซับซ้อน", "ข) การใช้ความคิดสร้างสรรค์", "ค) การสร้างรายได้และเติบโตในตำแหน่ง", "ง) การทำสิ่งที่มีประโยชน์ต่อสังคม"]},
+      {q: "10. คุณอยากใช้ชีวิตแบบไหน?", options: ["ก) มีโอกาสเดินทางไปดูงานเทคโนโลยีใหม่ๆ ทั่วโลก", "ข) มีอิสระในการแสดงออกและสร้างสรรค์ผลงาน", "ค) มีความมั่นคงทางการเงินและเป็นที่ยอมรับในวงการธุรกิจ", "ง) มีความสุขกับการใช้ชีวิตที่เรียบง่ายและเป็นธรรมชาติ"]},
+      {q: "11. คุณชอบใช้เวลาว่างทำอะไร?", options: ["ก) อ่านบทความทางวิทยาศาสตร์หรือลองเขียนโค้ด", "ข) ถ่ายรูป, วาดรูป, หรือแต่งเพลง", "ค) ติดตามข่าวสารการลงทุนหรืออ่านหนังสือธุรกิจ", "ง) ปลูกต้นไม้, จัดสวน, หรือเข้าร่วมกิจกรรมรณรงค์"]},
+      {q: "12. ในการตัดสินใจ คุณจะพิจารณาจากอะไร?", options: ["ก) ข้อมูลเชิงสถิติและผลการวิเคราะห์", "ข) ความรู้สึกและสัญชาตญาณ", "ค) โอกาสในการทำกำไรและความคุ้มค่า", "ง) ผลกระทบต่อคนและโลก"]}
+    ];
+
+    // Grade 12 Personality Test Data
+    const PERSONALITY_12_QUESTIONS = [
+      {q: "1. ในการทำงานกลุ่ม คุณมักจะ...", options: ["ก) ลงมือทำจริง", "ข) ค้นคว้าข้อมูล", "ค) สร้างสรรค์ไอเดีย", "ง) วางแผนและจัดการ"]},
+      {q: "2. เมื่อมีเวลาว่าง คุณจะ...", options: ["ก) ทำกิจกรรมกลางแจ้ง", "ข) อ่านหนังสือ", "ค) วาดรูป", "ง) จัดบ้าน"]},
+      {q: "3. วิชาที่ชอบที่สุดคือ...", options: ["ก) พละศึกษา", "ข) วิทยาศาสตร์", "ค) ศิลปะ", "ง) คณิตศาสตร์"]},
+      {q: "4. เมื่อเจอปัญหา คุณจะ...", options: ["ก) ลองทำจนกว่าจะสำเร็จ", "ข) คิดวิเคราะห์อย่างละเอียด", "ค) แก้ปัญหาอย่างสร้างสรรค์", "ง) ทำตามขั้นตอนที่กำหนด"]},
+      {q: "5. เพื่อนๆ บอกว่าคุณเป็นคน...", options: ["ก) กระตือรือร้น", "ข) ฉลาด", "ค) มีความคิดสร้างสรรค์", "ง) มีความรับผิดชอบ"]},
+      {q: "6. คุณสนใจงานแบบไหน?", options: ["ก) ที่ต้องใช้ร่างกาย", "ข) ที่ต้องใช้สมอง", "ค) ที่ต้องใช้จินตนาการ", "ง) ที่ต้องใช้ความแม่นยำ"]},
+      {q: "7. ถ้าต้องเลือกบทบาท คุณอยากเป็น...", options: ["ก) ผู้นำที่ลงมือทำ", "ข) ผู้เชี่ยวชาญ", "ค) ศิลปิน", "ง) นักจัดระเบียบ"]},
+      {q: "8. คุณชื่นชอบบุคคลประเภทใด?", options: ["ก) นักกีฬา", "ข) นักวิทยาศาสตร์", "ค) นักออกแบบ", "ง) นักบัญชี"]},
+      {q: "9. เมื่อได้รับคำชม คุณรู้สึกดีที่สุดเมื่อ...", options: ["ก) มีคนชื่นชมในความสามารถ", "ข) มีคนเห็นว่าคุณฉลาด", "ค) มีคนชอบในงานที่คุณสร้างสรรค์", "ง) มีคนชมว่าคุณจัดการได้ดี"]},
+      {q: "10. คุณอยากใช้เวลาว่างกับ...", options: ["ก) กิจกรรมที่ได้เคลื่อนไหว", "ข) การหาข้อมูลใหม่ๆ", "ค) การดูหนังฟังเพลง", "ง) การวางแผน"]},
+      {q: "11. ในการเรียน คุณชอบ...", options: ["ก) โครงการที่ต้องลงมือทำจริง", "ข) การทำวิจัย", "ค) การเขียนเรียงความ", "ง) การจัดระเบียบข้อมูล"]},
+      {q: "12. ในการตัดสินใจ คุณจะพิจารณาจาก...", options: ["ก) สัญชาตญาณ", "ข) ข้อมูลเชิงตรรกะ", "ค) ความรู้สึก", "ง) ความถูกต้องตามกฎ"]},
+      {q: "13. งานที่คุณคิดว่าน่าเบื่อที่สุดคือ...", options: ["ก) งานเอกสาร", "ข) งานที่ไม่มีการวิเคราะห์", "ค) งานที่ไม่มีความคิดสร้างสรรค์", "ง) งานที่ต้องลงมือทำซ้ำๆ"]},
+      {q: "14. คุณชอบทำกิจกรรมอะไรเป็นกลุ่ม?", options: ["ก) กีฬา", "ข) อภิปราย", "ค) การแสดงละคร", "ง) จัดทำรายงาน"]},
+      {q: "15. คุณมีแนวโน้มที่จะเป็น...", options: ["ก) นักปฏิบัติ", "ข) นักคิด", "ค) นักสร้างสรรค์", "ง) นักจัดการ"]},
+      {q: "16. เมื่อต้องแก้ปัญหา คุณจะ...", options: ["ก) ใช้เครื่องมือต่างๆ", "ข) ค้นหาสาเหตุ", "ค) หาวิธีใหม่ๆ", "ง) ทำตามขั้นตอน"]},
+      {q: "17. คุณชอบอ่านหนังสือประเภท...", options: ["ก) ประวัติศาสตร์", "ข) สารคดี", "ค) นิยาย", "ง) การเงิน"]},
+      {q: "18. ในวงสนทนา คุณมักจะเป็น...", options: ["ก) ผู้ฟังที่ดี", "ข) ผู้ถาม", "ค) ผู้เสนอไอเดีย", "ง) ผู้จัดการ"]},
+      {q: "19. คุณสนใจเรื่องอะไร?", options: ["ก) การซ่อมแซม", "ข) การวิจัย", "ค) การออกแบบ", "ง) การบัญชี"]},
+      {q: "20. คุณให้ความสำคัญกับ...", options: ["ก) การลงมือทำ", "ข) ความรู้", "ค) ความคิดสร้างสรรค์", "ง) ความเป็นระเบียบ"]},
+      {q: "21. คุณชอบใช้เวลาว่างกับ...", options: ["ก) กิจกรรมที่ต้องใช้ทักษะ", "ข) การเรียนรู้สิ่งใหม่", "ค) การสร้างผลงาน", "ง) การจัดระเบียบชีวิต"]},
+      {q: "22. ถ้าคุณเป็นหัวหน้า คุณจะ...", options: ["ก) เป็นตัวอย่างที่ดี", "ข) ให้ความรู้", "ค) สร้างแรงบันดาลใจ", "ง) วางแผน"]},
+      {q: "23. ในการทำงาน คุณชอบ...", options: ["ก) ความท้าทายทางร่างกาย", "ข) ความท้าทายทางสมอง", "ค) ความท้าทายทางศิลปะ", "ง) ความท้าทายทางกฎระเบียบ"]},
+      {q: "24. คุณอยากทำงานที่...", options: ["ก) ได้เคลื่อนไหว", "ข) ได้คิดวิเคราะห์", "ค) ได้สร้างสรรค์", "ง) ได้จัดการ"]},
+      {q: "25. คุณมีแนวโน้มที่จะทำงาน...", options: ["ก) อิสระ", "ข) เป็นทีม", "ค) ด้วยตัวเอง", "ง) ในองค์กร"]},
+    ];
+
+    const PERSONALITY_12_MAP = {
+      1: {1: 'R', 2: 'I', 3: 'A', 4: 'C'}, 2: {1: 'R', 2: 'I', 3: 'A', 4: 'C'}, 3: {1: 'R', 2: 'I', 3: 'A', 4: 'C'},
+      4: {1: 'R', 2: 'I', 3: 'A', 4: 'C'}, 5: {1: 'R', 2: 'I', 3: 'A', 4: 'C'}, 6: {1: 'R', 2: 'I', 3: 'A', 4: 'C'},
+      7: {1: 'R', 2: 'I', 3: 'A', 4: 'C'}, 8: {1: 'R', 2: 'I', 3: 'A', 4: 'C'}, 9: {1: 'R', 2: 'I', 3: 'A', 4: 'C'},
+      10: {1: 'R', 2: 'I', 3: 'A', 4: 'C'}, 11: {1: 'R', 2: 'I', 3: 'A', 4: 'C'}, 12: {1: 'R', 2: 'I', 3: 'A', 4: 'C'},
+      13: {1: 'A', 2: 'R', 3: 'I', 4: 'C'}, 14: {1: 'R', 2: 'I', 3: 'A', 4: 'C'}, 15: {1: 'R', 2: 'I', 3: 'A', 4: 'C'},
+      16: {1: 'R', 2: 'I', 3: 'A', 4: 'C'}, 17: {1: 'R', 2: 'I', 3: 'A', 4: 'C'}, 18: {1: 'I', 2: 'A', 3: 'S', 4: 'E'},
+      19: {1: 'R', 2: 'I', 3: 'A', 4: 'C'}, 20: {1: 'R', 2: 'I', 3: 'A', 4: 'C'}, 21: {1: 'R', 2: 'I', 3: 'A', 4: 'C'},
+      22: {1: 'R', 2: 'I', 3: 'A', 4: 'C'}, 23: {1: 'R', 2: 'I', 3: 'A', 4: 'C'}, 24: {1: 'R', 2: 'I', 3: 'A', 4: 'C'},
+      25: {1: 'R', 2: 'I', 3: 'A', 4: 'C'},
+    };
+
+    const PERSONALITY_12_REPORTS = {
+      'R': '<strong>กลุ่ม Realistic (นักปฏิบัติ):</strong> คุณชอบทำงานที่ได้ลงมือทำจริง ใช้ทักษะทางร่างกายและเครื่องมือต่างๆ เหมาะกับงานด้านวิศวกรรม, ช่างเทคนิค, กีฬา, หรือเกษตรกรรม',
+      'I': '<strong>กลุ่ม Investigative (นักคิด):</strong> คุณสนุกกับการเรียนรู้, วิเคราะห์ข้อมูล, และการแก้ปัญหาที่ซับซ้อน เหมาะกับงานด้านวิทยาศาสตร์, การแพทย์, การวิจัย, หรือโปรแกรมเมอร์',
+      'A': '<strong>กลุ่ม Artistic (นักสร้างสรรค์):</strong> คุณรักอิสระและชอบการแสดงออกทางศิลปะ มีจินตนาการสูง เหมาะกับงานด้านการออกแบบ, ดนตรี, การเขียน, หรือสื่อมวลชน',
+      'S': '<strong>กลุ่ม Social (นักสังคม):</strong> คุณชอบช่วยเหลือและสอนคนอื่น มีมนุษยสัมพันธ์ดี เหมาะกับงานด้านการสอน, การพยาบาล, การให้คำปรึกษา',
+      'E': '<strong>กลุ่ม Enterprising (นักริเริ่ม):</strong> คุณชอบการเป็นผู้นำ, การโน้มน้าว และการเริ่มต้นธุรกิจ เหมาะกับงานด้านการตลาด, การขาย, ผู้บริหาร, หรือนักการเมือง',
+      'C': '<strong>กลุ่ม Conventional (นักจัดการ):</strong> คุณชอบความเป็นระเบียบ, กฎเกณฑ์, และขั้นตอนที่ชัดเจน เหมาะกับงานด้านบัญชี, การเงิน, หรือการบริหารจัดการ'
+    };
+
+    // Grade 9 Aptitude Test Data
+    const APTITUDE_9_QUESTIONS = [
+      {q:"1. จงหาค่าของ x จากสมการ: 2x + 5 = 17", options:["ก) 6", "ข) 11", "ค) 22", "ง) 4"], correct: "ก"},
+      {q:"2. ในสามเหลี่ยมมุมฉากที่มีด้านประกอบมุมฉากยาว 3 และ 4 หน่วย ด้านตรงข้ามมุมฉากจะยาวเท่าไร?", options:["ก) 5", "ข) 6", "ค) 7", "ง) 8"], correct: "ก"},
+      {q:"3. ค่าเฉลี่ยของชุดข้อมูล 10, 15, 20 คือเท่าใด?", options:["ก) 15", "ข) 18", "ค) 20", "ง) 12"], correct: "ก"},
+      {q:"4. ถ้ามีเงิน 200 บาท และใช้ไป 25% จะเหลือเงินเท่าไร?", options:["ก) 50", "ข) 100", "ค) 150", "ง) 175"], correct: "ค"},
+      {q:"5. จงหาพื้นที่ของวงกลมที่มีรัศมี 7 ซม. ($ \\pi = 22/7 $)", options:["ก) 44", "ข) 154", "ค) 22", "ง) 14"], correct: "ข"},
+      {q:"6. ข้อใดคือเซลล์ที่ทำหน้าที่สังเคราะห์แสงในพืช?", options:["ก) เซลล์ราก", "ข) เซลล์ปากใบ", "ค) เซลล์เม็ดเลือด", "ง) เซลล์ประสาท"], correct: "ข"},
+      {q:"7. น้ำมีสถานะใดเมื่ออยู่ที่อุณหภูมิ $150^\\circ C$?", options:["ก) ของแข็ง", "ข) ของเหลว", "ค) แก๊ส", "ง) ทั้งของแข็งและของเหลว"], correct: "ค"},
+      {q:"8. การเปลี่ยนแปลงทางเคมีคืออะไร?", options:["ก) การเปลี่ยนสถานะ", "ข) การเกิดสารใหม่", "ค) การเปลี่ยนรูปร่าง", "ง) การละลาย"], correct: "ข"},
+      {q:"9. แรงเสียดทานมีประโยชน์ในข้อใด?", options:["ก) ทำให้วัตถุเคลื่อนที่ได้เร็วขึ้น", "ข) ทำให้เราเดินได้", "ค) ทำให้วัตถุไม่ตกลงพื้น", "ง) ทำให้วัตถุไม่มีน้ำหนัก"], correct: "ข"},
+      {q:"10. ดาวเคราะห์ดวงใดอยู่ใกล้ดวงอาทิตย์มากที่สุด?", options:["ก) โลก", "ข) ดาวพุธ", "ค) ดาวศุกร์", "ง) ดาวอังคาร"], correct: "ข"},
+      {q:"11. “I went to the market yesterday.” ประโยคนี้อยู่ใน Tense ใด?", options:["ก) Present Simple", "ข) Past Simple", "ค) Future Simple", "ง) Present Perfect"], correct: "ข"},
+      {q:"12. คำว่า “beautiful” เป็นคำประเภทใด?", options:["ก) Noun", "ข) Verb", "ค) Adjective", "ง) Adverb"], correct: "ค"},
+      {q:"13. “He likes to play ______ football.” ควรเติมคำใด?", options:["ก) a", "ข) an", "ค) the", "ง) (ไม่มี)"], correct: "ง"},
+      {q:"14. คำใดที่มีความหมายเหมือนกับ “happy”?", options:["ก) sad", "ข) angry", "ค) joyful", "ง) tired"], correct: "ค"},
+      {q:"15. “She ______ a student at this school.” ควรเติมคำใด?", options:["ก) is", "ข) am", "ค) are", "ง) be"], correct: "ก"},
+      {q:"16. ข้อใดเป็นคำที่แตกต่างจากพวก?", options:["ก) ส้ม", "ข) กล้วย", "ค) รถยนต์", "ง) แอปเปิล"], correct: "ค"},
+      {q:"17. ถ้า A=C และ B=C แล้ว A กับ B มีความสัมพันธ์อย่างไร?", options:["ก) A > B", "ข) A < B", "ค) A = B", "ง) ไม่สามารถสรุปได้"], correct: "ค"},
+      {q:"18. ถ้าย้ายตัวอักษรตัวที่ 3 จากคำว่า “Computer” ไปไว้หน้าสุด จะได้คำว่าอะไร?", options:["ก) mComputer", "ข) Cmo uter", "ค) mpCoter", "ง) mCputer"], correct: "ก"},
+      {q:"19. ถ้า “ร้อน” ตรงข้ามกับ “หนาว” แล้ว “มืด” ตรงข้ามกับอะไร?", options:["ก) ดำ", "ข) กลางคืน", "ค) สว่าง", "ง) เงา"], correct: "ค"},
+      {q:"20. เรียงลำดับเหตุการณ์ให้ถูกต้อง: 1) ฝนตก 2) น้ำท่วม 3) ต้นไม้โต 4) พายุเข้า", options:["ก) 4-1-2-3", "ข) 1-4-2-3", "ค) 4-1-3-2", "ง) 1-3-4-2"], correct: "ก"},
+    ];
+
+    // Grade 9 Personality Test Data
+    const PERSONALITY_9_QUESTIONS = [
+      {q: "1. ในการทำงานกลุ่ม คุณมักจะ...", options: ["ก) ลงมือทำ", "ข) ค้นคว้าข้อมูล", "ค) สร้างสรรค์ไอเดีย", "ง) วางแผนและจัดการ"]},
+      {q: "2. เมื่อมีเวลาว่าง คุณจะ...", options: ["ก) เล่นเกมกีฬา", "ข) ดูสารคดี", "ค) วาดรูป", "ง) จัดระเบียบโต๊ะ"]},
+      {q: "3. วิชาที่ชอบที่สุดคือ...", options: ["ก) พละศึกษา", "ข) วิทยาศาสตร์", "ค) ศิลปะ", "ง) คณิตศาสตร์"]},
+      {q: "4. เมื่อเจอปัญหา คุณจะ...", options: ["ก) ลองทำจนกว่าจะสำเร็จ", "ข) คิดวิเคราะห์อย่างละเอียด", "ค) แก้ปัญหาอย่างสร้างสรรค์", "ง) ทำตามขั้นตอนที่กำหนด"]},
+      {q: "5. เพื่อนๆ บอกว่าคุณเป็นคน...", options: ["ก) กระตือรือร้น", "ข) ฉลาด", "ค) มีความคิดสร้างสรรค์", "ง) มีความรับผิดชอบ"]},
+      {q: "6. คุณสนใจงานแบบไหน?", options: ["ก) ที่ต้องใช้ร่างกาย", "ข) ที่ต้องใช้สมอง", "ค) ที่ต้องใช้จินตนาการ", "ง) ที่ต้องใช้ความแม่นยำ"]},
+      {q: "7. ถ้าต้องเลือกบทบาท คุณอยากเป็น...", options: ["ก) นักกีฬา", "ข) นักวิทยาศาสตร์", "ค) ศิลปิน", "ง) นักจัดการ"]},
+      {q: "8. คุณชื่นชอบบุคคลประเภทใด?", options: ["ก) นักกีฬา", "ข) นักวิทยาศาสตร์", "ค) นักออกแบบ", "ง) นักบัญชี"]},
+      {q: "9. คุณรู้สึกดีที่สุดเมื่อ...", options: ["ก) คุณได้ทำกิจกรรมที่ต้องใช้ทักษะ", "ข) คุณเข้าใจเรื่องที่ยากๆ", "ค) คุณได้แสดงความคิดสร้างสรรค์", "ง) คุณทำทุกอย่างเสร็จตรงเวลา"]},
+      {q: "10. ถ้าต้องเลือกบทบาทในกลุ่ม คุณจะเลือกเป็น...", options: ["ก) คนที่ช่วยจัดเตรียมอุปกรณ์", "ข) คนที่ช่วยอธิบายงานให้เพื่อน", "ค) คนที่ทำสื่อนำเสนอให้น่าสนใจ", "ง) คนที่คอยจดบันทึกและจัดการงานให้เรียบร้อย"]},
+    ];
+
+    const PERSONALITY_9_REPORTS = {
+      'a': '<strong>Realistic (Doers):</strong> คุณชอบทำงานที่ได้ลงมือทำจริง ใช้ทักษะทางร่างกายและเครื่องมือ เหมาะกับงานด้านวิศวกร, ช่าง, นักกีฬา, หรือเกษตรกรรม',
+      'b': '<strong>Investigative (Thinkers):</strong> คุณชอบการเรียนรู้, การวิเคราะห์ข้อมูล, และการแก้ปัญหาที่ซับซ้อน เหมาะกับงานด้านนักวิทยาศาสตร์, แพทย์, นักวิจัย, หรือโปรแกรมเมอร์',
+      'c': '<strong>Artistic (Creators):</strong> คุณรักอิสระและชอบการแสดงออกทางศิลปะ มีจินตนาการสูง เหมาะกับงานด้านนักออกแบบ, นักดนตรี, นักเขียน, หรือสื่อมวลชน',
+      'd': '<strong>Conventional (Organizers):</strong> คุณชอบความเป็นระเบียบ, กฎเกณฑ์, และขั้นตอนที่ชัดเจน เหมาะกับงานด้านบัญชี, การเงิน, หรือการบริหารจัดการ',
+    };
+
+    // --- HELPER FUNCTIONS ---
+
+    function renderQuestions(formId, questionsArray, namePrefix) {
+      const form = document.getElementById(formId);
+      form.innerHTML = ''; // Clear existing questions
+      questionsArray.forEach((q, index) => {
+        const qDiv = document.createElement('div');
+        qDiv.className = 'question';
+        qDiv.innerHTML = `<p class="text-md font-semibold mb-2">${q.q}</p>`;
+        q.options.forEach((opt, i) => {
+          const label = document.createElement('label');
+          label.className = 'block text-gray-400 hover:text-white';
+          label.innerHTML = `<input type="radio" name="${namePrefix}-${index}" value="${opt.substring(0, 1).toLowerCase()}"> ${opt}`;
+          qDiv.appendChild(label);
+        });
+        form.appendChild(qDiv);
+      });
+    }
+
+    // --- TEST HANDLERS ---
+
+    // Grade 12 Aptitude Handler
+    function handleAptitude12() {
+      const answers = [...document.querySelectorAll('input[name^="aptitude-12-"]:checked')].map(input => input.value);
+      if (answers.length < APTITUDE_12_QUESTIONS.length) {
+        showMessage('aptitude-12-message', 'กรุณาตอบคำถามให้ครบทุกข้อก่อนดูผลลัพธ์');
+        return;
+      }
+      const counts = {};
+      answers.forEach(answer => {
+        counts[answer] = (counts[answer] || 0) + 1;
+      });
+      let result = '';
+      if (counts.a > 4) result += `<h3 class="text-xl font-bold mb-2 gold-text">นักสร้างสรรค์เทคโนโลยี:</h3><p class="mb-4">คุณมีแนวโน้มชอบงานที่ต้องใช้ตรรกะและการวิเคราะห์ เหมาะกับอาชีพด้านเทคโนโลยี, วิทยาศาสตร์, และการวิจัย ตัวอย่างอาชีพ: นักพัฒนาซอฟต์แวร์, วิศวกร, นักวิทยาศาสตร์ข้อมูล</p>`;
+      if (counts.b > 4) result += `<h3 class="text-xl font-bold mb-2 gold-text">ครีเอเตอร์และนักสื่อสาร:</h3><p class="mb-4">คุณมีแนวโน้มชอบงานที่ต้องใช้ความคิดสร้างสรรค์และการแสดงออก เหมาะกับอาชีพด้านศิลปะ, การออกแบบ, และสื่อสาร ตัวอย่างอาชีพ: นักออกแบบกราฟิก, ยูทูปเบอร์, นักเขียน</p>`;
+      if (counts.c > 4) result += `<h3 class="text-xl font-bold mb-2 gold-text">ผู้ประกอบการและนักธุรกิจ:</h3><p class="mb-4">คุณมีแนวโน้มชอบงานที่มีความเสี่ยงและโอกาสในการเติบโต เหมาะกับอาชีพด้านธุรกิจ, การลงทุน, และการจัดการ ตัวอย่างอาชีพ: ผู้ประกอบการ, นักวิเคราะห์การเงิน, นักการตลาด</p>`;
+      if (counts.d > 4) result += `<h3 class="text-xl font-bold mb-2 gold-text">นักวางกลยุทธ์เพื่อความยั่งยืน:</h3><p class="mb-4">คุณมีแนวโน้มชอบงานที่สร้างผลกระทบเชิงบวกต่อสังคมและสิ่งแวดล้อม เหมาะกับอาชีพด้านการพัฒนาที่ยั่งยืน ตัวอย่างอาชีพ: ผู้เชี่ยวชาญด้านสิ่งแวดล้อม, นักวางแผนเมือง, นักพัฒนาโครงการเพื่อสังคม</p>`;
+      
+      document.getElementById('aptitude-12-report').innerHTML = result || 'ไม่มีแนวโน้มที่เด่นชัด ลองทำแบบทดสอบอีกครั้งหรือสำรวจตัวเลือกอื่นๆ';
+      document.getElementById('aptitude-12-result').classList.remove('hidden');
+      document.getElementById('aptitude-12-result').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Grade 12 Personality Handler
+    function handlePersonality12() {
+      const answers = [...document.querySelectorAll('input[name^="personality-12-"]:checked')];
+      if (answers.length < PERSONALITY_12_QUESTIONS.length) {
+        showMessage('personality-12-message', 'กรุณาตอบคำถามให้ครบทุกข้อก่อนดูผลลัพธ์');
+        return;
+      }
+      const counts = {'R': 0, 'I': 0, 'A': 0, 'S': 0, 'E': 0, 'C': 0};
+      answers.forEach((input, index) => {
+        const value = parseInt(input.value);
+        const code = PERSONALITY_12_MAP[index + 1][value];
+        if (code) {
+          counts[code]++;
+        }
+      });
+      let maxCount = 0;
+      let resultKeys = [];
+      for (const key in counts) {
+        if (counts[key] > maxCount) {
+          maxCount = counts[key];
+          resultKeys = [key];
+        } else if (counts[key] === maxCount) {
+          resultKeys.push(key);
+        }
+      }
+      let reportHtml = '';
+      if (maxCount > 0) {
+        resultKeys.forEach(key => {
+          reportHtml += `<div class="mb-4"><h3 class="text-xl font-bold mb-2 gold-text">${key}:</h3><p>${PERSONALITY_12_REPORTS[key]}</p></div>`;
+        });
+      }
+      document.getElementById('personality-12-report').innerHTML = reportHtml || 'ไม่สามารถระบุบุคลิกภาพที่โดดเด่นได้';
+      document.getElementById('personality-12-result').classList.remove('hidden');
+      document.getElementById('personality-12-result').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Grade 9 Aptitude Handler
+    function handleAptitude9() {
+      const answers = [...document.querySelectorAll('input[name^="aptitude-9-"]:checked')].map(input => input.value);
+      if (answers.length < APTITUDE_9_QUESTIONS.length) {
+        showMessage('aptitude-9-message', 'กรุณาตอบคำถามให้ครบทุกข้อก่อนดูผลลัพธ์');
+        return;
+      }
+      const score = answers.filter((answer, index) => answer.toUpperCase() === APTITUDE_9_QUESTIONS[index].correct).length;
+      let reportHtml = `<p>คุณทำได้ถูกต้อง ${score} จาก 20 ข้อ</p>`;
+      
+      const mathScore = answers.slice(0, 5).filter((answer, index) => answer.toUpperCase() === APTITUDE_9_QUESTIONS[index].correct).length;
+      const scienceScore = answers.slice(5, 10).filter((answer, index) => answer.toUpperCase() === APTITUDE_9_QUESTIONS[index+5].correct).length;
+      const englishScore = answers.slice(10, 15).filter((answer, index) => answer.toUpperCase() === APTITUDE_9_QUESTIONS[index+10].correct).length;
+      const logicScore = answers.slice(15, 20).filter((answer, index) => answer.toUpperCase() === APTITUDE_9_QUESTIONS[index+15].correct).length;
+
+      reportHtml += `<p>คะแนนแยกตามหัวข้อ:</p>
+                     <ul>
+                       <li>คณิตศาสตร์: ${mathScore}/5</li>
+                       <li>วิทยาศาสตร์: ${scienceScore}/5</li>
+                       <li>ภาษาอังกฤษ: ${englishScore}/5</li>
+                       <li>ตรรกะ: ${logicScore}/5</li>
+                     </ul>`;
+
+      let highMathSci = mathScore >= 3 || scienceScore >= 3;
+      let highEng = englishScore >= 3;
+
+      if (highMathSci) reportHtml += `<p><strong>อาชีพที่แนะนำ:</strong> คุณมีความถนัดด้านคณิตศาสตร์และวิทยาศาสตร์ ซึ่งเหมาะกับอาชีพในสายงานวิศวกรรม, แพทย์, และวิทยาศาสตร์ข้อมูล</p>`;
+      if (highEng) reportHtml += `<p><strong>อาชีพที่แนะนำ:</strong> คุณมีความถนัดด้านภาษาอังกฤษ ซึ่งเหมาะกับอาชีพในสายงานระหว่างประเทศ, การตลาด, และการสื่อสาร</p>`;
+      if (!highMathSci && !highEng) reportHtml += `<p><strong>อาชีพที่แนะนำ:</strong> คุณมีความสามารถในหลายด้าน อาชีพที่หลากหลาย เช่น ผู้ประกอบการ หรือนักพัฒนาซอฟต์แวร์ ก็เป็นทางเลือกที่ดี</p>`;
+
+      document.getElementById('aptitude-9-report').innerHTML = reportHtml;
+      document.getElementById('aptitude-9-result').classList.remove('hidden');
+      document.getElementById('aptitude-9-result').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Grade 9 Personality Handler
+    function handlePersonality9() {
+      const answers = [...document.querySelectorAll('input[name^="personality-9-"]:checked')].map(input => input.value);
+      if (answers.length < PERSONALITY_9_QUESTIONS.length) {
+        showMessage('personality-9-message', 'กรุณาตอบคำถามให้ครบทุกข้อก่อนดูผลลัพธ์');
+        return;
+      }
+      const counts = {};
+      answers.forEach(answer => {
+        counts[answer] = (counts[answer] || 0) + 1;
+      });
+      let maxCount = 0;
+      let resultKeys = [];
+      for (const key in counts) {
+        if (counts[key] > maxCount) {
+          maxCount = counts[key];
+          resultKeys = [key];
+        } else if (counts[key] === maxCount) {
+          resultKeys.push(key);
+        }
+      }
+      let reportHtml = '';
+      if (maxCount > 0) {
+        resultKeys.forEach(key => {
+          reportHtml += `<div class="mb-4"><h3 class="text-xl font-bold mb-2 gold-text">${key.toUpperCase()}:</h3><p>${PERSONALITY_9_REPORTS[key]}</p></div>`;
+        });
+      }
+      document.getElementById('personality-9-report').innerHTML = reportHtml || 'ไม่สามารถระบุบุคลิกภาพที่โดดเด่นได้';
+      document.getElementById('personality-9-result').classList.remove('hidden');
+      document.getElementById('personality-9-result').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // --- MAIN SCRIPT EXECUTION ---
+
+    // Initial Test Rendering
+    document.addEventListener('DOMContentLoaded', () => {
+      renderQuestions('aptitude-12-form', APTITUDE_12_QUESTIONS, 'aptitude-12');
+      renderQuestions('personality-12-questions', PERSONALITY_12_QUESTIONS, 'personality-12');
+      renderQuestions('aptitude-9-form', APTITUDE_9_QUESTIONS, 'aptitude-9');
+      renderQuestions('personality-9-questions', PERSONALITY_9_QUESTIONS, 'personality-9');
+    });
+
+    // Event Listeners for buttons
+    const testButtons = {
+      'aptitude-12': 'show-aptitude-12',
+      'personality-12': 'show-personality-12',
+      'aptitude-9': 'show-aptitude-9',
+      'personality-9': 'show-personality-9'
+    };
+
+    function showTest(testId) {
+      document.querySelectorAll('.test-section').forEach(section => {
+        section.classList.add('hidden');
+      });
+      document.getElementById(testId).classList.remove('hidden');
+    }
+
+    function setActiveButton(buttonId) {
+      document.querySelectorAll('.flex > button').forEach(button => {
+        button.classList.remove('active-tab');
+      });
+      document.getElementById(buttonId).classList.add('active-tab');
+    }
+
+    document.getElementById('show-aptitude-12').addEventListener('click', () => { showTest('aptitude-12'); setActiveButton('show-aptitude-12'); });
+    document.getElementById('show-personality-12').addEventListener('click', () => { showTest('personality-12'); setActiveButton('show-personality-12'); });
+    document.getElementById('show-aptitude-9').addEventListener('click', () => { showTest('aptitude-9'); setActiveButton('show-aptitude-9'); });
+    document.getElementById('show-personality-9').addEventListener('click', () => { showTest('personality-9'); setActiveButton('show-personality-9'); });
+
+    document.getElementById('aptitude-12-result-btn').addEventListener('click', handleAptitude12);
+    document.getElementById('personality-12-result-btn').addEventListener('click', handlePersonality12);
+    document.getElementById('aptitude-9-result-btn').addEventListener('click', handleAptitude9);
+    document.getElementById('personality-9-result-btn').addEventListener('click', handlePersonality9);
+
+    // Language Toggle Logic
+    const langEnBtn = document.getElementById('lang-en');
+    const langThBtn = document.getElementById('lang-th');
+
+    function setLanguage(lang) {
+      document.querySelectorAll('[data-en]').forEach(el => {
+        if (lang === 'en') {
+          el.textContent = el.dataset.en;
+        } else {
+          el.textContent = el.dataset.th;
+        }
+      });
+      document.title = document.querySelector('title').dataset[lang];
+      document.querySelector('html').lang = lang;
+      
+      if (lang === 'en') {
+        langEnBtn.classList.add('bg-blue-600', 'text-white');
+        langEnBtn.classList.remove('bg-gray-800', 'text-gray-200');
+        langThBtn.classList.add('bg-gray-800', 'text-gray-200');
+        langThBtn.classList.remove('bg-blue-600', 'text-white');
+      } else {
+        langThBtn.classList.add('bg-blue-600', 'text-white');
+        langThBtn.classList.remove('bg-gray-800', 'text-gray-200');
+        langEnBtn.classList.add('bg-gray-800', 'text-gray-200');
+        langEnBtn.classList.remove('bg-blue-600', 'text-white');
+      }
+    }
+
+    langEnBtn.addEventListener('click', () => setLanguage('en'));
+    langThBtn.addEventListener('click', () => setLanguage('th'));
+
+    // Set initial language to Thai
+    setLanguage('th');
+  </script>
+</body>
+</html>
+"initial commit of the career test website"
