@@ -45,7 +45,11 @@
 <section id="intro">
   <h2 id="introTitle">Introduction</h2>
   <p id="introText">
-    Welcome! This site helps students explore their personalities and abilities to plan for a successful future.
+    <strong>Grade 9 Personality Test:</strong><br>
+    Every student is unique. Some are quiet and thoughtful, while others are outgoing and energetic. Understanding your personality can help you make better decisions about how you learn, how you work with others, and which kinds of careers may suit you best. For students, this test will help you recognize your natural tendencies — whether you enjoy working with people, focusing on details, creating new ideas, or taking the lead. For parents, the results provide insight into your child’s character, which can make it easier to support their studies and guide their future choices. This test is not about “good” or “bad” personality types. Instead, it helps you see your strengths and how to use them wisely. At the end, you will receive a clear summary of your personality style, along with suggestions for learning and career paths. You can also download the results to keep and review together as a family. <em>This test is inspired by well-known personality frameworks such as the Four Temperaments and MBTI, but it has been simplified and adapted for Thai students, so it is easy to use while still giving reliable guidance.</em><br><br>
+
+    <strong>Grade 9 Aptitude Test:</strong><br>
+    This test is designed especially for Thai students who are beginning to think about their future. At this stage, many students are unsure about which direction to take. Some may enjoy practical skills, others prefer creativity, and some like solving problems or helping people. The purpose of this test is not to limit your choices, but to help you discover your natural strengths. For students, the test will give you guidance on what kind of learning style and career path may suit you best. For parents, it provides a clearer picture of your child’s interests and talents, so you can support and encourage them in the right way. The test is short, easy to understand, and culturally adapted for Thai students. At the end, you will receive a result that highlights your main aptitude — such as Practical, Creative, Analytical, Social Helper, or Leadership. You can also download the results to keep and discuss together. <em>This test is adapted from Howard Gardner’s Multiple Intelligences theory and adjusted for Thai students to make it simple, practical, and reliable.</em>
   </p>
 </section>
 
@@ -67,7 +71,6 @@
       <label><input type="radio" name="q1" value="E"> ไม่ชอบเลย</label>
     </div>
     <!-- Repeat Q2-Q12 similar structure -->
-    <!-- For brevity, you will fill questions 2–12 as before -->
   </form>
 
   <button onclick="calculateResultP()">ส่งคำตอบ</button>
@@ -167,25 +170,8 @@ function switchLang(lang){
     document.getElementById("navG9P").innerText="บุคลิกภาพ ม.3";
     document.getElementById("navG9A").innerText="ความถนัด ม.3";
     document.getElementById("introTitle").innerText="บทนำ";
-    document.getElementById("introText").innerText="เว็บไซต์นี้ช่วยให้นักเรียนค้นหาบุคลิกภาพและความสามารถ เพื่อวางแผนอนาคต";
-    document.getElementById("g9PTitle").innerText="แบบทดสอบบุคลิกภาพ ม.3";
-    document.getElementById("g9PText").innerText="นักเรียนและผู้ปกครองสามารถเข้าใจจุดแข็งของนักเรียนและดาวน์โหลดผลลัพธ์ได้";
-    document.getElementById("g9ATitle").innerText="แบบทดสอบความถนัด ม.3";
-    document.getElementById("g9AText").innerText="นักเรียนสามารถค้นหาความถนัดตามธรรมชาติและดาวน์โหลดผลลัพธ์ได้";
-  } else {
-    document.getElementById("siteTitle").innerText="People Smart Leaders (are created here)";
-    document.getElementById("navIntro").innerText="Introduction";
-    document.getElementById("navG9P").innerText="Grade 9 Personality";
-    document.getElementById("navG9A").innerText="Grade 9 Aptitude";
-    document.getElementById("introTitle").innerText="Introduction";
-    document.getElementById("introText").innerText="Welcome! This site helps students explore their personalities and abilities to plan for a successful future.";
-    document.getElementById("g9PTitle").innerText="Grade 9 Personality Test";
-    document.getElementById("g9PText").innerText="Every student is unique. This test helps students and parents understand natural tendencies and strengths. Results can be downloaded.";
-    document.getElementById("g9ATitle").innerText="Grade 9 Aptitude Test";
-    document.getElementById("g9AText").innerText="This test helps students discover their natural strengths. Results can be downloaded.";
-  }
-}
-</script>
-
-</body>
-</html>
+    document.getElementById("introText").innerHTML=
+`<strong>แบบทดสอบบุคลิกภาพ ม.3:</strong><br>
+นักเรียนทุกคนมีความแตกต่างกัน บางคนเงียบและรอบคอบ ขณะที่บางคนร่าเริงและมีพลัง การเข้าใจบุคลิกภาพของตัวเองจะช่วยให้คุณตัดสินใจได้ดียิ่งขึ้นเกี่ยวกับการเรียน การทำงานร่วมกับผู้อื่น และอาชีพที่เหมาะสมกับตัวคุณ สำหรับนักเรียน แบบทดสอบนี้จะช่วยให้คุณเห็นแนวโน้มตามธรรมชาติของตัวเอง ไม่ว่าคุณจะชอบทำงานร่วมกับคนอื่น สนใจรายละเอียด สร้างสรรค์ไอเดียใหม่ ๆ หรือชอบเป็นผู้นำ สำหรับผู้ปกครอง ผลลัพธ์นี้จะช่วยให้คุณเข้าใจบุคลิกภาพของบุตรหลาน เพื่อสนับสนุนการเรียนและวางแผนอนาคตได้ง่ายขึ้น แบบทดสอบนี้ไม่ได้แบ่งบุคลิกภาพว่า “ดี” หรือ “ไม่ดี” แต่ช่วยให้คุณเห็นจุดแข็งและใช้ประโยชน์จากมันอย่างชาญฉลาด หลังทำแบบทดสอบแล้ว คุณจะได้รับสรุปบุคลิกภาพพร้อมแนวทางการเรียนและอาชีพที่เหมาะสม และสามารถดาวน์โหลดผลลัพธ์เพื่อเก็บไว้หรือพูดคุยร่วมกันในครอบครัว <em>แบบทดสอบนี้ได้รับแรงบันดาลใจจากกรอบบุคลิกภาพที่เป็นที่รู้จัก เช่น Four Temperaments และ MBTI แต่ถูกปรับให้เรียบง่ายและเหมาะกับนักเรียนไทย ทำให้ใช้งานง่ายและยังคงให้คำแนะนำที่น่าเชื่อถือ</em>.<br><br>
+<strong>แบบทดสอบความถนัด ม.3:</strong><br>
+แบบทดสอบนี้ออกแบบมาสำหรับนักเรียนไทยที่เริ่มคิดถึงอนาคต ในช่วงนี้นักเรียนหลายคนอาจยังไม่แน่ใจว่าควรเลือกเส้นทางใด บางคนสนุกกับทักษะปฏิบัติ บางคนชอบความคิดสร้างสรรค์ และบางคนชอบแก้ปัญหาหรือช่วยเหลือผู้อื่น จุดประสงค์ของแบบทดสอบนี้ไม่ใช่การจำกัดตัวเลือก แต่เพื่อช่วยให้นักเรียนค้นพบความถนัดตามธรรมชาติของตัวเอง สำหรับนักเรียน แบบทดสอบนี้จะให้แนวทางเกี่ยวกับสไตล์การเรียนและเส้นทางอาชีพที่เหมาะสม สำหรับผู้ปกครอง จะช่วยให้เห็นความสนใจและความสามารถของบุตรหลาน ช่วยสนับสนุนและให้กำลังใจได้ถูกทาง แบบท
