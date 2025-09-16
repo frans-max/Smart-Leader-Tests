@@ -5,63 +5,41 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>People Smart Leaders</title>
 <style>
-body {font-family:"Tahoma",sans-serif; background:#000; color:#FFD700; margin:0; line-height:1.6;}
-header {background:#111; padding:0; text-align:center; position:relative;}
-header h1 {margin:0; font-size:2em;}
-nav {background:#222; padding:10px; text-align:center; position:sticky; top:0; z-index:100;}
-nav a {color:#FFD700; margin:0 15px; text-decoration:none; font-weight:bold;}
-nav a:hover {text-decoration:underline;}
-section {padding:40px 20px;}
-h2 {color:#FFD700; text-align:center;}
-.question {background:#111; padding:15px; margin-bottom:15px; border-radius:8px;}
-label{display:block; margin:5px 0;}
-button {background:#FFD700; color:#000; border:none; padding:12px 20px; font-size:16px; cursor:pointer; border-radius:5px; display:block; margin:10px auto;}
-button:hover {background:#FFC107;}
-#resultP, #resultA {background:#111; padding:20px; border-radius:8px; margin-top:20px;}
-.lang-switch {position:absolute; top:20px; right:20px;}
-.banner {background:url('https://github.com/frans-max/people-smart-leaders/raw/main/business-idea-647205_1920%20(1).jpg') no-repeat center; background-size:cover; height:400px; display:flex; align-items:center; justify-content:center; position:relative;}
-.banner h1 {background:rgba(0,0,0,0.6); padding:15px 25px; border-radius:8px; font-size:2.5em; text-align:center;}
+  body { font-family: sans-serif; padding: 0; margin:0; background: #f7f7f7; }
+  header { position: relative; background-color: #333; color: white; padding: 0; text-align: center; }
+  header img { width: 100%; height: auto; display: block; }
+  .lang-switch { position: absolute; top: 20px; right: 20px; z-index: 1000; }
+  .lang-switch button { margin-left: 5px; padding: 5px 10px; cursor: pointer; border: none; border-radius: 4px; background-color: #f1f1f1; color: #333; font-weight: bold; }
+  .lang-switch button:hover { background-color: #ddd; }
+  section { padding: 20px; }
+  .question { margin: 15px 0; }
+  label { display: block; margin-left: 20px; }
+  button.show-result { margin-top: 15px; padding: 8px 15px; cursor: pointer; }
 </style>
 </head>
 <body>
 
 <header>
-<div class="lang-switch">
-  <button onclick="switchLang('th')">ไทย</button>
-  <button onclick="switchLang('en')">English</button>
-</div>
-<div class="banner">
-  <h1 id="siteTitle">People Smart Leaders (are created here)</h1>
-</div>
+  <img src="https://github.com/frans-max/people-smart-leaders/blob/main/business-idea-647205_1920%20(1).jpg" alt="Banner Image">
+  <div class="lang-switch">
+    <button onclick="switchLang('th')">ไทย</button>
+    <button onclick="switchLang('en')">English</button>
+  </div>
 </header>
 
-<nav>
-<a href="#intro" id="navIntro">Introduction</a>
-<a href="#grade9Personality" id="navG9P">Grade 9 Personality</a>
-<a href="#grade9Aptitude" id="navG9A">Grade 9 Aptitude</a>
-</nav>
-
-<!-- Introduction Section -->
 <section id="intro">
-<h2 id="introTitle">Introduction</h2>
-<p id="introText">
-<strong>Grade 9 Personality Test:</strong><br>
-Every student is unique. Some are quiet and thoughtful, others are outgoing and energetic. Understanding personality helps with learning, teamwork, and career planning. This test provides students and parents with a clear view of natural tendencies, strengths, and suitable learning styles. It is short, easy to understand, and results can be downloaded. <em>Inspired by Four Temperaments and MBTI, adapted for Thai students.</em><br><br>
-
-<strong>Grade 9 Aptitude Test:</strong><br>
-This test helps students discover natural strengths in practical skills, creativity, problem-solving, social helping, or leadership. Designed for Thai students, it reflects their school, home, and social environments. Results are reliable, easy to interpret, and downloadable. <em>Adapted from Howard Gardner’s Multiple Intelligences, simplified for Thai students.</em>
-</p>
+  <h2 id="introTitle">แนะนำ</h2>
+  <p id="introText">
+    แบบทดสอบบุคลิกภาพและความถนัดสำหรับนักเรียน ม.3  
+    ช่วยค้นหาจุดแข็งด้านการปฏิบัติ การสร้างสรรค์ การวิเคราะห์ การช่วยเหลือทางสังคม และความเป็นผู้นำ
+  </p>
 </section>
 
-<!-- Grade 9 Personality Test -->
-<section id="grade9Personality">
-<h2 id="g9PTitle">Grade 9 Personality Test</h2>
-<p id="g9PText">
-Students and parents can understand the student’s natural personality strengths. Results can be downloaded.
-</p>
+<!-- Personality Test -->
+<section id="personalityTest">
+<h2>แบบทดสอบบุคลิกภาพ (Personality Test)</h2>
 <form id="quizFormP">
-
-<!-- 12 Questions -->
+<!-- 12 Personality Questions -->
 <div class="question"><p>1. คุณชอบกิจกรรมที่ต้องใช้ความคิดสร้างสรรค์หรือไม่?</p>
 <label><input type="radio" name="q1" value="A"> ชอบมาก</label>
 <label><input type="radio" name="q1" value="B"> ชอบบ้าง</label>
@@ -146,159 +124,7 @@ Students and parents can understand the student’s natural personality strength
 <label><input type="radio" name="q12" value="B"> เล็ก</label>
 <label><input type="radio" name="q12" value="A"> ไม่ชอบรับผิดชอบ</label></div>
 
-<button type="button" onclick="calculatePersonality()">Show & Download Results</button>
+<button type="button" class="show-result" onclick="calculatePersonality()">Show & Download Results</button>
+</form>
 <div id="resultP"></div>
-</section>
 
-<!-- Grade 9 Aptitude Test -->
-<section id="grade9Aptitude">
-<h2 id="g9ATitle">Grade 9 Aptitude Test</h2>
-<p id="g9AText">Discover natural strengths in practical, creative, analytical, social, or leadership skills. Downloadable results.</p>
-
-<form id="quizFormA">
-<<!-- Grade 9 Aptitude Test -->
-<form id="quizFormA">
-
-<div class="question"><p>1. เวลามีงานกลุ่ม คุณชอบทำหน้าที่อะไร?</p>
-<label><input type="radio" name="q1" value="Practical"> ลงมือทำจริง</label>
-<label><input type="radio" name="q1" value="Creative"> คิดไอเดียใหม่ๆ</label>
-<label><input type="radio" name="q1" value="Analytical"> วางแผนและแก้ปัญหา</label>
-<label><input type="radio" name="q1" value="Social"> ดูแลเพื่อน</label>
-<label><input type="radio" name="q1" value="Leadership"> นำกลุ่ม</label></div>
-
-<div class="question"><p>2. คุณถนัดงานแบบไหนมากที่สุด?</p>
-<label><input type="radio" name="q2" value="Practical"> ปฏิบัติจริง</label>
-<label><input type="radio" name="q2" value="Creative"> ใช้ความคิดสร้างสรรค์</label>
-<label><input type="radio" name="q2" value="Analytical"> วิเคราะห์และวางแผน</label>
-<label><input type="radio" name="q2" value="Social"> ช่วยเหลือคนอื่น</label>
-<label><input type="radio" name="q2" value="Leadership"> เป็นผู้นำ</label></div>
-
-<div class="question"><p>3. เวลาทำโครงการ คุณชอบวางแผนหรือทำทันที?</p>
-<label><input type="radio" name="q3" value="Analytical"> วางแผน</label>
-<label><input type="radio" name="q3" value="Practical"> ทำทันที</label>
-<label><input type="radio" name="q3" value="Creative"> หาวิธีใหม่</label>
-<label><input type="radio" name="q3" value="Social"> ช่วยเพื่อน</label>
-<label><input type="radio" name="q3" value="Leadership"> นำทีม</label></div>
-
-<div class="question"><p>4. เวลามีปัญหา คุณชอบแก้ด้วยเหตุผลหรือความคิดสร้างสรรค์?</p>
-<label><input type="radio" name="q4" value="Analytical"> เหตุผล</label>
-<label><input type="radio" name="q4" value="Creative"> ความคิดสร้างสรรค์</label>
-<label><input type="radio" name="q4" value="Practical"> ปฏิบัติแก้ปัญหา</label>
-<label><input type="radio" name="q4" value="Social"> ช่วยเพื่อน</label>
-<label><input type="radio" name="q4" value="Leadership"> ตัดสินใจแทนกลุ่ม</label></div>
-
-<div class="question"><p>5. คุณชอบทำกิจกรรมที่ต้องสื่อสารหรือไม่?</p>
-<label><input type="radio" name="q5" value="Social"> ชอบมาก</label>
-<label><input type="radio" name="q5" value="Leadership"> ชอบบางครั้ง</label>
-<label><input type="radio" name="q5" value="Creative"> เฉยๆ</label>
-<label><input type="radio" name="q5" value="Practical"> น้อย</label>
-<label><input type="radio" name="q5" value="Analytical"> ไม่ชอบ</label></div>
-
-<div class="question"><p>6. คุณชอบเรียนวิชาใดมากที่สุด?</p>
-<label><input type="radio" name="q6" value="Analytical"> คณิตศาสตร์/วิทยาศาสตร์</label>
-<label><input type="radio" name="q6" value="Creative"> ศิลปะ/ดนตรี</label>
-<label><input type="radio" name="q6" value="Practical"> งานปฏิบัติ/เทคนิค</label>
-<label><input type="radio" name="q6" value="Social"> กิจกรรมสังคม/ครูช่วย</label>
-<label><input type="radio" name="q6" value="Leadership"> กิจกรรมผู้นำ/สภานักเรียน</label></div>
-
-<div class="question"><p>7. เวลาทำงาน คุณชอบลองวิธีใหม่หรือทำตามแบบเดิม?</p>
-<label><input type="radio" name="q7" value="Creative"> ลองวิธีใหม่</label>
-<label><input type="radio" name="q7" value="Practical"> ทำตามแบบเดิม</label>
-<label><input type="radio" name="q7" value="Analytical"> วิเคราะห์ก่อน</label>
-<label><input type="radio" name="q7" value="Social"> ช่วยเพื่อน</label>
-<label><input type="radio" name="q7" value="Leadership"> นำกลุ่ม</label></div>
-
-<div class="question"><p>8. คุณถนัดทำงานแบบเป็นระบบหรือยืดหยุ่น?</p>
-<label><input type="radio" name="q8" value="Analytical"> ระบบ</label>
-<label><input type="radio" name="q8" value="Creative"> ยืดหยุ่น</label>
-<label><input type="radio" name="q8" value="Practical"> ปฏิบัติจริง</label>
-<label><input type="radio" name="q8" value="Social"> ช่วยเหลือคนอื่น</label>
-<label><input type="radio" name="q8" value="Leadership"> นำทีม</label></div>
-
-<div class="question"><p>9. เวลามีงานกลุ่ม คุณชอบทำหน้าที่สนับสนุนหรือเป็นผู้นำ?</p>
-<label><input type="radio" name="q9" value="Leadership"> ผู้นำ</label>
-<label><input type="radio" name="q9" value="Social"> สนับสนุน</label>
-<label><input type="radio" name="q9" value="Practical"> ลงมือทำ</label>
-<label><input type="radio" name="q9" value="Creative"> คิดไอเดีย</label>
-<label><input type="radio" name="q9" value="Analytical"> วางแผน</label></div>
-
-<div class="question"><p>10. คุณชอบแก้ปัญหาแบบไหน?</p>
-<label><input type="radio" name="q10" value="Analytical"> วิเคราะห์</label>
-<label><input type="radio" name="q10" value="Creative"> คิดใหม่</label>
-<label><input type="radio" name="q10" value="Practical"> ปฏิบัติจริง</label>
-<label><input type="radio" name="q10" value="Social"> ช่วยเพื่อน</label>
-<label><input type="radio" name="q10" value="Leadership"> ตัดสินใจ</label></div>
-
-<div class="question"><p>11. เวลาทำงาน คุณชอบทำเองหรือแบ่งงานกับเพื่อน?</p>
-<label><input type="radio" name="q11" value="Practical"> ทำเอง</label>
-<label><input type="radio" name="q11" value="Social"> แบ่งงานช่วยเพื่อน</label>
-<label><input type="radio" name="q11" value="Creative"> ทำไอเดีย</label>
-<label><input type="radio" name="q11" value="Analytical"> วางแผนก่อน</label>
-<label><input type="radio" name="q11" value="Leadership"> นำทีม</label></div>
-
-<div class="question"><p>12. คุณอยากทำงานในด้านใดในอนาคต?</p>
-<label><input type="radio" name="q12" value="Practical"> งานปฏิบัติ/เทคนิค</label>
-<label><input type="radio" name="q12" value="Creative"> ศิลปะ/ออกแบบ</label>
-<label><input type="radio" name="q12" value="Analytical"> วิทยาศาสตร์/วิเคราะห์</label>
-<label><input type="radio" name="q12" value="Social"> งานสังคม/ครู/ชุมชน</label>
-<label><input type="radio" name="q12" value="Leadership"> งานผู้นำ/บริหาร</label></div>
-
-</form>
-
-</form>
-<button type="button" onclick="calculateAptitude()">Show & Download Results</button>
-<div id="resultA"></div>
-</section>
-
-<script>
-// Language switch
-function switchLang(lang){
-  if(lang==='en'){
-    document.getElementById('introTitle').innerText="Introduction";
-    document.getElementById('introText').innerHTML="<strong>Grade 9 Personality Test:</strong><br>Every student is unique. Some are quiet and thoughtful, others are outgoing and energetic. Understanding personality helps with learning, teamwork, and career planning. This test provides students and parents with a clear view of natural tendencies, strengths, and suitable learning styles. It is short, easy to understand, and results can be downloaded. <em>Inspired by Four Temperaments and MBTI, adapted for Thai students.</em><br><br><strong>Grade 9 Aptitude Test:</strong><br>This test helps students discover natural strengths in practical skills, creativity, problem-solving, social helping, or leadership. Designed for Thai students, it reflects their school, home, and social environments. Results are reliable, easy to interpret, and downloadable. <em>Adapted from Howard Gardner’s Multiple Intelligences, simplified for Thai students.</em>";
-    document.getElementById('siteTitle').innerText="People Smart Leaders (are created here)";
-  }else{
-    document.getElementById('introTitle').innerText="แนะนำ";
-    document.getElementById('introText').innerHTML="<strong>แบบทดสอบบุคลิกภาพ ม.3:</strong><br>นักเรียนแต่ละคนมีเอกลักษณ์ บางคนเงียบและรอบคอบ บางคนเปิดเผยและมีพลัง การเข้าใจบุคลิกภาพช่วยในการเรียน การทำงานร่วมกับผู้อื่น และวางแผนอาชีพ แบบทดสอบนี้ช่วยให้นักเรียนและผู้ปกครองเข้าใจแนวโน้มตามธรรมชาติ จุดแข็ง และรูปแบบการเรียนที่เหมาะสม สั้น เข้าใจง่าย และสามารถดาวน์โหลดผลได้ <em>อิงจาก Four Temperaments และ MBTI ปรับให้เหมาะกับนักเรียนไทย</em><br><br><strong>แบบทดสอบความถนัด ม.3:</strong><br>ช่วยค้นหาจุดแข็งตามธรรมชาติด้านการปฏิบัติ การสร้างสรรค์ การวิเคราะห์ การช่วยเหลือทางสังคม หรือความเป็นผู้นำ ออกแบบให้เหมาะกับนักเรียนไทย สะท้อนสภาพแวดล้อมโรงเรียน บ้าน และสังคม ผลลัพธ์น่าเชื่อถือ เข้าใจง่าย และดาวน์โหลดได้ <em>ปรับจาก Howard Gardner’s Multiple Intelligences สำหรับนักเรียนไทย</em>";
-    document.getElementById('siteTitle').innerText="ผู้คนอัจฉริยะ ผู้นำ (สร้างได้ที่นี่)";
-  }
-}
-
-// Simple Personality result calculation
-function calculatePersonality(){
-  let form=document.getElementById('quizFormP');
-  let total=0;
-  for(let i=1;i<=12;i++){
-    let val=form['q'+i].value;
-    total+=val.charCodeAt(0)-64; // simple scoring
-  }
-  let result="คะแนนรวม: "+total+" (คะแนนสูง = เป็นผู้นำ/มั่นใจ)";
-  document.getElementById('resultP').innerHTML=result+"<br><button onclick='downloadResult(\"Personality Test\", \""+result+"\")'>Download</button>";
-}
-
-function calculateAptitude(){
-  let form=document.getElementById('quizFormA');
-  let scores={Practical:0,Creative:0,Analytical:0,Social:0,Leadership:0};
-  for(let i=1;i<=12;i++){
-    let val=form['q'+i].value;
-    if(scores[val]!==undefined) scores[val]+=1;
-  }
-  let result="คะแนน Aptitude: ";
-  for(let key in scores) result+=key+"="+scores[key]+"; ";
-  document.getElementById('resultA').innerHTML=result+"<br><button onclick='downloadResult(\"Aptitude Test\", \""+result+"\")'>Download</button>";
-}
-
-// Download helper
-function downloadResult(title, text){
-  let element=document.createElement('a');
-  element.setAttribute('href','data:text/plain;charset=utf-8,'+encodeURIComponent(title+"\n"+text));
-  element.setAttribute('download',title+".txt");
-  element.style.display='none';
-  document.body.appendChild(element);
-  element.click();
-  document.body.removeChild(element);
-}
-</script>
-
-</body>
-</html>
