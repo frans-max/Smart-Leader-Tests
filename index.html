@@ -45,133 +45,257 @@
 <section id="intro">
   <h2 id="introTitle">Introduction</h2>
   <p id="introText">
-    <strong>Grade 9 Personality Test:</strong><br>
-    Every student is unique. Some are quiet and thoughtful, while others are outgoing and energetic. Understanding your personality can help you make better decisions about how you learn, how you work with others, and which kinds of careers may suit you best. For students, this test will help you recognize your natural tendencies — whether you enjoy working with people, focusing on details, creating new ideas, or taking the lead. For parents, the results provide insight into your child’s character, which can make it easier to support their studies and guide their future choices. This test is not about “good” or “bad” personality types. Instead, it helps you see your strengths and how to use them wisely. At the end, you will receive a clear summary of your personality style, along with suggestions for learning and career paths. You can also download the results to keep and review together as a family. <em>This test is inspired by well-known personality frameworks such as the Four Temperaments and MBTI, but it has been simplified and adapted for Thai students, so it is easy to use while still giving reliable guidance.</em><br><br>
+<strong>Grade 9 Personality Test:</strong><br>
+Every student is unique. Some are quiet and thoughtful, others are outgoing and energetic. Understanding your personality helps with learning, teamwork, and career choices. This test shows students and parents natural tendencies, strengths, and suitable learning styles. Results can be downloaded. <em>Inspired by Four Temperaments and MBTI, adapted for Thai students.</em><br><br>
 
-    <strong>Grade 9 Aptitude Test:</strong><br>
-    This test is designed especially for Thai students who are beginning to think about their future. At this stage, many students are unsure about which direction to take. Some may enjoy practical skills, others prefer creativity, and some like solving problems or helping people. The purpose of this test is not to limit your choices, but to help you discover your natural strengths. For students, the test will give you guidance on what kind of learning style and career path may suit you best. For parents, it provides a clearer picture of your child’s interests and talents, so you can support and encourage them in the right way. The test is short, easy to understand, and culturally adapted for Thai students. At the end, you will receive a result that highlights your main aptitude — such as Practical, Creative, Analytical, Social Helper, or Leadership. You can also download the results to keep and discuss together. <em>This test is adapted from Howard Gardner’s Multiple Intelligences theory and adjusted for Thai students to make it simple, practical, and reliable.</em>
+<strong>Grade 9 Aptitude Test:</strong><br>
+This test helps students discover natural strengths in practical skills, creativity, problem-solving, social helping, or leadership. Designed for Thai students and culturally adapted. Results can be downloaded. <em>Adapted from Howard Gardner’s Multiple Intelligences, simplified for Thai students.</em>
   </p>
 </section>
 
 <!-- Grade 9 Personality Test -->
 <section id="grade9Personality">
-  <h2 id="g9PTitle">Grade 9 Personality Test</h2>
-  <p id="g9PText">
-    Every student is unique. This test helps students and parents understand natural tendencies and strengths. Results can be downloaded.
-  </p>
+<h2 id="g9PTitle">Grade 9 Personality Test</h2>
+<p id="g9PText">
+นักเรียนและผู้ปกครองสามารถเข้าใจจุดแข็งและบุคลิกภาพตามธรรมชาติของนักเรียน ผลลัพธ์สามารถดาวน์โหลดได้
+</p>
+<form id="quizFormP">
+<!-- 12 Questions -->
+<div class="question"><p>1. คุณชอบกิจกรรมที่ต้องใช้ความคิดสร้างสรรค์หรือไม่?</p>
+<label><input type="radio" name="q1" value="A"> ชอบมาก</label>
+<label><input type="radio" name="q1" value="B"> ชอบบ้าง</label>
+<label><input type="radio" name="q1" value="C"> เฉยๆ</label>
+<label><input type="radio" name="q1" value="D"> ไม่ค่อยชอบ</label>
+<label><input type="radio" name="q1" value="E"> ไม่ชอบเลย</label></div>
 
-  <form id="quizFormP">
-    <!-- 12 Personality Questions (Thai) -->
-    <div class="question">
-      <p>1. คุณชอบกิจกรรมที่ต้องใช้ความคิดสร้างสรรค์หรือไม่?</p>
-      <label><input type="radio" name="q1" value="A"> ชอบมาก</label>
-      <label><input type="radio" name="q1" value="B"> ชอบบ้าง</label>
-      <label><input type="radio" name="q1" value="C"> เฉยๆ</label>
-      <label><input type="radio" name="q1" value="D"> ไม่ค่อยชอบ</label>
-      <label><input type="radio" name="q1" value="E"> ไม่ชอบเลย</label>
-    </div>
-    <!-- Repeat Q2-Q12 similar structure -->
-  </form>
+<div class="question"><p>2. คุณชอบทำงานเป็นกลุ่มหรือคนเดียว?</p>
+<label><input type="radio" name="q2" value="A"> กลุ่ม</label>
+<label><input type="radio" name="q2" value="B"> คนเดียว</label>
+<label><input type="radio" name="q2" value="C"> แล้วแต่</label>
+<label><input type="radio" name="q2" value="D"> ไม่ชอบกลุ่ม</label>
+<label><input type="radio" name="q2" value="E"> ไม่ชอบคนเดียว</label></div>
 
-  <button onclick="calculateResultP()">ส่งคำตอบ</button>
-  <div id="resultP"></div>
-  <button id="downloadBtnP" style="display:none;" onclick="downloadResultP()">ดาวน์โหลดผลลัพธ์</button>
+<div class="question"><p>3. คุณชอบวางแผนหรือทำตามสัญชาตญาณ?</p>
+<label><input type="radio" name="q3" value="A"> ทำตามสัญชาตญาณ</label>
+<label><input type="radio" name="q3" value="B"> บ้างครั้ง</label>
+<label><input type="radio" name="q3" value="C"> เฉยๆ</label>
+<label><input type="radio" name="q3" value="D"> วางแผน</label>
+<label><input type="radio" name="q3" value="E"> วางแผนมาก</label></div>
+
+<div class="question"><p>4. เวลามีปัญหา คุณแก้ไขด้วยตัวเองหรือขอความช่วยเหลือ?</p>
+<label><input type="radio" name="q4" value="A"> ขอกลับ</label>
+<label><input type="radio" name="q4" value="B"> บ้างครั้ง</label>
+<label><input type="radio" name="q4" value="C"> เฉยๆ</label>
+<label><input type="radio" name="q4" value="D"> แก้ไขเอง</label>
+<label><input type="radio" name="q4" value="E"> แก้ไขเองเสมอ</label></div>
+
+<div class="question"><p>5. คุณชอบทำกิจกรรมที่ต้องติดต่อคนจำนวนมากหรือไม่?</p>
+<label><input type="radio" name="q5" value="A"> ชอบมาก</label>
+<label><input type="radio" name="q5" value="B"> ชอบบ้าง</label>
+<label><input type="radio" name="q5" value="C"> เฉยๆ</label>
+<label><input type="radio" name="q5" value="D"> ไม่ชอบ</label>
+<label><input type="radio" name="q5" value="E"> ไม่ชอบเลย</label></div>
+
+<div class="question"><p>6. คุณมักจะทำงานให้เสร็จก่อนกำหนดเวลาหรือไม่?</p>
+<label><input type="radio" name="q6" value="A"> เสมอ</label>
+<label><input type="radio" name="q6" value="B"> บ่อยครั้ง</label>
+<label><input type="radio" name="q6" value="C"> เฉยๆ</label>
+<label><input type="radio" name="q6" value="D"> นานๆครั้ง</label>
+<label><input type="radio" name="q6" value="E"> ไม่เคย</label></div>
+
+<div class="question"><p>7. คุณเป็นคนเงียบและรอบคอบหรือร่าเริงและกระตือรือร้น?</p>
+<label><input type="radio" name="q7" value="A"> ร่าเริง</label>
+<label><input type="radio" name="q7" value="B"> บ้างครั้งร่าเริง</label>
+<label><input type="radio" name="q7" value="C"> เฉยๆ</label>
+<label><input type="radio" name="q7" value="D"> รอบคอบ</label>
+<label><input type="radio" name="q7" value="E"> รอบคอบมาก</label></div>
+
+<div class="question"><p>8. คุณชอบรับผิดชอบงานที่ซับซ้อนหรือไม่?</p>
+<label><input type="radio" name="q8" value="A"> ชอบมาก</label>
+<label><input type="radio" name="q8" value="B"> ชอบบ้าง</label>
+<label><input type="radio" name="q8" value="C"> เฉยๆ</label>
+<label><input type="radio" name="q8" value="D"> ไม่ค่อยชอบ</label>
+<label><input type="radio" name="q8" value="E"> ไม่ชอบเลย</label></div>
+
+<div class="question"><p>9. คุณชอบทำกิจกรรมที่มีความท้าทายสูงหรือไม่?</p>
+<label><input type="radio" name="q9" value="A"> ชอบมาก</label>
+<label><input type="radio" name="q9" value="B"> ชอบบ้าง</label>
+<label><input type="radio" name="q9" value="C"> เฉยๆ</label>
+<label><input type="radio" name="q9" value="D"> ไม่ค่อยชอบ</label>
+<label><input type="radio" name="q9" value="E"> ไม่ชอบเลย</label></div>
+
+<div class="question"><p>10. คุณมักจะช่วยเหลือเพื่อนหรือคนรอบข้างหรือไม่?</p>
+<label><input type="radio" name="q10" value="A"> ช่วยเสมอ</label>
+<label><input type="radio" name="q10" value="B"> ช่วยบ่อยครั้ง</label>
+<label><input type="radio" name="q10" value="C"> เฉยๆ</label>
+<label><input type="radio" name="q10" value="D"> บางครั้ง</label>
+<label><input type="radio" name="q10" value="E"> ไม่ช่วย</label></div>
+
+<div class="question"><p>11. คุณชอบเรียนรู้สิ่งใหม่ๆ หรือซ้ำแบบเดิม?</p>
+<label><input type="radio" name="q11" value="A"> สิ่งใหม่ๆ</label>
+<label><input type="radio" name="q11" value="B"> ใหม่บ้าง</label>
+<label><input type="radio" name="q11" value="C"> เฉยๆ</label>
+<label><input type="radio" name="q11" value="D"> แบบเดิม</label>
+<label><input type="radio" name="q11" value="E"> แบบเดิมมาก</label></div>
+
+<div class="question"><p>12. คุณชอบเป็นผู้นำหรือทำตามคำแนะนำของคนอื่น?</p>
+<label><input type="radio" name="q12" value="A"> เป็นผู้นำ</label>
+<label><input type="radio" name="q12" value="B"> บ้างครั้ง</label>
+<label><input type="radio" name="q12" value="C"> เฉยๆ</label>
+<label><input type="radio" name="q12" value="D"> ทำตาม</label>
+<label><input type="radio" name="q12" value="E"> ทำตามเสมอ</label></div>
+
+</form>
+<button onclick="calculateResultP()">ส่งคำตอบ</button>
+<div id="resultP"></div>
+<button id="downloadBtnP" style="display:none;" onclick="downloadResultP()">ดาวน์โหลดผลลัพธ์</button>
 </section>
 
 <!-- Grade 9 Aptitude Test -->
 <section id="grade9Aptitude">
-  <h2 id="g9ATitle">Grade 9 Aptitude Test</h2>
-  <p id="g9AText">
-    This test helps students discover their natural strengths. Results can be downloaded.
-  </p>
+<h2 id="g9ATitle">Grade 9 Aptitude Test</h2>
+<p id="g9AText">
+แบบทดสอบนี้ช่วยให้นักเรียนค้นพบจุดแข็งตามธรรมชาติของตนเอง ผลลัพธ์สามารถดาวน์โหลดได้
+</p>
+<form id="quizFormA">
+<!-- 12 Questions -->
+<div class="question"><p>1. เวลามีงานกลุ่ม คุณชอบทำหน้าที่อะไร?</p>
+<label><input type="radio" name="q1" value="Practical"> ลงมือทำจริง</label>
+<label><input type="radio" name="q1" value="Creative"> คิดไอเดียใหม่ๆ</label>
+<label><input type="radio" name="q1" value="Analytical"> วางแผนและแก้ปัญหา</label>
+<label><input type="radio" name="q1" value="Social"> ดูแลเพื่อน</label>
+<label><input type="radio" name="q1" value="Leadership"> นำกลุ่ม</label></div>
 
-  <form id="quizFormA">
-    <!-- 12 Aptitude Questions (Thai, simple, culturally adapted) -->
-    <div class="question">
-      <p>1. เวลามีงานกลุ่ม คุณชอบทำหน้าที่อะไร?</p>
-      <label><input type="radio" name="q1" value="Practical"> ลงมือทำจริง</label>
-      <label><input type="radio" name="q1" value="Creative"> คิดไอเดียใหม่ๆ</label>
-      <label><input type="radio" name="q1" value="Analytical"> วางแผนและแก้ปัญหา</label>
-      <label><input type="radio" name="q1" value="Social"> ดูแลช่วยเหลือเพื่อน</label>
-      <label><input type="radio" name="q1" value="Leadership"> นำกลุ่มและตัดสินใจ</label>
-    </div>
-    <!-- Repeat Q2-Q12 similar structure -->
-  </form>
+<div class="question"><p>2. คุณชอบทำกิจกรรมศิลปะหรือไม่?</p>
+<label><input type="radio" name="q2" value="Practical"> ไม่ค่อยชอบ</label>
+<label><input type="radio" name="q2" value="Creative"> ชอบมาก</label>
+<label><input type="radio" name="q2" value="Analytical"> เฉยๆ</label>
+<label><input type="radio" name="q2" value="Social"> ชอบทำกับเพื่อน</label>
+<label><input type="radio" name="q2" value="Leadership"> บางครั้งเป็นผู้นำ</label></div>
 
-  <button onclick="calculateResultA()">ส่งคำตอบ</button>
-  <div id="resultA"></div>
-  <button id="downloadBtnA" style="display:none;" onclick="downloadResultA()">ดาวน์โหลดผลลัพธ์</button>
+<div class="question"><p>3. คุณชอบแก้ปัญหาและวิเคราะห์สิ่งต่างๆหรือไม่?</p>
+<label><input type="radio" name="q3" value="Practical"> บางครั้ง</label>
+<label><input type="radio" name="q3" value="Creative"> ชอบคิดใหม่</label>
+<label><input type="radio" name="q3" value="Analytical"> ชอบมาก</label>
+<label><input type="radio" name="q3" value="Social"> ชอบช่วยเพื่อน</label>
+<label><input type="radio" name="q3" value="Leadership"> ชอบเป็นผู้นำ</label></div>
+
+<div class="question"><p>4. คุณชอบช่วยเหลือคนอื่นหรือไม่?</p>
+<label><input type="radio" name="q4" value="Practical"> บางครั้ง</label>
+<label><input type="radio" name="q4" value="Creative"> ชอบสร้างไอเดียให้เพื่อน</label>
+<label><input type="radio" name="q4" value="Analytical"> แก้ปัญหา</label>
+<label><input type="radio" name="q4" value="Social"> ชอบมาก</label>
+<label><input type="radio" name="q4" value="Leadership"> นำกลุ่มช่วย</label></div>
+
+<div class="question"><p>5. คุณชอบทำกิจกรรมที่ต้องใช้ร่างกายหรือมือหรือไม่?</p>
+<label><input type="radio" name="q5" value="Practical"> ชอบมาก</label>
+<label><input type="radio" name="q5" value="Creative"> ชอบบ้าง</label>
+<label><input type="radio" name="q5" value="Analytical"> เฉยๆ</label>
+<label><input type="radio" name="q5" value="Social"> ชอบช่วยเพื่อน</label>
+<label><input type="radio" name="q5" value="Leadership"> นำกลุ่ม</label></div>
+
+<div class="question"><p>6. คุณชอบคิดไอเดียใหม่ๆหรือไม่?</p>
+<label><input type="radio" name="q6" value="Practical"> ไม่ค่อยชอบ</label>
+<label><input type="radio" name="q6" value="Creative"> ชอบมาก</label>
+<label><input type="radio" name="q6" value="Analytical"> เฉยๆ</label>
+<label><input type="radio" name="q6" value="Social"> ชอบทำกับเพื่อน</label>
+<label><input type="radio" name="q6" value="Leadership"> บางครั้งเป็นผู้นำ</label></div>
+
+<div class="question"><p>7. คุณชอบจัดการงานและวิเคราะห์อย่างเป็นระบบหรือไม่?</p>
+<label><input type="radio" name="q7" value="Practical"> บางครั้ง</label>
+<label><input type="radio" name="q7" value="Creative"> ชอบคิดใหม่</label>
+<label><input type="radio" name="q7" value="Analytical"> ชอบมาก</label>
+<label><input type="radio" name="q7" value="Social"> ชอบช่วยเพื่อน</label>
+<label><input type="radio" name="q7" value="Leadership"> ชอบนำ</label></div>
+
+<div class="question"><p>8. คุณชอบทำงานร่วมกับผู้อื่นหรือไม่?</p>
+<label><input type="radio" name="q8" value="Practical"> บางครั้ง</label>
+<label><input type="radio" name="q8" value="Creative"> ชอบช่วยคิด</label>
+<label><input type="radio" name="q8" value="Analytical"> ชอบวิเคราะห์</label>
+<label><input type="radio" name="q8" value="Social"> ชอบมาก</label>
+<label><input type="radio" name="q8" value="Leadership"> ชอบนำ</label></div>
+
+<div class="question"><p>9. คุณชอบเรียนรู้วิชาใหม่ๆหรือไม่?</p>
+<label><input type="radio" name="q9" value="Practical"> ชอบทำ</label>
+<label><input type="radio" name="q9" value="Creative"> ชอบสร้าง</label>
+<label><input type="radio" name="q9" value="Analytical"> ชอบคิด</label>
+<label><input type="radio" name="q9" value="Social"> ชอบช่วยเพื่อน</label>
+<label><input type="radio" name="q9" value="Leadership"> ชอบเป็นผู้นำ</label></div>
+
+<div class="question"><p>10. คุณชอบทำกิจกรรมสังคมหรือไม่?</p>
+<label><input type="radio" name="q10" value="Practical"> บางครั้ง</label>
+<label><input type="radio" name="q10" value="Creative"> คิดสร้างสรรค์</label>
+<label><input type="radio" name="q10" value="Analytical"> วิเคราะห์</label>
+<label><input type="radio" name="q10" value="Social"> ชอบมาก</label>
+<label><input type="radio" name="q10" value="Leadership"> นำกลุ่ม</label></div>
+
+<div class="question"><p>11. คุณชอบทำงานตามกฎหรือคิดนอกกรอบ?</p>
+<label><input type="radio" name="q11" value="Practical"> ตามกฎ</label>
+<label><input type="radio" name="q11" value="Creative"> นอกกรอบ</label>
+<label><input type="radio" name="q11" value="Analytical"> วิเคราะห์</label>
+<label><input type="radio" name="q11" value="Social"> ช่วยเพื่อน</label>
+<label><input type="radio" name="q11" value="Leadership"> นำกลุ่ม</label></div>
+
+<div class="question"><p>12. คุณชอบเป็นผู้นำหรือผู้ตาม?</p>
+<label><input type="radio" name="q12" value="Practical"> ทำตาม</label>
+<label><input type="radio" name="q12" value="Creative"> ชอบสร้างไอเดีย</label>
+<label><input type="radio" name="q12" value="Analytical"> วิเคราะห์</label>
+<label><input type="radio" name="q12" value="Social"> ช่วยเพื่อน</label>
+<label><input type="radio" name="q12" value="Leadership"> เป็นผู้นำ</label></div>
+
+</form>
+<button onclick="calculateResultA()">ส่งคำตอบ</button>
+<div id="resultA"></div>
+<button id="downloadBtnA" style="display:none;" onclick="downloadResultA()">ดาวน์โหลดผลลัพธ์</button>
 </section>
 
 <script>
-/* ================== Personality Test ================== */
-let finalResultP = "";
+/* Personality Test Script */
+let finalResultP="";
 function calculateResultP(){
-  let form = document.forms['quizFormP'];
-  let scores = {A:0,B:0,C:0,D:0,E:0};
-  for (let i=1;i<=12;i++){
-    let selected = form['q'+i]?.value;
-    if(selected) scores[selected]++;
-  }
-  let topType = Object.keys(scores).reduce((a,b)=>scores[a]>scores[b]?a:b);
-  let descriptions = {
+  let form=document.forms['quizFormP'];
+  let scores={A:0,B:0,C:0,D:0,E:0};
+  for(let i=1;i<=12;i++){let sel=form['q'+i]?.value;if(sel)scores[sel]++;}
+  let top=Object.keys(scores).reduce((a,b)=>scores[a]>scores[b]?a:b);
+  let desc={
     A:{title:"ผู้สร้างสรรค์ (The Creator)",text:"คุณเป็นคนมีจินตนาการ ชอบแสดงออก มีความคิดสร้างสรรค์"},
     B:{title:"ผู้ช่วยเหลือ (The Helper)",text:"คุณเป็นคนมีน้ำใจ อดทน รักการช่วยเหลือผู้อื่น"},
     C:{title:"นักคิด (The Thinker)",text:"คุณเป็นคนชอบเหตุผล ชอบแก้ปัญหา และสนใจวิทยาการ"},
     D:{title:"นักปฏิบัติ (The Doer)",text:"คุณเป็นคนกระฉับกระเฉง ชอบลงมือทำจริง"},
     E:{title:"ผู้นำ (The Leader)",text:"คุณเป็นคนมั่นใจ รับผิดชอบ และมีความเป็นผู้นำ"}
   };
-  finalResultP = `${descriptions[topType].title}\n\n${descriptions[topType].text}\n\nThis test is inspired by well-known personality frameworks such as the Four Temperaments and MBTI, but it has been simplified and adapted for Thai students, so it is easy to use while still giving reliable guidance.`;
-  document.getElementById("resultP").innerHTML = `<h3>${descriptions[topType].title}</h3><p>${descriptions[topType].text}</p>`;
+  finalResultP=`${desc[top].title}\n\n${desc[top].text}\n\nThis test is inspired by well-known personality frameworks such as the Four Temperaments and MBTI, adapted for Thai students.`;
+  document.getElementById("resultP").innerHTML=`<h3>${desc[top].title}</h3><p>${desc[top].text}</p>`;
   document.getElementById("downloadBtnP").style.display="block";
 }
-function downloadResultP(){
-  let blob = new Blob([finalResultP], {type:"text/plain;charset=utf-8"});
-  let link = document.createElement("a");
-  link.href = URL.createObjectURL(blob);
-  link.download = "Personality_Result.txt";
-  link.click();
-}
+function downloadResultP(){let blob=new Blob([finalResultP],{type:"text/plain;charset=utf-8"});let link=document.createElement("a");link.href=URL.createObjectURL(blob);link.download="Personality_Result.txt";link.click();}
 
-/* ================== Aptitude Test ================== */
-let finalResultA = "";
+/* Aptitude Test Script */
+let finalResultA="";
 function calculateResultA(){
-  let form = document.forms['quizFormA'];
-  let scores = {Practical:0,Creative:0,Analytical:0,Social:0,Leadership:0};
-  for (let i=1;i<=12;i++){
-    let selected = form['q'+i]?.value;
-    if(selected) scores[selected]++;
-  }
-  let topType = Object.keys(scores).reduce((a,b)=>scores[a]>scores[b]?a:b);
-  let descriptions = {
+  let form=document.forms['quizFormA'];
+  let scores={Practical:0,Creative:0,Analytical:0,Social:0,Leadership:0};
+  for(let i=1;i<=12;i++){let sel=form['q'+i]?.value;if(sel)scores[sel]++;}
+  let top=Object.keys(scores).reduce((a,b)=>scores[a]>scores[b]?a:b);
+  let desc={
     Practical:{title:"ปฏิบัติจริง (Practical)",text:"คุณเหมาะกับงานที่ต้องลงมือทำและแก้ปัญหาในชีวิตจริง"},
     Creative:{title:"สร้างสรรค์ (Creative)",text:"คุณเหมาะกับงานที่ใช้ความคิดสร้างสรรค์และจินตนาการ"},
     Analytical:{title:"นักวิเคราะห์ (Analytical)",text:"คุณเหมาะกับงานที่ใช้เหตุผลและการวางแผน"},
     Social:{title:"ผู้ช่วยเหลือ (Social Helper)",text:"คุณเหมาะกับงานที่ช่วยเหลือและทำงานร่วมกับผู้อื่น"},
     Leadership:{title:"ผู้นำ (Leadership)",text:"คุณเหมาะกับงานที่ต้องนำทีมและตัดสินใจ"}
   };
-  finalResultA = `${descriptions[topType].title}\n\n${descriptions[topType].text}\n\nThis test is adapted from Howard Gardner’s Multiple Intelligences theory and adjusted for Thai students to make it simple, practical, and reliable.`;
-  document.getElementById("resultA").innerHTML = `<h3>${descriptions[topType].title}</h3><p>${descriptions[topType].text}</p>`;
+  finalResultA=`${desc[top].title}\n\n${desc[top].text}\n\nAdapted from Howard Gardner’s Multiple Intelligences, simplified for Thai students.`;
+  document.getElementById("resultA").innerHTML=`<h3>${desc[top].title}</h3><p>${desc[top].text}</p>`;
   document.getElementById("downloadBtnA").style.display="block";
 }
-function downloadResultA(){
-  let blob = new Blob([finalResultA], {type:"text/plain;charset=utf-8"});
-  let link = document.createElement("a");
-  link.href = URL.createObjectURL(blob);
-  link.download = "Aptitude_Result.txt";
-  link.click();
-}
+function downloadResultA(){let blob=new Blob([finalResultA],{type:"text/plain;charset=utf-8"});let link=document.createElement("a");link.href=URL.createObjectURL(blob);link.download="Aptitude_Result.txt";link.click();}
 
-/* ================== Language Switch ================== */
+/* Language Switch */
 function switchLang(lang){
-  if(lang==='th'){
-    document.getElementById("siteTitle").innerText="People Smart Leaders (สร้างขึ้นที่นี่)";
-    document.getElementById("navIntro").innerText="บทนำ";
-    document.getElementById("navG9P").innerText="บุคลิกภาพ ม.3";
-    document.getElementById("navG9A").innerText="ความถนัด ม.3";
-    document.getElementById("introTitle").innerText="บทนำ";
-    document.getElementById("introText").innerHTML=
-`<strong>แบบทดสอบบุคลิกภาพ ม.3:</strong><br>
-นักเรียนทุกคนมีความแตกต่างกัน บางคนเงียบและรอบคอบ ขณะที่บางคนร่าเริงและมีพลัง การเข้าใจบุคลิกภาพของตัวเองจะช่วยให้คุณตัดสินใจได้ดียิ่งขึ้นเกี่ยวกับการเรียน การทำงานร่วมกับผู้อื่น และอาชีพที่เหมาะสมกับตัวคุณ สำหรับนักเรียน แบบทดสอบนี้จะช่วยให้คุณเห็นแนวโน้มตามธรรมชาติของตัวเอง ไม่ว่าคุณจะชอบทำงานร่วมกับคนอื่น สนใจรายละเอียด สร้างสรรค์ไอเดียใหม่ ๆ หรือชอบเป็นผู้นำ สำหรับผู้ปกครอง ผลลัพธ์นี้จะช่วยให้คุณเข้าใจบุคลิกภาพของบุตรหลาน เพื่อสนับสนุนการเรียนและวางแผนอนาคตได้ง่ายขึ้น แบบทดสอบนี้ไม่ได้แบ่งบุคลิกภาพว่า “ดี” หรือ “ไม่ดี” แต่ช่วยให้คุณเห็นจุดแข็งและใช้ประโยชน์จากมันอย่างชาญฉลาด หลังทำแบบทดสอบแล้ว คุณจะได้รับสรุปบุคลิกภาพพร้อมแนวทางการเรียนและอาชีพที่เหมาะสม และสามารถดาวน์โหลดผลลัพธ์เพื่อเก็บไว้หรือพูดคุยร่วมกันในครอบครัว <em>แบบทดสอบนี้ได้รับแรงบันดาลใจจากกรอบบุคลิกภาพที่เป็นที่รู้จัก เช่น Four Temperaments และ MBTI แต่ถูกปรับให้เรียบง่ายและเหมาะกับนักเรียนไทย ทำให้ใช้งานง่ายและยังคงให้คำแนะนำที่น่าเชื่อถือ</em>.<br><br>
-<strong>แบบทดสอบความถนัด ม.3:</strong><br>
-แบบทดสอบนี้ออกแบบมาสำหรับนักเรียนไทยที่เริ่มคิดถึงอนาคต ในช่วงนี้นักเรียนหลายคนอาจยังไม่แน่ใจว่าควรเลือกเส้นทางใด บางคนสนุกกับทักษะปฏิบัติ บางคนชอบความคิดสร้างสรรค์ และบางคนชอบแก้ปัญหาหรือช่วยเหลือผู้อื่น จุดประสงค์ของแบบทดสอบนี้ไม่ใช่การจำกัดตัวเลือก แต่เพื่อช่วยให้นักเรียนค้นพบความถนัดตามธรรมชาติของตัวเอง สำหรับนักเรียน แบบทดสอบนี้จะให้แนวทางเกี่ยวกับสไตล์การเรียนและเส้นทางอาชีพที่เหมาะสม สำหรับผู้ปกครอง จะช่วยให้เห็นความสนใจและความสามารถของบุตรหลาน ช่วยสนับสนุนและให้กำลังใจได้ถูกทาง แบบท
+  if(lang==='th'){document.getElementById("siteTitle").innerText="People Smart Leaders (สร้างขึ้นที่นี่)";}
+  else{document.getElementById("siteTitle").innerText="People Smart Leaders (are created here)";}
+}
+</script>
+
+</body>
+</html>
