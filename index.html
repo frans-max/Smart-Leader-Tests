@@ -1,209 +1,329 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>People Smart Leaders</title>
-<style>
-  body { font-family: sans-serif; padding: 20px; background: #f7f7f7; }
-  header { position: relative; background-color: #333; color: white; padding: 20px; text-align: center; }
-  .lang-switch { position: absolute; top: 20px; right: 20px; z-index: 1000; }
-  .lang-switch button { margin-left: 5px; padding: 5px 10px; cursor: pointer; border: none; border-radius: 4px; background-color: #f1f1f1; color: #333; font-weight: bold; }
-  .lang-switch button:hover { background-color: #ddd; }
-  .question { margin: 15px 0; }
-  label { display: block; margin-left: 20px; }
-  button.show-result { margin-top: 15px; padding: 8px 15px; cursor: pointer; }
-</style>
+  <meta charset="UTF-8">
+  <title>Grade 9 Personality & Aptitude Tests</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f9;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #222;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+    header img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      display: block;
+    }
+    section {
+      padding: 20px;
+      margin: 20px auto;
+      background: white;
+      max-width: 900px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #333;
+    }
+    .question {
+      margin: 15px 0;
+    }
+    label {
+      display: block;
+      margin-left: 15px;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #005fa3;
+    }
+    .lang-switch {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+    }
+    .lang-switch button {
+      margin-left: 5px;
+      padding: 5px 10px;
+      background: #eee;
+      color: #333;
+      border-radius: 4px;
+      cursor: pointer;
+      border: none;
+    }
+    .lang-switch button:hover {
+      background: #ddd;
+    }
+  </style>
 </head>
 <body>
 
 <header>
-  <h1 id="siteTitle">ผู้คนอัจฉริยะ ผู้นำ (สร้างได้ที่นี่)</h1>
+  <img src="https://github.com/frans-max/people-smart-leaders/blob/main/business-idea-647205_1920%20(1).jpg?raw=true" alt="Banner">
+  <h1 id="introTitle">Introduction</h1>
+  <p id="introText">Discover natural tendencies, strengths, and learning styles for Grade 9 students. Personality and aptitude tests help identify practical, creative, analytical, social, and leadership skills.</p>
   <div class="lang-switch">
-    <button onclick="switchLang('th')">ไทย</button>
     <button onclick="switchLang('en')">English</button>
+    <button onclick="switchLang('th')">ไทย</button>
   </div>
 </header>
 
-<!-- Intro Section -->
-<section id="intro">
-  <h2 id="introTitle">แนะนำ</h2>
-  <p id="introText">
-    แบบทดสอบบุคลิกภาพและความถนัดสำหรับนักเรียน ม.3  
-    ช่วยค้นหาจุดแข็งด้านการปฏิบัติ การสร้างสรรค์ การวิเคราะห์ การช่วยเหลือทางสังคม และความเป็นผู้นำ
-  </p>
-</section>
-
 <!-- Personality Test -->
-<section id="personalityTest">
-<h2>แบบทดสอบบุคลิกภาพ (Personality Test)</h2>
-<form id="quizFormP">
-  <div class="question"><p>1. คุณชอบกิจกรรมที่ต้องใช้ความคิดสร้างสรรค์หรือไม่?</p>
-    <label><input type="radio" name="q1" value="A"> ชอบมาก</label>
-    <label><input type="radio" name="q1" value="B"> ชอบบ้าง</label>
-    <label><input type="radio" name="q1" value="C"> เฉยๆ</label>
-    <label><input type="radio" name="q1" value="D"> ไม่ค่อยชอบ</label>
-    <label><input type="radio" name="q1" value="E"> ไม่ชอบเลย</label></div>
+<section id="grade9Personality">
+  <h2>Personality Test (12 Questions)</h2>
+  <form id="quizFormP">
+    <div class="question"><p>1. I enjoy meeting new people.</p>
+      <label><input type="radio" name="q1" value="A"> Strongly Agree</label>
+      <label><input type="radio" name="q1" value="B"> Agree</label>
+      <label><input type="radio" name="q1" value="C"> Neutral</label>
+      <label><input type="radio" name="q1" value="D"> Disagree</label>
+      <label><input type="radio" name="q1" value="E"> Strongly Disagree</label></div>
 
-  <div class="question"><p>2. คุณชอบทำงานเป็นกลุ่มหรือคนเดียว?</p>
-    <label><input type="radio" name="q2" value="A"> ทำคนเดียว</label>
-    <label><input type="radio" name="q2" value="B"> ทำคนเดียวบางครั้ง</label>
-    <label><input type="radio" name="q2" value="C"> เฉยๆ</label>
-    <label><input type="radio" name="q2" value="D"> ชอบทำกลุ่ม</label>
-    <label><input type="radio" name="q2" value="E"> ชอบทำกับเพื่อน</label></div>
+    <div class="question"><p>2. I prefer planning before action.</p>
+      <label><input type="radio" name="q2" value="A"> Strongly Agree</label>
+      <label><input type="radio" name="q2" value="B"> Agree</label>
+      <label><input type="radio" name="q2" value="C"> Neutral</label>
+      <label><input type="radio" name="q2" value="D"> Disagree</label>
+      <label><input type="radio" name="q2" value="E"> Strongly Disagree</label></div>
 
-  <div class="question"><p>3. เวลามีปัญหา คุณชอบวิเคราะห์หรือทำตามใจ?</p>
-    <label><input type="radio" name="q3" value="C"> วิเคราะห์</label>
-    <label><input type="radio" name="q3" value="A"> ทำตามใจ</label>
-    <label><input type="radio" name="q3" value="B"> สลับกัน</label>
-    <label><input type="radio" name="q3" value="D"> ลองทำเลย</label>
-    <label><input type="radio" name="q3" value="E"> พึ่งเพื่อน/ครู</label></div>
+    <div class="question"><p>3. I like helping classmates with their work.</p>
+      <label><input type="radio" name="q3" value="A"> Strongly Agree</label>
+      <label><input type="radio" name="q3" value="B"> Agree</label>
+      <label><input type="radio" name="q3" value="C"> Neutral</label>
+      <label><input type="radio" name="q3" value="D"> Disagree</label>
+      <label><input type="radio" name="q3" value="E"> Strongly Disagree</label></div>
 
-  <div class="question"><p>4. คุณชอบช่วยเหลือเพื่อนหรือไม่?</p>
-    <label><input type="radio" name="q4" value="B"> ชอบมาก</label>
-    <label><input type="radio" name="q4" value="D"> บางครั้ง</label>
-    <label><input type="radio" name="q4" value="C"> เฉยๆ</label>
-    <label><input type="radio" name="q4" value="A"> ไม่ค่อยชอบ</label>
-    <label><input type="radio" name="q4" value="E"> ไม่ชอบเลย</label></div>
+    <div class="question"><p>4. I stay calm when problems happen.</p>
+      <label><input type="radio" name="q4" value="A"> Strongly Agree</label>
+      <label><input type="radio" name="q4" value="B"> Agree</label>
+      <label><input type="radio" name="q4" value="C"> Neutral</label>
+      <label><input type="radio" name="q4" value="D"> Disagree</label>
+      <label><input type="radio" name="q4" value="E"> Strongly Disagree</label></div>
 
-  <div class="question"><p>5. เวลาทำงาน คุณเป็นคนมีระเบียบหรือไม่?</p>
-    <label><input type="radio" name="q5" value="C"> เป็นคนระเบียบมาก</label>
-    <label><input type="radio" name="q5" value="D"> พยายามมีระเบียบ</label>
-    <label><input type="radio" name="q5" value="B"> เฉยๆ</label>
-    <label><input type="radio" name="q5" value="A"> ไม่ค่อยระเบียบ</label>
-    <label><input type="radio" name="q5" value="E"> ไม่สนใจ</label></div>
+    <div class="question"><p>5. I enjoy creative activities like drawing or writing.</p>
+      <label><input type="radio" name="q5" value="A"> Strongly Agree</label>
+      <label><input type="radio" name="q5" value="B"> Agree</label>
+      <label><input type="radio" name="q5" value="C"> Neutral</label>
+      <label><input type="radio" name="q5" value="D"> Disagree</label>
+      <label><input type="radio" name="q5" value="E"> Strongly Disagree</label></div>
 
-  <div class="question"><p>6. คุณมักมีความคิดใหม่ๆ หรือไม่?</p>
-    <label><input type="radio" name="q6" value="A"> มาก</label>
-    <label><input type="radio" name="q6" value="B"> บางครั้ง</label>
-    <label><input type="radio" name="q6" value="C"> เฉยๆ</label>
-    <label><input type="radio" name="q6" value="D"> น้อย</label>
-    <label><input type="radio" name="q6" value="E"> ไม่เคยคิด</label></div>
+    <div class="question"><p>6. I am confident in speaking in front of a group.</p>
+      <label><input type="radio" name="q6" value="A"> Strongly Agree</label>
+      <label><input type="radio" name="q6" value="B"> Agree</label>
+      <label><input type="radio" name="q6" value="C"> Neutral</label>
+      <label><input type="radio" name="q6" value="D"> Disagree</label>
+      <label><input type="radio" name="q6" value="E"> Strongly Disagree</label></div>
 
-  <div class="question"><p>7. คุณเป็นคนมั่นใจในการตัดสินใจหรือไม่?</p>
-    <label><input type="radio" name="q7" value="E"> มาก</label>
-    <label><input type="radio" name="q7" value="D"> พอสมควร</label>
-    <label><input type="radio" name="q7" value="C"> เฉยๆ</label>
-    <label><input type="radio" name="q7" value="B"> น้อย</label>
-    <label><input type="radio" name="q7" value="A"> ไม่มั่นใจเลย</label></div>
+    <div class="question"><p>7. I like solving puzzles or logical problems.</p>
+      <label><input type="radio" name="q7" value="A"> Strongly Agree</label>
+      <label><input type="radio" name="q7" value="B"> Agree</label>
+      <label><input type="radio" name="q7" value="C"> Neutral</label>
+      <label><input type="radio" name="q7" value="D"> Disagree</label>
+      <label><input type="radio" name="q7" value="E"> Strongly Disagree</label></div>
 
-  <div class="question"><p>8. เวลามีงานใหม่ คุณชอบลองหรือรอดู?</p>
-    <label><input type="radio" name="q8" value="D"> ลองเลย</label>
-    <label><input type="radio" name="q8" value="A"> รอดูก่อน</label>
-    <label><input type="radio" name="q8" value="C"> วิเคราะห์ก่อน</label>
-    <label><input type="radio" name="q8" value="B"> บางครั้งลอง</label>
-    <label><input type="radio" name="q8" value="E"> นำเพื่อนทำแทน</label></div>
+    <div class="question"><p>8. I work well under pressure.</p>
+      <label><input type="radio" name="q8" value="A"> Strongly Agree</label>
+      <label><input type="radio" name="q8" value="B"> Agree</label>
+      <label><input type="radio" name="q8" value="C"> Neutral</label>
+      <label><input type="radio" name="q8" value="D"> Disagree</label>
+      <label><input type="radio" name="q8" value="E"> Strongly Disagree</label></div>
 
-  <div class="question"><p>9. คุณชอบทำกิจกรรมทางสังคมหรือไม่?</p>
-    <label><input type="radio" name="q9" value="B"> ชอบมาก</label>
-    <label><input type="radio" name="q9" value="D"> ชอบบางครั้ง</label>
-    <label><input type="radio" name="q9" value="C"> เฉยๆ</label>
-    <label><input type="radio" name="q9" value="A"> น้อย</label>
-    <label><input type="radio" name="q9" value="E"> ไม่ชอบเลย</label></div>
+    <div class="question"><p>9. I enjoy being the leader in a group.</p>
+      <label><input type="radio" name="q9" value="A"> Strongly Agree</label>
+      <label><input type="radio" name="q9" value="B"> Agree</label>
+      <label><input type="radio" name="q9" value="C"> Neutral</label>
+      <label><input type="radio" name="q9" value="D"> Disagree</label>
+      <label><input type="radio" name="q9" value="E"> Strongly Disagree</label></div>
 
-  <div class="question"><p>10. คุณชอบทำงานที่ท้าทายหรือทำงานง่ายๆ?</p>
-    <label><input type="radio" name="q10" value="A"> ชอบงานท้าทาย</label>
-    <label><input type="radio" name="q10" value="B"> ชอบงานท้าทายบ้าง</label>
-    <label><input type="radio" name="q10" value="C"> เฉยๆ</label>
-    <label><input type="radio" name="q10" value="D"> งานง่ายก็พอ</label>
-    <label><input type="radio" name="q10" value="E"> งานง่ายเท่านั้น</label></div>
+    <div class="question"><p>10. I like to organize my time and tasks.</p>
+      <label><input type="radio" name="q10" value="A"> Strongly Agree</label>
+      <label><input type="radio" name="q10" value="B"> Agree</label>
+      <label><input type="radio" name="q10" value="C"> Neutral</label>
+      <label><input type="radio" name="q10" value="D"> Disagree</label>
+      <label><input type="radio" name="q10" value="E"> Strongly Disagree</label></div>
 
-  <div class="question"><p>11. เวลามีปัญหา คุณมักปรึกษาเพื่อนหรือแก้เอง?</p>
-    <label><input type="radio" name="q11" value="B"> ปรึกษาเพื่อน</label>
-    <label><input type="radio" name="q11" value="D"> แก้เอง</label>
-    <label><input type="radio" name="q11" value="C"> บางครั้งปรึกษา</label>
-    <label><input type="radio" name="q11" value="A"> รอดูวิธีเพื่อน</label>
-    <label><input type="radio" name="q11" value="E"> เป็นผู้นำแก้ปัญหา</label></div>
+    <div class="question"><p>11. I enjoy trying new things.</p>
+      <label><input type="radio" name="q11" value="A"> Strongly Agree</label>
+      <label><input type="radio" name="q11" value="B"> Agree</label>
+      <label><input type="radio" name="q11" value="C"> Neutral</label>
+      <label><input type="radio" name="q11" value="D"> Disagree</label>
+      <label><input type="radio" name="q11" value="E"> Strongly Disagree</label></div>
 
-  <div class="question"><p>12. คุณชอบรับผิดชอบงานใหญ่หรือเล็ก?</p>
-    <label><input type="radio" name="q12" value="E"> ใหญ่</label>
-    <label><input type="radio" name="q12" value="D"> พอสมควร</label>
-    <label><input type="radio" name="q12" value="C"> เฉยๆ</label>
-    <label><input type="radio" name="q12" value="B"> เล็ก</label>
-    <label><input type="radio" name="q12" value="A"> ไม่ชอบรับผิดชอบ</label></div>
-
-  <button type="button" class="show-result" onclick="calculatePersonality()">Show & Download Results</button>
-</form>
-<div id="resultP"></div>
+    <div class="question"><p>12. I feel comfortable making decisions for a group.</p>
+      <label><input type="radio" name="q12" value="A"> Strongly Agree</label>
+      <label><input type="radio" name="q12" value="B"> Agree</label>
+      <label><input type="radio" name="q12" value="C"> Neutral</label>
+      <label><input type="radio" name="q12" value="D"> Disagree</label>
+      <label><input type="radio" name="q12" value="E"> Strongly Disagree</label></div>
+  </form>
+  <button type="button" onclick="calculatePersonality()">Show & Download Results</button>
+  <div id="resultP"></div>
 </section>
 
-<!-- Grade 9 Aptitude Test -->
+<!-- Aptitude Test -->
 <section id="grade9Aptitude">
-<h2>แบบทดสอบความถนัด ม.3 (Grade 9 Aptitude Test)</h2>
-<form id="quizFormA">
-  <div class="question"><p>1. เวลามีงานกลุ่ม คุณชอบทำหน้าที่อะไร?</p>
-    <label><input type="radio" name="q1" value="Practical"> ลงมือทำจริง</label>
-    <label><input type="radio" name="q1" value="Creative"> คิดไอเดียใหม่ๆ</label>
-    <label><input type="radio" name="q1" value="Analytical"> วางแผนและแก้ปัญหา</label>
-    <label><input type="radio" name="q1" value="Social"> ดูแลเพื่อน</label>
-    <label><input type="radio" name="q1" value="Leadership"> นำกลุ่ม</label></div>
+  <h2>Aptitude Test (12 Questions)</h2>
+  <form id="quizFormA">
+    <div class="question"><p>1. เวลามีงานกลุ่ม คุณชอบทำหน้าที่อะไร?</p>
+      <label><input type="radio" name="aq1" value="Practical"> ลงมือทำจริง</label>
+      <label><input type="radio" name="aq1" value="Creative"> คิดไอเดียใหม่ๆ</label>
+      <label><input type="radio" name="aq1" value="Analytical"> วางแผนและแก้ปัญหา</label>
+      <label><input type="radio" name="aq1" value="Social"> ดูแลเพื่อน</label>
+      <label><input type="radio" name="aq1" value="Leadership"> นำกลุ่ม</label></div>
 
-  <div class="question"><p>2. คุณถนัดงานแบบไหนมากที่สุด?</p>
-    <label><input type="radio" name="q2" value="Practical"> ปฏิบัติจริง</label>
-    <label><input type="radio" name="q2" value="Creative"> ใช้ความคิดสร้างสรรค์</label>
-    <label><input type="radio" name="q2" value="Analytical"> วิเคราะห์และวางแผน</label>
-    <label><input type="radio" name="q2" value="Social"> ช่วยเหลือคนอื่น</label>
-    <label><input type="radio" name="q2" value="Leadership"> เป็นผู้นำ</label></div>
+    <div class="question"><p>2. คุณชอบวิชาอะไรที่สุด?</p>
+      <label><input type="radio" name="aq2" value="Practical"> พละ/งานฝีมือ</label>
+      <label><input type="radio" name="aq2" value="Creative"> ศิลปะ/ดนตรี</label>
+      <label><input type="radio" name="aq2" value="Analytical"> คณิต/วิทย์</label>
+      <label><input type="radio" name="aq2" value="Social"> สังคม/ภาษา</label>
+      <label><input type="radio" name="aq2" value="Leadership"> กิจกรรมผู้นำ</label></div>
 
-  <div class="question"><p>3. เวลาทำโครงการ คุณชอบวางแผนหรือทำทันที?</p>
-    <label><input type="radio" name="q3" value="Analytical"> วางแผน</label>
-    <label><input type="radio" name="q3" value="Practical"> ทำทันที</label>
-    <label><input type="radio" name="q3" value="Creative"> หาวิธีใหม่</label>
-    <label><input type="radio" name="q3" value="Social"> ช่วยเพื่อน</label>
-    <label><input type="radio" name="q3" value="Leadership"> นำทีม</label></div>
+    <div class="question"><p>3. เวลาว่างคุณชอบทำอะไร?</p>
+      <label><input type="radio" name="aq3" value="Practical"> เล่นกีฬา</label>
+      <label><input type="radio" name="aq3" value="Creative"> วาดรูป/แต่งเพลง</label>
+      <label><input type="radio" name="aq3" value="Analytical"> อ่าน/เล่นหมากรุก</label>
+      <label><input type="radio" name="aq3" value="Social"> พบเพื่อน</label>
+      <label><input type="radio" name="aq3" value="Leadership"> จัดการกิจกรรม</label></div>
 
-  <!-- Continue with questions 4–12 in same format -->
-  <!-- For brevity, the remaining questions follow the same structure -->
-</form>
-<button type="button" class="show-result" onclick="calculateAptitude()">Show & Download Results</button>
-<div id="resultA"></div>
+    <div class="question"><p>4. คุณมักแก้ปัญหาแบบไหน?</p>
+      <label><input type="radio" name="aq4" value="Practical"> ลงมือทำเลย</label>
+      <label><input type="radio" name="aq4" value="Creative"> หาวิธีใหม่</label>
+      <label><input type="radio" name="aq4" value="Analytical"> วิเคราะห์เหตุผล</label>
+      <label><input type="radio" name="aq4" value="Social"> ขอความช่วยเหลือ</label>
+      <label><input type="radio" name="aq4" value="Leadership"> ตัดสินใจแทนกลุ่ม</label></div>
+
+    <div class="question"><p>5. เพื่อนมักบอกว่าคุณเป็น...</p>
+      <label><input type="radio" name="aq5" value="Practical"> ขยันทำงาน</label>
+      <label><input type="radio" name="aq5" value="Creative"> มีไอเดีย</label>
+      <label><input type="radio" name="aq5" value="Analytical"> เก่งคิดวิเคราะห์</label>
+      <label><input type="radio" name="aq5" value="Social"> ใจดี</label>
+      <label><input type="radio" name="aq5" value="Leadership"> ผู้นำ</label></div>
+
+    <div class="question"><p>6. งานในอนาคตที่คุณสนใจคือ...</p>
+      <label><input type="radio" name="aq6" value="Practical"> ช่าง/เกษตร</label>
+      <label><input type="radio" name="aq6" value="Creative"> นักออกแบบ/ศิลปิน</label>
+      <label><input type="radio" name="aq6" value="Analytical"> วิศวกร/นักวิทย์</label>
+      <label><input type="radio" name="aq6" value="Social"> ครู/พยาบาล</label>
+      <label><input type="radio" name="aq6" value="Leadership"> ผู้จัดการ</label></div>
+
+    <div class="question"><p>7. คุณรู้สึกดีเมื่อ...</p>
+      <label><input type="radio" name="aq7" value="Practical"> งานสำเร็จจริง</label>
+      <label><input type="radio" name="aq7" value="Creative"> สร้างสิ่งใหม่</label>
+      <label><input type="radio" name="aq7" value="Analytical"> แก้โจทย์ยากได้</label>
+      <label><input type="radio" name="aq7" value="Social"> ช่วยเพื่อนได้</label>
+      <label><input type="radio" name="aq7" value="Leadership"> คุมทีมได้</label></div>
+
+    <div class="question"><p>8. คุณถนัดการทำงานแบบไหน?</p>
+      <label><input type="radio" name="aq8" value="Practical"> ใช้มือ/เครื่องมือ</label>
+      <label><input type="radio" name="aq8" value="Creative"> ใช้จินตนาการ</label>
+      <label><input type="radio" name="aq8" value="Analytical"> ใช้เหตุผล</label>
+      <label><input type="radio" name="aq8" value="Social"> ทำงานกับคน</label>
+      <label><input type="radio" name="aq8" value="Leadership"> บริหารจัดการ</label></div>
+
+    <div class="question"><p>9. ถ้าเลือกได้คุณอยาก...</p>
+      <label><input type="radio" name="aq9" value="Practical"> ซ่อมของ</label>
+      <label><input type="radio" name="aq9" value="Creative"> แต่งเพลง/งานศิลป์</label>
+      <label><input type="radio" name="aq9" value="Analytical"> ทำวิจัย</label>
+      <label><input type="radio" name="aq9" value="Social"> ช่วยเหลือคน</label>
+      <label><input type="radio" name="aq9" value="Leadership"> นำโครงการ</label></div>
+
+    <div class="question"><p>10. คุณภูมิใจเมื่อ...</p>
+      <label><input type="radio" name="aq10" value="Practical"> งานเสร็จสิ้น</label>
+      <label><input type="radio" name="aq10" value="Creative"> ไอเดียสำเร็จ</label>
+      <label><input type="radio" name="aq10" value="Analytical"> คำตอบถูก</label>
+      <label><input type="radio" name="aq10" value="Social"> คนรอบข้างดีขึ้น</label>
+      <label><input type="radio" name="aq10" value="Leadership"> ทุกคนตามแผน</label></div>
+
+    <div class="question"><p>11. คุณชอบกิจกรรมแบบ...</p>
+      <label><input type="radio" name="aq11" value="Practical"> ใช้แรง</label>
+      <label><input type="radio" name="aq11" value="Creative"> สร้างสรรค์</label>
+      <label><input type="radio" name="aq11" value="Analytical"> ใช้สมอง</label>
+      <label><input type="radio" name="aq11" value="Social"> พูดคุย</label>
+      <label><input type="radio" name="aq11" value="Leadership"> คุมทีม</label></div>
+
+    <div class="question"><p>12. ถ้ามีปัญหาคุณจะ...</p>
+      <label><input type="radio" name="aq12" value="Practical"> ลองทำ</label>
+      <label><input type="radio" name="aq12" value="Creative"> คิดใหม่</label>
+      <label><input type="radio" name="aq12" value="Analytical"> วิเคราะห์</label>
+      <label><input type="radio" name="aq12" value="Social"> ขอความช่วยเหลือ</label>
+      <label><input type="radio" name="aq12" value="Leadership"> ตัดสินใจเอง</label></div>
+  </form>
+  <button type="button" onclick="calculateAptitude()">Show & Download Results</button>
+  <div id="resultA"></div>
 </section>
 
 <script>
-// Language switch
-function switchLang(lang){
-  if(lang==='en'){
-    document.getElementById('introTitle').innerText="Introduction";
-    document.getElementById('introText').innerHTML="<strong>Grade 9 Personality Test:</strong><br>Discover natural tendencies, strengths, and learning styles. <br><strong>Grade 9 Aptitude Test:</strong><br>Discover practical, creative, analytical, social, or leadership skills.";
-    document.getElementById('siteTitle').innerText="People Smart Leaders (are created here)";
-  }else{
-    document.getElementById('introTitle').innerText="แนะนำ";
-    document.getElementById('introText').innerHTML="แบบทดสอบบุคลิกภาพและความถนัดสำหรับนักเรียน ม.3 ช่วยค้นหาจุดแข็งด้านการปฏิบัติ การสร้างสรรค์ การวิเคราะห์ การช่วยเหลือทางสังคม และความเป็นผู้นำ";
-    document.getElementById('siteTitle').innerText="ผู้คนอัจฉริยะ ผู้นำ (สร้างได้ที่นี่)";
-  }
+function switchLang(lang) {
+  const translations = {
+    en: {
+      introTitle: "Introduction",
+      introText: "Discover natural tendencies, strengths, and learning styles for Grade 9 students. Personality and aptitude tests help identify practical, creative, analytical, social, and leadership skills.",
+    },
+    th: {
+      introTitle: "บทนำ",
+      introText: "ค้นหานิสัย จุดแข็ง และรูปแบบการเรียนรู้ของนักเรียน ม.3 แบบทดสอบบุคลิกภาพและความถนัดช่วยระบุทักษะเชิงปฏิบัติ ความคิดสร้างสรรค์ การวิเคราะห์ การเข้าสังคม และภาวะผู้นำ",
+    }
+  };
+  document.getElementById("introTitle").textContent = translations[lang].introTitle;
+  document.getElementById("introText").textContent = translations[lang].introText;
 }
 
-// Personality Test Calculation
-function calculatePersonality(){
-  let form=document.getElementById('quizFormP');
-  let total=0;
-  for(let i=1;i<=12;i++){
-    let val=form['q'+i]?.value || 'C';
-    total+=val.charCodeAt(0)-64;
-  }
-  let result="คะแนนรวม: "+total+" (คะแนนสูง = เป็นผู้นำ/มั่นใจ)";
-  document.getElementById('resultP').innerHTML=result+"<br><button onclick='downloadResult(\"Personality Test\", \""+result+"\")'>Download</button>";
+// Personality Test
+function calculatePersonality() {
+  let score = 0;
+  const form = document.getElementById("quizFormP");
+  const answers = form.querySelectorAll("input:checked");
+  answers.forEach(ans => {
+    if (ans.value === "A") score += 5;
+    else if (ans.value === "B") score += 4;
+    else if (ans.value === "C") score += 3;
+    else if (ans.value === "D") score += 2;
+    else if (ans.value === "E") score += 1;
+  });
+
+  let result = "Your Personality Score: " + score + "/60. ";
+  if (score >= 48) result += "You are confident and social!";
+  else if (score >= 36) result += "You are balanced and adaptable.";
+  else result += "You are thoughtful and reserved.";
+
+  document.getElementById("resultP").innerText = result;
+  downloadFile("Personality_Results.txt", result);
 }
 
-// Aptitude Test Calculation
-function calculateAptitude(){
-  let form=document.getElementById('quizFormA');
-  let scores={Practical:0,Creative:0,Analytical:0,Social:0,Leadership:0};
-  for(let i=1;i<=12;i++){
-    let val=form['q'+i]?.value;
-    if(scores[val]!==undefined) scores[val]+=1;
-  }
-  let result="คะแนน Aptitude: ";
-  for(let key in scores) result+=key+"="+scores[key]+"; ";
-  document.getElementById('resultA').innerHTML=result+"<br><button onclick='downloadResult(\"Aptitude Test\", \""+result+"\")'>Download</button>";
+// Aptitude Test
+function calculateAptitude() {
+  const form = document.getElementById("quizFormA");
+  const answers = form.querySelectorAll("input:checked");
+  let counts = {Practical:0, Creative:0, Analytical:0, Social:0, Leadership:0};
+  answers.forEach(ans => counts[ans.value]++);
+
+  let top = Object.keys(counts).reduce((a, b) => counts[a] > counts[b] ? a : b);
+  let result = "Your strongest aptitude is: " + top;
+  document.getElementById("resultA").innerText = result;
+  downloadFile("Aptitude_Results.txt", result);
 }
 
-// Download helper
-function downloadResult(title, text){
-  let element=document.createElement('a');
-  element.setAttribute('href','data:text/plain;charset=utf-8,'+encodeURIComponent(title+"\n"+text));
-  element.setAttribute('download',title+".txt");
-  element.style.display='none';
+// Download Helper
+function downloadFile(filename, text) {
+  const element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  element.setAttribute('download', filename);
+  element.style.display = 'none';
   document.body.appendChild(element);
   element.click();
   document.body.removeChild(element);
