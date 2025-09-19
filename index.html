@@ -348,99 +348,110 @@
     <div id="resultA12"></div>
   </section>
   <script>
-    function switchLang(lang) {
-      const translations = {
-        en: {
-          introTitle: "People Smart Tests",
-          introText: "Welcome to People Smart Tests, designed specifically for Grade 9 and Grade 12 students to explore their unique strengths, personality traits, and learning styles. These tests help identify your natural tendencies in areas such as creativity, analytical thinking, social skills, leadership, and practical abilities. Understanding these aspects of yourself is crucial for personal growth, academic success, and future career planning. By taking these tests, you gain insights into how you learn best, interact with others, and approach challenges, empowering you to make informed decisions about your education and aspirations. Start your journey of self-discovery today!",
-          grade9PersonalityTitle: "Personality Test (Grade 9)",
-          grade9AptitudeTitle: "Aptitude Test (Grade 9)",
-          grade12PersonalityTitle: "Personality Test (Grade 12)",
-          grade12AptitudeTitle: "Aptitude Test (Grade 12)",
-          personalityButton: "Show & Download Results",
-          aptitudeButton: "Show & Download Results",
-          testSelector: {
-            grade9Personality: "Grade 9 Personality Test",
-            grade9Aptitude: "Grade 9 Aptitude Test",
-            grade12Personality: "Grade 12 Personality Test",
-            grade12Aptitude: "Grade 12 Aptitude Test"
-          }
-        },
-        th: {
-          introTitle: "แบบทดสอบความฉลาดด้านบุคคล",
-          introText: "ยินดีต้อนรับสู่แบบทดสอบความฉลาดด้านบุคคล ที่ออกแบบมาโดยเฉพาะสำหรับนักเรียนชั้นมัธยมศึกษาปีที่ 3 และ 6 เพื่อสำรวจจุดแข็ง คุณลักษณะบุคลิกภาพ และรูปแบบการเรียนรู้ที่เป็นเอกลักษณ์ของคุณ แบบทดสอบเหล่านี้ช่วยระบุแนวโน้มตามธรรมชาติของคุณในด้านต่างๆ เช่น ความคิดสร้างสรรค์ การคิดวิเคราะห์ ทักษะการเข้าสังคม ความเป็นผู้นำ และความสามารถเชิงปฏิบัติ การทำความเข้าใจแง่มุมเหล่านี้ของตัวคุณเองมีความสำคัญต่อการเติบโตส่วนบุคคล ความสำเร็จทางการศึกษา และการวางแผนอาชีพในอนาคต การทำแบบทดสอบเหล่านี้จะช่วยให้คุณเข้าใจวิธีที่คุณเรียนรู้ได้ดีที่สุด มีปฏิสัมพันธ์กับผู้อื่น และจัดการกับความท้าทาย ทำให้คุณสามารถตัดสินใจได้อย่างมีข้อมูลเกี่ยวกับการศึกษาและความใฝ่ฝันของคุณ เริ่มต้นการเดินทางเพื่อค้นพบตัวเองวันนี้!",
-          grade9PersonalityTitle: "แบบทดสอบบุคลิกภาพ (ชั้นม.3)",
-          grade9AptitudeTitle: "แบบทดสอบความถนัด (ชั้นม.3)",
-          grade12PersonalityTitle: "แบบทดสอบบุคลิกภาพ (ชั้นม.6)",
-          grade12AptitudeTitle: "แบบทดสอบความถนัด (ชั้นม.6)",
-          personalityButton: "แสดงและดาวน์โหลดผลลัพธ์",
-          aptitudeButton: "แสดงและดาวน์โหลดผลลัพธ์",
-          testSelector: {
-            grade9Personality: "แบบทดสอบบุคลิกภาพ ชั้นม.3",
-            grade9Aptitude: "แบบทดสอบความถนัด ชั้นม.3",
-            grade12Personality: "แบบทดสอบบุคลิกภาพ ชั้นม.6",
-            grade12Aptitude: "แบบทดสอบความถนัด ชั้นม.6"
-          }
-        }
-      };
-      document.getElementById("introTitle").textContent = translations[lang].introTitle;
-      document.getElementById("introText").textContent = translations[lang].introText;
-      document.querySelector("#grade9Personality h2").textContent = translations[lang].grade9PersonalityTitle;
-      document.querySelector("#grade9Aptitude h2").textContent = translations[lang].grade9AptitudeTitle;
-      document.querySelector("#grade12Personality h2").textContent = translations[lang].grade12PersonalityTitle;
-      document.querySelector("#grade12Aptitude h2").textContent = translations[lang].grade12AptitudeTitle;
-      document.querySelector("#grade9Personality button").textContent = translations[lang].personalityButton;
-      document.querySelector("#grade9Aptitude button").textContent = translations[lang].aptitudeButton;
-      document.querySelector("#grade12Personality button").textContent = translations[lang].personalityButton;
-      document.querySelector("#grade12Aptitude button").textContent = translations[lang].aptitudeButton;
-      document.querySelector(".test-selector button[onclick=\"showTest('grade9Personality')\"]").textContent = translations[lang].testSelector.grade9Personality;
-      document.querySelector(".test-selector button[onclick=\"showTest('grade9Aptitude')\"]").textContent = translations[lang].testSelector.grade9Aptitude;
-      document.querySelector(".test-selector button[onclick=\"showTest('grade12Personality')\"]").textContent = translations[lang].testSelector.grade12Personality;
-      document.querySelector(".test-selector button[onclick=\"showTest('grade12Aptitude')\"]").textContent = translations[lang].testSelector.grade12Aptitude;
+  function switchLang(lang) {
+  const translations = {
+    en: {
+      introTitle: "People Smart Tests",
+      introText: "Welcome to People Smart Tests, designed specifically for Grade 9 and Grade 12 students to explore their unique strengths, personality traits, and learning styles. These tests help identify your natural tendencies in areas such as creativity, analytical thinking, social skills, leadership, and practical abilities. Understanding these aspects of yourself is crucial for personal growth, academic success, and future career planning. By taking these tests, you gain insights into how you learn best, interact with others, and approach challenges, empowering you to make informed decisions about your education and aspirations. Start your journey of self-discovery today!",
+      grade9PersonalityTitle: "Personality Test (Grade 9)",
+      grade9AptitudeTitle: "Aptitude Test (Grade 9)",
+      grade12PersonalityTitle: "Personality Test (Grade 12)",
+      grade12AptitudeTitle: "Aptitude Test (Grade 12)",
+      personalityButton: "Show & Download Results",
+      aptitudeButton: "Show & Download Results",
+      testSelector: {
+        grade9Personality: "Grade 9 Personality Test",
+        grade9Aptitude: "Grade 9 Aptitude Test",
+        grade12Personality: "Grade 12 Personality Test",
+        grade12Aptitude: "Grade 12 Aptitude Test"
+      }
+    },
+    th: {
+      introTitle: "แบบทดสอบความฉลาดด้านบุคคล",
+      introText: "ยินดีต้อนรับสู่แบบทดสอบความฉลาดด้านบุคคล ที่ออกแบบมาโดยเฉพาะสำหรับนักเรียนชั้นมัธยมศึกษาปีที่ 3 และ 6 เพื่อสำรวจจุดแข็ง คุณลักษณะบุคลิกภาพ และรูปแบบการเรียนรู้ที่เป็นเอกลักษณ์ของคุณ แบบทดสอบเหล่านี้ช่วยระบุแนวโน้มตามธรรมชาติของคุณในด้านต่างๆ เช่น ความคิดสร้างสรรค์ การคิดวิเคราะห์ ทักษะการเข้าสังคม ความเป็นผู้นำ และความสามารถเชิงปฏิบัติ การทำความเข้าใจแง่มุมเหล่านี้ของตัวคุณเองมีความสำคัญต่อการเติบโตส่วนบุคคล ความสำเร็จทางการศึกษา และการวางแผนอาชีพในอนาคต การทำแบบทดสอบเหล่านี้จะช่วยให้คุณเข้าใจวิธีที่คุณเรียนรู้ได้ดีที่สุด มีปฏิสัมพันธ์กับผู้อื่น และจัดการกับความท้าทาย ทำให้คุณสามารถตัดสินใจได้อย่างมีข้อมูลเกี่ยวกับการศึกษาและความใฝ่ฝันของคุณ เริ่มต้นการเดินทางเพื่อค้นพบตัวเองวันนี้!",
+      grade9PersonalityTitle: "แบบทดสอบบุคลิกภาพ (ชั้นม.3)",
+      grade9AptitudeTitle: "แบบทดสอบความถนัด (ชั้นม.3)",
+      grade12PersonalityTitle: "แบบทดสอบบุคลิกภาพ (ชั้นม.6)",
+      grade12AptitudeTitle: "แบบทดสอบความถนัด (ชั้นม.6)",
+      personalityButton: "แสดงและดาวน์โหลดผลลัพธ์",
+      aptitudeButton: "แสดงและดาวน์โหลดผลลัพธ์",
+      testSelector: {
+        grade9Personality: "แบบทดสอบบุคลิกภาพ ชั้นม.3",
+        grade9Aptitude: "แบบทดสอบความถนัด ชั้นม.3",
+        grade12Personality: "แบบทดสอบบุคลิกภาพ ชั้นม.6",
+        grade12Aptitude: "แบบทดสอบความถนัด ชั้นม.6"
+      }
     }
-    function showTest(testId) {
-      const sections = ['grade9Personality', 'grade9Aptitude', 'grade12Personality', 'grade12Aptitude'];
-      sections.forEach(id => {
-        const section = document.getElementById(id);
-        section.style.display = id === testId ? 'block' : 'none';
-      });
-    }
-    function calculatePersonality(formId, resultId, filename) {
-      let score = 0;
-      const form = document.getElementById(formId);
-      const answers = form.querySelectorAll("input:checked");
-      answers.forEach(ans => {
-        if (ans.value === "A") score += 5;
-        else if (ans.value === "B") score += 4;
-        else if (ans.value === "C") score += 3;
-        else if (ans.value === "D") score += 2;
-        else if (ans.value === "E") score += 1;
-      });
-      let result = "คะแนนบุคลิกภาพของคุณ: " + score + "/60. ";
-      if (score >= 48) result += "คุณมั่นใจและชอบเข้าสังคม!";
-      else if (score >= 36) result += "คุณสมดุลและปรับตัวได้ดี";
-      else result += "คุณรอบคอบและสงบเสงี่ยม";
-      document.getElementById(resultId).innerText = result;
-      downloadFile(filename, result);
-    }
-    function calculateAptitude(formId, resultId, filename) {
-      const form = document.getElementById(formId);
-      const answers = form.querySelectorAll("input:checked");
-      let counts = {Practical:0, Creative:0, Analytical:0, Social:0, Leadership:0};
-      answers.forEach(ans => counts[ans.value]++);
-      let top = Object.keys(counts).reduce((a, b) => counts[a] > counts[b] ? a : b);
-      let result = "ความถนัดที่เด่นที่สุดของคุณคือ: " + top;
-      document.getElementById(resultId).innerText = result;
-      downloadFile(filename, result);
-    }
-    function downloadFile(filename, text) {
-      const element = document.createElement('a');
-      element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
-      element.setAttribute('download', filename);
-      element.style.display = 'none';
-      document.body.appendChild(element);
-      element.click();
-      document.body.removeChild(element);
+  };
+  document.getElementById("introTitle").textContent = translations[lang].introTitle;
+  document.getElementById("introText").textContent = translations[lang].introText;
+  document.querySelector("#grade9Personality h2").textContent = translations[lang].grade9PersonalityTitle;
+  document.querySelector("#grade9Aptitude h2").textContent = translations[lang].grade9AptitudeTitle;
+  document.querySelector("#grade12Personality h2").textContent = translations[lang].grade12PersonalityTitle;
+  document.querySelector("#grade12Aptitude h2").textContent = translations[lang].grade12AptitudeTitle;
+  document.querySelector("#grade9Personality button").textContent = translations[lang].personalityButton;
+  document.querySelector("#grade9Aptitude button").textContent = translations[lang].aptitudeButton;
+  document.querySelector("#grade12Personality button").textContent = translations[lang].personalityButton;
+  document.querySelector("#grade12Aptitude button").textContent = translations[lang].aptitudeButton;
+  document.querySelector(".test-selector button[onclick=\"showTest('grade9Personality')\"]").textContent = translations[lang].testSelector.grade9Personality;
+  document.querySelector(".test-selector button[onclick=\"showTest('grade9Aptitude')\"]").textContent = translations[lang].testSelector.grade9Aptitude;
+  document.querySelector(".test-selector button[onclick=\"showTest('grade12Personality')\"]").textContent = translations[lang].testSelector.grade12Personality;
+  document.querySelector(".test-selector button[onclick=\"showTest('grade12Aptitude')\"]").textContent = translations[lang].testSelector.grade12Aptitude;
+}
+
+function showTest(testId) {
+  const sections = ['grade9Personality', 'grade9Aptitude', 'grade12Personality', 'grade12Aptitude'];
+  sections.forEach(id => {
+    const section = document.getElementById(id);
+    section.style.display = id === testId ? 'block' : 'none';
+  });
+}
+
+function calculatePersonality(formId, resultId, filename) {
+  let score = 0;
+  const form = document.getElementById(formId);
+  const answers = form.querySelectorAll("input:checked");
+  answers.forEach(ans => {
+    if (ans.value === "A") score += 5;
+    else if (ans.value === "B") score += 4;
+    else if (ans.value === "C") score += 3;
+    else if (ans.value === "D") score += 2;
+    else if (ans.value === "E") score += 1;
+  });
+  let result = "คะแนนบุคลิกภาพของคุณ: " + score + "/60. ";
+  if (score >= 48) result += "คุณมั่นใจและชอบเข้าสังคม!";
+  else if (score >= 36) result += "คุณสมดุลและปรับตัวได้ดี";
+  else result += "คุณรอบคอบและสงบเสงี่ยม";
+  document.getElementById(resultId).innerText = result;
+  downloadFile(filename, result);
+}
+
+function calculateAptitude(formId, resultId, filename) {
+  const form = document.getElementById(formId);
+  const answers = form.querySelectorAll("input:checked");
+  let counts = {Practical:0, Creative:0, Analytical:0, Social:0, Leadership:0};
+  answers.forEach(ans => counts[ans.value]++);
+  let top = Object.keys(counts).reduce((a, b) => counts[a] > counts[b] ? a : b);
+  const thaiTypes = {
+    Practical: "ปฏิบัติ",
+    Creative: "สร้างสรรค์",
+    Analytical: "วิเคราะห์",
+    Social: "สังคม",
+    Leadership: "ผู้นำ"
+  };
+  let result = "ความถนัดที่เด่นที่สุดของคุณคือ: " + thaiTypes[top];
+  document.getElementById(resultId).innerText = result;
+  downloadFile(filename, result);
+}
+
+function downloadFile(filename, text) {
+  const element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  element.setAttribute('download', filename);
+  element.style.display = 'none';
+  document.body.appendChild(element);
+  element.click();
+  document.body.removeChild(element);
     }
   </script>
 </body>
