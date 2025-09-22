@@ -76,14 +76,11 @@
       border-radius: 5px;
       color: #FFD700;
     }
-    img:not([src]) {
-      content: url('https://github.com/frans-max/people-tests-image/commit/bcb47d2e44c3364268cf21d7915e5394f27588dd');
-    }
   </style>
 </head>
 <body>
   <header>
-    <img src="https://raw.githubusercontent.com/frans-max/people-tests-image/main/banner.png" alt="People Smart Tests Banner" loading="lazy" onerror="this.src='https://via.placeholder.com/800x200/FFD700/000000?text=People+Smart+Tests'">
+    <img src="https://raw.githubusercontent.com/frans-max/banner-image/main/worker-female-uniform-sitting-desk-with-laptop-clipboard-high-quality-photo_114579-91884.jpg" alt="พนักงานหญิงในชุดยูนิฟอร์มนั่งที่โต๊ะพร้อมแล็ปท็อปและคลิปบอร์ด" loading="lazy">
     <h1 id="introTitle">แบบทดสอบความฉลาดด้านบุคคล</h1>
     <p id="introText">ยินดีต้อนรับสู่แบบทดสอบความฉลาดด้านบุคคล ที่ออกแบบมาโดยเฉพาะสำหรับนักเรียนชั้นมัธยมศึกษาปีที่ 3 และ 6 เพื่อสำรวจจุดแข็ง คุณลักษณะบุคลิกภาพ และรูปแบบการเรียนรู้ที่เป็นเอกลักษณ์ของคุณ แบบทดสอบเหล่านี้ช่วยระบุแนวโน้มตามธรรมชาติของคุณในด้านต่างๆ เช่น ความคิดสร้างสรรค์ การคิดวิเคราะห์ ทักษะการเข้าสังคม ความเป็นผู้นำ และความสามารถเชิงปฏิบัติ การทำความเข้าใจแง่มุมเหล่านี้ของตัวคุณเองมีความสำคัญต่อการเติบโตส่วนบุคคล ความสำเร็จทางการศึกษา และการวางแผนอาชีพในอนาคต การทำแบบทดสอบเหล่านี้จะช่วยให้คุณเข้าใจวิธีที่คุณเรียนรู้ได้ดีที่สุด มีปฏิสัมพันธ์กับผู้อื่น และจัดการกับความท้าทาย ทำให้คุณสามารถตัดสินใจได้อย่างมีข้อมูลเกี่ยวกับการศึกษาและความใฝ่ฝันของคุณ เริ่มต้นการเดินทางเพื่อค้นพบตัวเองวันนี้!</p>
     <div class="lang-switch">
@@ -490,12 +487,6 @@
       if (document.querySelector("#grade9Aptitude button:nth-of-type(2)")) document.querySelector("#grade9Aptitude button:nth-of-type(2)").textContent = translations[lang].shareButton;
       if (document.querySelector("#grade12Personality button:nth-of-type(2)")) document.querySelector("#grade12Personality button:nth-of-type(2)").textContent = translations[lang].shareButton;
       if (document.querySelector("#grade12Aptitude button:nth-of-type(2)")) document.querySelector("#grade12Aptitude button:nth-of-type(2)").textContent = translations[lang].shareButton;
-      if (document.querySelector(".test-selector button[onclick=\"showTest('grade9Personality')\"]")) document.querySelector(".test-selector button[onclick=\"showTest('grade9Personality')\"]").textContent = translations[lang].testSelector.grade9Personality;
-      if (document.querySelector(".test-selector button[onclick=\"showTest('grade9Aptitude')\"]")) document.querySelector(".test-selector button[onclick=\"showTest('grade9Aptitude')\"]").textContent = translations[lang].testSelector.grade9Aptitude;
-      if (document.querySelector(".test-selector button[onclick=\"showTest('grade12Personality')\"]")) document.querySelector(".test-selector button[onclick=\"showTest('grade12Personality')\"]").textContent = translations[lang].testSelector.grade12Personality;
-      if (document.querySelector(".test-selector button[onclick=\"showTest('grade12Aptitude')\"]")) document.querySelector(".test-selector button[onclick=\"showTest('grade12Aptitude')\"]").textContent = translations[lang].testSelector.grade12Aptitude;
-
-      // Update Grade 9 Personality Test questions and options
       const grade9PersonalityQuestions = document.querySelectorAll("#grade9Personality .question p");
       grade9PersonalityQuestions.forEach((q, i) => {
         if (translations[lang].grade9PersonalityQuestions[i]) q.textContent = translations[lang].grade9PersonalityQuestions[i];
@@ -506,8 +497,6 @@
           if (translations[lang].grade9PersonalityOptions[j]) opt.textContent = translations[lang].grade9PersonalityOptions[j];
         });
       });
-
-      // Update Grade 9 Aptitude Test questions and options
       const grade9AptitudeQuestions = document.querySelectorAll("#grade9Aptitude .question p");
       grade9AptitudeQuestions.forEach((q, i) => {
         if (translations[lang].grade9AptitudeQuestions[i]) q.textContent = translations[lang].grade9AptitudeQuestions[i];
@@ -521,8 +510,6 @@
           });
         }
       });
-
-      // Update Grade 12 Personality Test questions and options
       const grade12PersonalityQuestions = document.querySelectorAll("#grade12Personality .question p");
       grade12PersonalityQuestions.forEach((q, i) => {
         if (translations[lang].grade12PersonalityQuestions[i]) q.textContent = translations[lang].grade12PersonalityQuestions[i];
@@ -533,8 +520,6 @@
           if (translations[lang].grade12PersonalityOptions[j]) opt.textContent = translations[lang].grade12PersonalityOptions[j];
         });
       });
-
-      // Update Grade 12 Aptitude Test questions and options
       const grade12AptitudeQuestions = document.querySelectorAll("#grade12Aptitude .question p");
       grade12AptitudeQuestions.forEach((q, i) => {
         if (translations[lang].grade12AptitudeQuestions[i]) q.textContent = translations[lang].grade12AptitudeQuestions[i];
@@ -549,7 +534,6 @@
         }
       });
     }
-
     function showTest(testId) {
       const sections = ['grade9Personality', 'grade9Aptitude', 'grade12Personality', 'grade12Aptitude'];
       sections.forEach(id => {
@@ -557,7 +541,6 @@
         if (section) section.classList.toggle('active', id === testId);
       });
     }
-
     function calculatePersonality(formId, resultId, filename) {
       let score = 0;
       const form = document.getElementById(formId);
@@ -571,7 +554,6 @@
       });
       let result = document.documentElement.lang === 'th' ? "ผลลัพธ์แบบทดสอบบุคลิกภาพ\n" : "Personality Test Results\n";
       result += "============================\n";
-      
       if (score >= 48) {
         result += document.documentElement.lang === 'th' ? 
           "บุคลิกภาพของคุณ: มั่นใจและชอบเข้าสังคม\nคุณเป็นคนที่สนุกกับการพบปะผู้คนใหม่ๆ และมีความมั่นใจในการแสดงออก คุณมักจะเป็นผู้นำในกลุ่มและสนุกกับการทำงานร่วมกับผู้อื่น คุณมีทักษะในการสื่อสารที่ดีและสามารถสร้างแรงบันดาลใจให้คนรอบข้างได้ คุณเหมาะกับสภาพแวดล้อมที่ต้องมีการโต้ตอบและการสร้างความสัมพันธ์\n\n" +
@@ -627,7 +609,6 @@
       document.getElementById(resultId).textContent = result;
       downloadFile(filename, result);
     }
-
     function calculateAptitude(formId, resultId, filename) {
       const form = document.getElementById(formId);
       const answers = form.querySelectorAll("input:checked");
@@ -654,7 +635,6 @@
       document.getElementById(resultId).textContent = result;
       downloadFile(filename, result);
     }
-
     function downloadFile(filename, text) {
       const element = document.createElement('a');
       element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
@@ -664,15 +644,14 @@
       element.click();
       document.body.removeChild(element);
     }
-
     function shareResult(resultId) {
       const resultText = document.getElementById(resultId).textContent;
       const shareMessage = document.documentElement.lang === 'th' ? 
         `พบกับบุคลิกภาพหรือความถนัดของฉันจากแบบทดสอบความฉลาดด้านบุคคล! ลองทำแบบทดสอบเพื่อค้นหาตัวคุณเอง: [yourwebsite.com]` :
         `Discover my personality or aptitude with People Smart Tests! Try the test to find out about yourself: [yourwebsite.com]`;
       alert(`Share this on LINE or Facebook: ${shareMessage}\n\n${resultText}`);
-      // Replace alert with actual sharing API (e.g., Web Share API or LINE/Facebook SDK) if needed
     }
   </script>
 </body>
 </html>
+ 
