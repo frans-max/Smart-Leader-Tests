@@ -2,15 +2,79 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>People Smart Tests</title>
   <style>
-    .question { margin: 20px 0; }
-    .test-selector { text-align: center; }
-    section { display: none; }
-    section.active { display: block; }
-    button { padding: 10px 20px; margin: 10px; }
-    .lang-switch { text-align: center; }
-    img { width: 100%; height: auto; }
+    body {
+      background-color: #000000;
+      color: #FFD700;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    header {
+      text-align: center;
+      padding: 20px;
+    }
+    img {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+    }
+    h1, h2 {
+      color: #FFD700;
+    }
+    .lang-switch {
+      margin: 20px 0;
+    }
+    .lang-switch button, .test-selector button, section button {
+      background-color: #FFD700;
+      color: #000000;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 5px;
+    }
+    .lang-switch button:hover, .test-selector button:hover, section button:hover {
+      background-color: #DAA520;
+    }
+    .test-selector {
+      text-align: center;
+      margin: 20px 0;
+    }
+    section {
+      display: none;
+      background-color: #1C2526;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px 0;
+    }
+    section.active {
+      display: block;
+    }
+    .question {
+      margin: 15px 0;
+    }
+    .question p {
+      margin: 10px 0 5px;
+    }
+    label {
+      display: block;
+      margin: 5px 0;
+      color: #FFD700;
+    }
+    input[type="radio"] {
+      margin-right: 10px;
+    }
+    #resultP9, #resultA9, #resultP12, #resultA12 {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #333333;
+      border-radius: 5px;
+      color: #FFD700;
+    }
   </style>
 </head>
 <body>
@@ -31,206 +95,206 @@
   </div>
   <!-- Grade 9 Personality Test -->
   <section id="grade9Personality">
-    <h2>แบบทดสอบบุคลิกภาพ (ชั้นม.3)</h2>
+    <h2 id="grade9PersonalityTitle">Personality Test (Grade 9)</h2>
     <form id="quizFormP9">
-      <div class="question"><p>1. ฉันสนุกกับการพบปะผู้คนใหม่ๆ</p>
-        <label><input type="radio" name="q1" value="A"> เห็นด้วยอย่างยิ่ง</label>
-        <label><input type="radio" name="q1" value="B"> เห็นด้วย</label>
-        <label><input type="radio" name="q1" value="C"> เป็นกลาง</label>
-        <label><input type="radio" name="q1" value="D"> ไม่เห็นด้วย</label>
-        <label><input type="radio" name="q1" value="E"> ไม่เห็นด้วยอย่างยิ่ง</label></div>
-      <div class="question"><p>2. ฉันชอบวางแผนก่อนลงมือทำ</p>
-        <label><input type="radio" name="q2" value="A"> เห็นด้วยอย่างยิ่ง</label>
-        <label><input type="radio" name="q2" value="B"> เห็นด้วย</label>
-        <label><input type="radio" name="q2" value="C"> เป็นกลาง</label>
-        <label><input type="radio" name="q2" value="D"> ไม่เห็นด้วย</label>
-        <label><input type="radio" name="q2" value="E"> ไม่เห็นด้วยอย่างยิ่ง</label></div>
-      <div class="question"><p>3. ฉันชอบช่วยเพื่อนร่วมชั้นเรียนในงานของพวกเขา</p>
-        <label><input type="radio" name="q3" value="A"> เห็นด้วยอย่างยิ่ง</label>
-        <label><input type="radio" name="q3" value="B"> เห็นด้วย</label>
-        <label><input type="radio" name="q3" value="C"> เป็นกลาง</label>
-        <label><input type="radio" name="q3" value="D"> ไม่เห็นด้วย</label>
-        <label><input type="radio" name="q3" value="E"> ไม่เห็นด้วยอย่างยิ่ง</label></div>
-      <div class="question"><p>4. ฉันสงบเมื่อเกิดปัญหา</p>
-        <label><input type="radio" name="q4" value="A"> เห็นด้วยอย่างยิ่ง</label>
-        <label><input type="radio" name="q4" value="B"> เห็นด้วย</label>
-        <label><input type="radio" name="q4" value="C"> เป็นกลาง</label>
-        <label><input type="radio" name="q4" value="D"> ไม่เห็นด้วย</label>
-        <label><input type="radio" name="q4" value="E"> ไม่เห็นด้วยอย่างยิ่ง</label></div>
-      <div class="question"><p>5. ฉันสนุกกับกิจกรรมสร้างสรรค์ เช่น วาดรูปหรือเขียน</p>
-        <label><input type="radio" name="q5" value="A"> เห็นด้วยอย่างยิ่ง</label>
-        <label><input type="radio" name="q5" value="B"> เห็นด้วย</label>
-        <label><input type="radio" name="q5" value="C"> เป็นกลาง</label>
-        <label><input type="radio" name="q5" value="D"> ไม่เห็นด้วย</label>
-        <label><input type="radio" name="q5" value="E"> ไม่เห็นด้วยอย่างยิ่ง</label></div>
-      <div class="question"><p>6. ฉันมั่นใจในการพูดต่อหน้ากลุ่ม</p>
-        <label><input type="radio" name="q6" value="A"> เห็นด้วยอย่างยิ่ง</label>
-        <label><input type="radio" name="q6" value="B"> เห็นด้วย</label>
-        <label><input type="radio" name="q6" value="C"> เป็นกลาง</label>
-        <label><input type="radio" name="q6" value="D"> ไม่เห็นด้วย</label>
-        <label><input type="radio" name="q6" value="E"> ไม่เห็นด้วยอย่างยิ่ง</label></div>
-      <div class="question"><p>7. ฉันชอบแก้ปริศนาหรือปัญหาเชิงตรรกะ</p>
-        <label><input type="radio" name="q7" value="A"> เห็นด้วยอย่างยิ่ง</label>
-        <label><input type="radio" name="q7" value="B"> เห็นด้วย</label>
-        <label><input type="radio" name="q7" value="C"> เป็นกลาง</label>
-        <label><input type="radio" name="q7" value="D"> ไม่เห็นด้วย</label>
-        <label><input type="radio" name="q7" value="E"> ไม่เห็นด้วยอย่างยิ่ง</label></div>
-      <div class="question"><p>8. ฉันทำงานได้ดีภายใต้ความกดดัน</p>
-        <label><input type="radio" name="q8" value="A"> เห็นด้วยอย่างยิ่ง</label>
-        <label><input type="radio" name="q8" value="B"> เห็นด้วย</label>
-        <label><input type="radio" name="q8" value="C"> เป็นกลาง</label>
-        <label><input type="radio" name="q8" value="D"> ไม่เห็นด้วย</label>
-        <label><input type="radio" name="q8" value="E"> ไม่เห็นด้วยอย่างยิ่ง</label></div>
-      <div class="question"><p>9. ฉันสนุกกับการเป็นผู้นำในกลุ่ม</p>
-        <label><input type="radio" name="q9" value="A"> เห็นด้วยอย่างยิ่ง</label>
-        <label><input type="radio" name="q9" value="B"> เห็นด้วย</label>
-        <label><input type="radio" name="q9" value="C"> เป็นกลาง</label>
-        <label><input type="radio" name="q9" value="D"> ไม่เห็นด้วย</label>
-        <label><input type="radio" name="q9" value="E"> ไม่เห็นด้วยอย่างยิ่ง</label></div>
-      <div class="question"><p>10. ฉันชอบจัดระเบียบเวลาและงานของตัวเอง</p>
-        <label><input type="radio" name="q10" value="A"> เห็นด้วยอย่างยิ่ง</label>
-        <label><input type="radio" name="q10" value="B"> เห็นด้วย</label>
-        <label><input type="radio" name="q10" value="C"> เป็นกลาง</label>
-        <label><input type="radio" name="q10" value="D"> ไม่เห็นด้วย</label>
-        <label><input type="radio" name="q10" value="E"> ไม่เห็นด้วยอย่างยิ่ง</label></div>
-      <div class="question"><p>11. ฉันสนุกกับการลองสิ่งใหม่ๆ</p>
-        <label><input type="radio" name="q11" value="A"> เห็นด้วยอย่างยิ่ง</label>
-        <label><input type="radio" name="q11" value="B"> เห็นด้วย</label>
-        <label><input type="radio" name="q11" value="C"> เป็นกลาง</label>
-        <label><input type="radio" name="q11" value="D"> ไม่เห็นด้วย</label>
-        <label><input type="radio" name="q11" value="E"> ไม่เห็นด้วยอย่างยิ่ง</label></div>
-      <div class="question"><p>12. ฉันรู้สึกสบายใจเมื่อต้องตัดสินใจให้กลุ่ม</p>
-        <label><input type="radio" name="q12" value="A"> เห็นด้วยอย่างยิ่ง</label>
-        <label><input type="radio" name="q12" value="B"> เห็นด้วย</label>
-        <label><input type="radio" name="q12" value="C"> เป็นกลาง</label>
-        <label><input type="radio" name="q12" value="D"> ไม่เห็นด้วย</label>
-        <label><input type="radio" name="q12" value="E"> ไม่เห็นด้วยอย่างยิ่ง</label></div>
+      <div class="question"><p>1. I enjoy meeting new people</p>
+        <label><input type="radio" name="q1" value="A"> Strongly Agree</label>
+        <label><input type="radio" name="q1" value="B"> Agree</label>
+        <label><input type="radio" name="q1" value="C"> Neutral</label>
+        <label><input type="radio" name="q1" value="D"> Disagree</label>
+        <label><input type="radio" name="q1" value="E"> Strongly Disagree</label></div>
+      <div class="question"><p>2. I like to plan before doing things</p>
+        <label><input type="radio" name="q2" value="A"> Strongly Agree</label>
+        <label><input type="radio" name="q2" value="B"> Agree</label>
+        <label><input type="radio" name="q2" value="C"> Neutral</label>
+        <label><input type="radio" name="q2" value="D"> Disagree</label>
+        <label><input type="radio" name="q2" value="E"> Strongly Disagree</label></div>
+      <div class="question"><p>3. I enjoy helping classmates with their work</p>
+        <label><input type="radio" name="q3" value="A"> Strongly Agree</label>
+        <label><input type="radio" name="q3" value="B"> Agree</label>
+        <label><input type="radio" name="q3" value="C"> Neutral</label>
+        <label><input type="radio" name="q3" value="D"> Disagree</label>
+        <label><input type="radio" name="q3" value="E"> Strongly Disagree</label></div>
+      <div class="question"><p>4. I stay calm when problems arise</p>
+        <label><input type="radio" name="q4" value="A"> Strongly Agree</label>
+        <label><input type="radio" name="q4" value="B"> Agree</label>
+        <label><input type="radio" name="q4" value="C"> Neutral</label>
+        <label><input type="radio" name="q4" value="D"> Disagree</label>
+        <label><input type="radio" name="q4" value="E"> Strongly Disagree</label></div>
+      <div class="question"><p>5. I enjoy creative activities like drawing or writing</p>
+        <label><input type="radio" name="q5" value="A"> Strongly Agree</label>
+        <label><input type="radio" name="q5" value="B"> Agree</label>
+        <label><input type="radio" name="q5" value="C"> Neutral</label>
+        <label><input type="radio" name="q5" value="D"> Disagree</label>
+        <label><input type="radio" name="q5" value="E"> Strongly Disagree</label></div>
+      <div class="question"><p>6. I feel confident speaking in front of a group</p>
+        <label><input type="radio" name="q6" value="A"> Strongly Agree</label>
+        <label><input type="radio" name="q6" value="B"> Agree</label>
+        <label><input type="radio" name="q6" value="C"> Neutral</label>
+        <label><input type="radio" name="q6" value="D"> Disagree</label>
+        <label><input type="radio" name="q6" value="E"> Strongly Disagree</label></div>
+      <div class="question"><p>7. I like solving puzzles or logical problems</p>
+        <label><input type="radio" name="q7" value="A"> Strongly Agree</label>
+        <label><input type="radio" name="q7" value="B"> Agree</label>
+        <label><input type="radio" name="q7" value="C"> Neutral</label>
+        <label><input type="radio" name="q7" value="D"> Disagree</label>
+        <label><input type="radio" name="q7" value="E"> Strongly Disagree</label></div>
+      <div class="question"><p>8. I work well under pressure</p>
+        <label><input type="radio" name="q8" value="A"> Strongly Agree</label>
+        <label><input type="radio" name="q8" value="B"> Agree</label>
+        <label><input type="radio" name="q8" value="C"> Neutral</label>
+        <label><input type="radio" name="q8" value="D"> Disagree</label>
+        <label><input type="radio" name="q8" value="E"> Strongly Disagree</label></div>
+      <div class="question"><p>9. I enjoy being a leader in a group</p>
+        <label><input type="radio" name="q9" value="A"> Strongly Agree</label>
+        <label><input type="radio" name="q9" value="B"> Agree</label>
+        <label><input type="radio" name="q9" value="C"> Neutral</label>
+        <label><input type="radio" name="q9" value="D"> Disagree</label>
+        <label><input type="radio" name="q9" value="E"> Strongly Disagree</label></div>
+      <div class="question"><p>10. I like organizing my time and tasks</p>
+        <label><input type="radio" name="q10" value="A"> Strongly Agree</label>
+        <label><input type="radio" name="q10" value="B"> Agree</label>
+        <label><input type="radio" name="q10" value="C"> Neutral</label>
+        <label><input type="radio" name="q10" value="D"> Disagree</label>
+        <label><input type="radio" name="q10" value="E"> Strongly Disagree</label></div>
+      <div class="question"><p>11. I enjoy trying new things</p>
+        <label><input type="radio" name="q11" value="A"> Strongly Agree</label>
+        <label><input type="radio" name="q11" value="B"> Agree</label>
+        <label><input type="radio" name="q11" value="C"> Neutral</label>
+        <label><input type="radio" name="q11" value="D"> Disagree</label>
+        <label><input type="radio" name="q11" value="E"> Strongly Disagree</label></div>
+      <div class="question"><p>12. I feel comfortable making decisions for a group</p>
+        <label><input type="radio" name="q12" value="A"> Strongly Agree</label>
+        <label><input type="radio" name="q12" value="B"> Agree</label>
+        <label><input type="radio" name="q12" value="C"> Neutral</label>
+        <label><input type="radio" name="q12" value="D"> Disagree</label>
+        <label><input type="radio" name="q12" value="E"> Strongly Disagree</label></div>
     </form>
-    <button type="button" onclick="calculatePersonality('quizFormP9', 'resultP9', 'Grade_9_Personality_Results.txt')">แสดงและดาวน์โหลดผลลัพธ์</button>
-    <button type="button" onclick="shareResult('resultP9')">แชร์ผลลัพธ์</button>
+    <button type="button" onclick="calculatePersonality('quizFormP9', 'resultP9', 'Grade_9_Personality_Results.txt')">Show & Download Results</button>
+    <button type="button" onclick="shareResult('resultP9')">Share Results</button>
     <div id="resultP9"></div>
   </section>
   <!-- Grade 9 Aptitude Test -->
   <section id="grade9Aptitude">
-    <h2>แบบทดสอบความถนัด (ชั้นม.3)</h2>
+    <h2 id="grade9AptitudeTitle">Aptitude Test (Grade 9)</h2>
     <form id="quizFormA9">
-      <div class="question"><p>1. เวลามีงานกลุ่ม คุณชอบทำหน้าที่อะไร?</p>
-        <label><input type="radio" name="aq1" value="Practical"> ลงมือทำจริง</label>
-        <label><input type="radio" name="aq1" value="Creative"> คิดไอเดียใหม่ๆ</label>
-        <label><input type="radio" name="aq1" value="Analytical"> วางแผนและแก้ปัญหา</label>
-        <label><input type="radio" name="aq1" value="Social"> ดูแลเพื่อน</label>
-        <label><input type="radio" name="aq1" value="Leadership"> นำกลุ่ม</label></div>
-      <div class="question"><p>2. คุณชอบวิชาอะไรที่สุด?</p>
-        <label><input type="radio" name="aq2" value="Practical"> พละ/งานฝีมือ</label>
-        <label><input type="radio" name="aq2" value="Creative"> ศิลปะ/ดนตรี</label>
-        <label><input type="radio" name="aq2" value="Analytical"> คณิต/วิทย์</label>
-        <label><input type="radio" name="aq2" value="Social"> สังคม/ภาษา</label>
-        <label><input type="radio" name="aq2" value="Leadership"> กิจกรรมผู้นำ</label></div>
-      <div class="question"><p>3. เวลาว่างคุณชอบทำอะไร?</p>
-        <label><input type="radio" name="aq3" value="Practical"> เล่นกีฬา</label>
-        <label><input type="radio" name="aq3" value="Creative"> วาดรูป/แต่งเพลง</label>
-        <label><input type="radio" name="aq3" value="Analytical"> อ่าน/เล่นหมากรุก</label>
-        <label><input type="radio" name="aq3" value="Social"> พบเพื่อน</label>
-        <label><input type="radio" name="aq3" value="Leadership"> จัดการกิจกรรม</label></div>
-      <div class="question"><p>4. คุณมักแก้ปัญหาแบบไหน?</p>
-        <label><input type="radio" name="aq4" value="Practical"> ลงมือทำเลย</label>
-        <label><input type="radio" name="aq4" value="Creative"> หาวิธีใหม่</label>
-        <label><input type="radio" name="aq4" value="Analytical"> วิเคราะห์เหตุผล</label>
-        <label><input type="radio" name="aq4" value="Social"> ขอความช่วยเหลือ</label>
-        <label><input type="radio" name="aq4" value="Leadership"> ตัดสินใจแทนกลุ่ม</label></div>
-      <div class="question"><p>5. เพื่อนมักบอกว่าคุณเป็น...</p>
-        <label><input type="radio" name="aq5" value="Practical"> ขยันทำงาน</label>
-        <label><input type="radio" name="aq5" value="Creative"> มีไอเดีย</label>
-        <label><input type="radio" name="aq5" value="Analytical"> เก่งคิดวิเคราะห์</label>
-        <label><input type="radio" name="aq5" value="Social"> ใจดี</label>
-        <label><input type="radio" name="aq5" value="Leadership"> ผู้นำ</label></div>
-      <div class="question"><p>6. งานในอนาคตที่คุณสนใจคือ...</p>
-        <label><input type="radio" name="aq6" value="Practical"> ช่าง/เกษตร</label>
-        <label><input type="radio" name="aq6" value="Creative"> นักออกแบบ/ศิลปิน</label>
-        <label><input type="radio" name="aq6" value="Analytical"> วิศวกร/นักวิทย์</label>
-        <label><input type="radio" name="aq6" value="Social"> ครู/พยาบาล</label>
-        <label><input type="radio" name="aq6" value="Leadership"> ผู้จัดการ</label></div>
-      <div class="question"><p>7. คุณรู้สึกดีเมื่อ...</p>
-        <label><input type="radio" name="aq7" value="Practical"> งานสำเร็จจริง</label>
-        <label><input type="radio" name="aq7" value="Creative"> สร้างสิ่งใหม่</label>
-        <label><input type="radio" name="aq7" value="Analytical"> แก้โจทย์ยากได้</label>
-        <label><input type="radio" name="aq7" value="Social"> ช่วยเพื่อนได้</label>
-        <label><input type="radio" name="aq7" value="Leadership"> คุมทีมได้</label></div>
-      <div class="question"><p>8. คุณถนัดการทำงานแบบไหน?</p>
-        <label><input type="radio" name="aq8" value="Practical"> ใช้มือ/เครื่องมือ</label>
-        <label><input type="radio" name="aq8" value="Creative"> ใช้จินตนาการ</label>
-        <label><input type="radio" name="aq8" value="Analytical"> ใช้เหตุผล</label>
-        <label><input type="radio" name="aq8" value="Social"> ทำงานกับคน</label>
-        <label><input type="radio" name="aq8" value="Leadership"> บริหารจัดการ</label></div>
-      <div class="question"><p>9. ถ้าเลือกได้คุณอยาก...</p>
-        <label><input type="radio" name="aq9" value="Practical"> ซ่อมของ</label>
-        <label><input type="radio" name="aq9" value="Creative"> แต่งเพลง/งานศิลป์</label>
-        <label><input type="radio" name="aq9" value="Analytical"> ทำวิจัย</label>
-        <label><input type="radio" name="aq9" value="Social"> ช่วยเหลือคน</label>
-        <label><input type="radio" name="aq9" value="Leadership"> นำโครงการ</label></div>
-      <div class="question"><p>10. คุณภูมิใจเมื่อ...</p>
-        <label><input type="radio" name="aq10" value="Practical"> งานเสร็จสิ้น</label>
-        <label><input type="radio" name="aq10" value="Creative"> ไอเดียสำเร็จ</label>
-        <label><input type="radio" name="aq10" value="Analytical"> คำตอบถูก</label>
-        <label><input type="radio" name="aq10" value="Social"> คนรอบข้างดีขึ้น</label>
-        <label><input type="radio" name="aq10" value="Leadership"> ทุกคนตามแผน</label></div>
-      <div class="question"><p>11. คุณชอบกิจกรรมแบบ...</p>
-        <label><input type="radio" name="aq11" value="Practical"> ใช้แรง</label>
-        <label><input type="radio" name="aq11" value="Creative"> สร้างสรรค์</label>
-        <label><input type="radio" name="aq11" value="Analytical"> ใช้สมอง</label>
-        <label><input type="radio" name="aq11" value="Social"> พูดคุย</label>
-        <label><input type="radio" name="aq11" value="Leadership"> คุมทีม</label></div>
-      <div class="question"><p>12. ถ้ามีปัญหาคุณจะ...</p>
-        <label><input type="radio" name="aq12" value="Practical"> ลองทำ</label>
-        <label><input type="radio" name="aq12" value="Creative"> คิดใหม่</label>
-        <label><input type="radio" name="aq12" value="Analytical"> วิเคราะห์</label>
-        <label><input type="radio" name="aq12" value="Social"> ขอความช่วยเหลือ</label>
-        <label><input type="radio" name="aq12" value="Leadership"> ตัดสินใจเอง</label></div>
+      <div class="question"><p>1. In a group project, what role do you like to take?</p>
+        <label><input type="radio" name="aq1" value="Practical"> Hands-on work</label>
+        <label><input type="radio" name="aq1" value="Creative"> Coming up with new ideas</label>
+        <label><input type="radio" name="aq1" value="Analytical"> Planning and problem-solving</label>
+        <label><input type="radio" name="aq1" value="Social"> Supporting friends</label>
+        <label><input type="radio" name="aq1" value="Leadership"> Leading the group</label></div>
+      <div class="question"><p>2. What subject do you like the most?</p>
+        <label><input type="radio" name="aq2" value="Practical"> PE/Crafts</label>
+        <label><input type="radio" name="aq2" value="Creative"> Art/Music</label>
+        <label><input type="radio" name="aq2" value="Analytical"> Math/Science</label>
+        <label><input type="radio" name="aq2" value="Social"> Social Studies/Languages</label>
+        <label><input type="radio" name="aq2" value="Leadership"> Leadership Activities</label></div>
+      <div class="question"><p>3. What do you like to do in your free time?</p>
+        <label><input type="radio" name="aq3" value="Practical"> Play sports</label>
+        <label><input type="radio" name="aq3" value="Creative"> Draw/write songs</label>
+        <label><input type="radio" name="aq3" value="Analytical"> Read/play chess</label>
+        <label><input type="radio" name="aq3" value="Social"> Hang out with friends</label>
+        <label><input type="radio" name="aq3" value="Leadership"> Organize activities</label></div>
+      <div class="question"><p>4. How do you usually solve problems?</p>
+        <label><input type="radio" name="aq4" value="Practical"> Try doing it right away</label>
+        <label><input type="radio" name="aq4" value="Creative"> Find a new way</label>
+        <label><input type="radio" name="aq4" value="Analytical"> Analyze the reasons</label>
+        <label><input type="radio" name="aq4" value="Social"> Ask for help</label>
+        <label><input type="radio" name="aq4" value="Leadership"> Decide for the group</label></div>
+      <div class="question"><p>5. Your friends say you are...</p>
+        <label><input type="radio" name="aq5" value="Practical"> Hardworking</label>
+        <label><input type="radio" name="aq5" value="Creative"> Imaginative</label>
+        <label><input type="radio" name="aq5" value="Analytical"> Good at thinking</label>
+        <label><input type="radio" name="aq5" value="Social"> Kind</label>
+        <label><input type="radio" name="aq5" value="Leadership"> A leader</label></div>
+      <div class="question"><p>6. What future job interests you?</p>
+        <label><input type="radio" name="aq6" value="Practical"> Technician/Farmer</label>
+        <label><input type="radio" name="aq6" value="Creative"> Designer/Artist</label>
+        <label><input type="radio" name="aq6" value="Analytical"> Engineer/Scientist</label>
+        <label><input type="radio" name="aq6" value="Social"> Teacher/Nurse</label>
+        <label><input type="radio" name="aq6" value="Leadership"> Manager</label></div>
+      <div class="question"><p>7. You feel good when...</p>
+        <label><input type="radio" name="aq7" value="Practical"> Work is done</label>
+        <label><input type="radio" name="aq7" value="Creative"> You create something new</label>
+        <label><input type="radio" name="aq7" value="Analytical"> You solve a tough problem</label>
+        <label><input type="radio" name="aq7" value="Social"> You help a friend</label>
+        <label><input type="radio" name="aq7" value="Leadership"> You lead a team</label></div>
+      <div class="question"><p>8. You are good at working with...</p>
+        <label><input type="radio" name="aq8" value="Practical"> Hands/tools</label>
+        <label><input type="radio" name="aq8" value="Creative"> Imagination</label>
+        <label><input type="radio" name="aq8" value="Analytical"> Logic</label>
+        <label><input type="radio" name="aq8" value="Social"> People</label>
+        <label><input type="radio" name="aq8" value="Leadership"> Managing tasks</label></div>
+      <div class="question"><p>9. If you could choose, you’d like to...</p>
+        <label><input type="radio" name="aq9" value="Practical"> Fix things</label>
+        <label><input type="radio" name="aq9" value="Creative"> Write songs/art</label>
+        <label><input type="radio" name="aq9" value="Analytical"> Do research</label>
+        <label><input type="radio" name="aq9" value="Social"> Help people</label>
+        <label><input type="radio" name="aq9" value="Leadership"> Lead a project</label></div>
+      <div class="question"><p>10. You are proud when...</p>
+        <label><input type="radio" name="aq10" value="Practical"> Work is complete</label>
+        <label><input type="radio" name="aq10" value="Creative"> An idea works out</label>
+        <label><input type="radio" name="aq10" value="Analytical"> You get the right answer</label>
+        <label><input type="radio" name="aq10" value="Social"> You make others happy</label>
+        <label><input type="radio" name="aq10" value="Leadership"> Everyone follows the plan</label></div>
+      <div class="question"><p>11. You enjoy activities that are...</p>
+        <label><input type="radio" name="aq11" value="Practical"> Physical</label>
+        <label><input type="radio" name="aq11" value="Creative"> Creative</label>
+        <label><input type="radio" name="aq11" value="Analytical"> Brain-challenging</label>
+        <label><input type="radio" name="aq11" value="Social"> Social</label>
+        <label><input type="radio" name="aq11" value="Leadership"> Leading</label></div>
+      <div class="question"><p>12. When there’s a problem, you...</p>
+        <label><input type="radio" name="aq12" value="Practical"> Try doing it</label>
+        <label><input type="radio" name="aq12" value="Creative"> Think of new ways</label>
+        <label><input type="radio" name="aq12" value="Analytical"> Analyze it</label>
+        <label><input type="radio" name="aq12" value="Social"> Ask for help</label>
+        <label><input type="radio" name="aq12" value="Leadership"> Decide yourself</label></div>
     </form>
-    <button type="button" onclick="calculateAptitude('quizFormA9', 'resultA9', 'Grade_9_Aptitude_Results.txt')">แสดงและดาวน์โหลดผลลัพธ์</button>
-    <button type="button" onclick="shareResult('resultA9')">แชร์ผลลัพธ์</button>
+    <button type="button" onclick="calculateAptitude('quizFormA9', 'resultA9', 'Grade_9_Aptitude_Results.txt')">Show & Download Results</button>
+    <button type="button" onclick="shareResult('resultA9')">Share Results</button>
     <div id="resultA9"></div>
   </section>
   <!-- Grade 12 Personality Test (Placeholder) -->
   <section id="grade12Personality">
-    <h2>แบบทดสอบบุคลิกภาพ (ชั้นม.6)</h2>
+    <h2 id="grade12PersonalityTitle">Personality Test (Grade 12)</h2>
     <form id="quizFormP12">
-      <div class="question"><p>1. ฉันสนุกกับการพบปะผู้คนใหม่ๆ</p>
-        <label><input type="radio" name="q1" value="A"> เห็นด้วยอย่างยิ่ง</label>
-        <label><input type="radio" name="q1" value="B"> เห็นด้วย</label>
-        <label><input type="radio" name="q1" value="C"> เป็นกลาง</label>
-        <label><input type="radio" name="q1" value="D"> ไม่เห็นด้วย</label>
-        <label><input type="radio" name="q1" value="E"> ไม่เห็นด้วยอย่างยิ่ง</label></div>
-      <div class="question"><p>2. ฉันชอบวางแผนก่อนลงมือทำ</p>
-        <label><input type="radio" name="q2" value="A"> เห็นด้วยอย่างยิ่ง</label>
-        <label><input type="radio" name="q2" value="B"> เห็นด้วย</label>
-        <label><input type="radio" name="q2" value="C"> เป็นกลาง</label>
-        <label><input type="radio" name="q2" value="D"> ไม่เห็นด้วย</label>
-        <label><input type="radio" name="q2" value="E"> ไม่เห็นด้วยอย่างยิ่ง</label></div>
+      <div class="question"><p>1. I enjoy meeting new people</p>
+        <label><input type="radio" name="q1" value="A"> Strongly Agree</label>
+        <label><input type="radio" name="q1" value="B"> Agree</label>
+        <label><input type="radio" name="q1" value="C"> Neutral</label>
+        <label><input type="radio" name="q1" value="D"> Disagree</label>
+        <label><input type="radio" name="q1" value="E"> Strongly Disagree</label></div>
+      <div class="question"><p>2. I like to plan before doing things</p>
+        <label><input type="radio" name="q2" value="A"> Strongly Agree</label>
+        <label><input type="radio" name="q2" value="B"> Agree</label>
+        <label><input type="radio" name="q2" value="C"> Neutral</label>
+        <label><input type="radio" name="q2" value="D"> Disagree</label>
+        <label><input type="radio" name="q2" value="E"> Strongly Disagree</label></div>
     </form>
-    <button type="button" onclick="calculatePersonality('quizFormP12', 'resultP12', 'Grade_12_Personality_Results.txt')">แสดงและดาวน์โหลดผลลัพธ์</button>
-    <button type="button" onclick="shareResult('resultP12')">แชร์ผลลัพธ์</button>
+    <button type="button" onclick="calculatePersonality('quizFormP12', 'resultP12', 'Grade_12_Personality_Results.txt')">Show & Download Results</button>
+    <button type="button" onclick="shareResult('resultP12')">Share Results</button>
     <div id="resultP12"></div>
   </section>
   <!-- Grade 12 Aptitude Test (Placeholder) -->
   <section id="grade12Aptitude">
-    <h2>แบบทดสอบความถนัด (ชั้นม.6)</h2>
+    <h2 id="grade12AptitudeTitle">Aptitude Test (Grade 12)</h2>
     <form id="quizFormA12">
-      <div class="question"><p>1. เวลามีงานกลุ่ม คุณชอบทำหน้าที่อะไร?</p>
-        <label><input type="radio" name="aq1" value="Practical"> ลงมือทำจริง</label>
-        <label><input type="radio" name="aq1" value="Creative"> คิดไอเดียใหม่ๆ</label>
-        <label><input type="radio" name="aq1" value="Analytical"> วางแผนและแก้ปัญหา</label>
-        <label><input type="radio" name="aq1" value="Social"> ดูแลเพื่อน</label>
-        <label><input type="radio" name="aq1" value="Leadership"> นำกลุ่ม</label></div>
-      <div class="question"><p>2. คุณชอบวิชาอะไรที่สุด?</p>
-        <label><input type="radio" name="aq2" value="Practical"> พละ/งานฝีมือ</label>
-        <label><input type="radio" name="aq2" value="Creative"> ศิลปะ/ดนตรี</label>
-        <label><input type="radio" name="aq2" value="Analytical"> คณิต/วิทย์</label>
-        <label><input type="radio" name="aq2" value="Social"> สังคม/ภาษา</label>
-        <label><input type="radio" name="aq2" value="Leadership"> กิจกรรมผู้นำ</label></div>
+      <div class="question"><p>1. In a group project, what role do you like to take?</p>
+        <label><input type="radio" name="aq1" value="Practical"> Hands-on work</label>
+        <label><input type="radio" name="aq1" value="Creative"> Coming up with new ideas</label>
+        <label><input type="radio" name="aq1" value="Analytical"> Planning and problem-solving</label>
+        <label><input type="radio" name="aq1" value="Social"> Supporting friends</label>
+        <label><input type="radio" name="aq1" value="Leadership"> Leading the group</label></div>
+      <div class="question"><p>2. What subject do you like the most?</p>
+        <label><input type="radio" name="aq2" value="Practical"> PE/Crafts</label>
+        <label><input type="radio" name="aq2" value="Creative"> Art/Music</label>
+        <label><input type="radio" name="aq2" value="Analytical"> Math/Science</label>
+        <label><input type="radio" name="aq2" value="Social"> Social Studies/Languages</label>
+        <label><input type="radio" name="aq2" value="Leadership"> Leadership Activities</label></div>
     </form>
-    <button type="button" onclick="calculateAptitude('quizFormA12', 'resultA12', 'Grade_12_Aptitude_Results.txt')">แสดงและดาวน์โหลดผลลัพธ์</button>
-    <button type="button" onclick="shareResult('resultA12')">แชร์ผลลัพธ์</button>
+    <button type="button" onclick="calculateAptitude('quizFormA12', 'resultA12', 'Grade_12_Aptitude_Results.txt')">Show & Download Results</button>
+    <button type="button" onclick="shareResult('resultA12')">Share Results</button>
     <div id="resultA12"></div>
   </section>
   <script>
@@ -251,7 +315,43 @@
             grade9Aptitude: "Grade 9 Aptitude Test",
             grade12Personality: "Grade 12 Personality Test",
             grade12Aptitude: "Grade 12 Aptitude Test"
-          }
+          },
+          grade9PersonalityQuestions: [
+            "I enjoy meeting new people",
+            "I like to plan before doing things",
+            "I enjoy helping classmates with their work",
+            "I stay calm when problems arise",
+            "I enjoy creative activities like drawing or writing",
+            "I feel confident speaking in front of a group",
+            "I like solving puzzles or logical problems",
+            "I work well under pressure",
+            "I enjoy being a leader in a group",
+            "I like organizing my time and tasks",
+            "I enjoy trying new things",
+            "I feel comfortable making decisions for a group"
+          ],
+          grade9AptitudeQuestions: [
+            "In a group project, what role do you like to take?",
+            "What subject do you like the most?",
+            "What do you like to do in your free time?",
+            "How do you usually solve problems?",
+            "Your friends say you are...",
+            "What future job interests you?",
+            "You feel good when...",
+            "You are good at working with...",
+            "If you could choose, you’d like to...",
+            "You are proud when...",
+            "You enjoy activities that are...",
+            "When there’s a problem, you..."
+          ],
+          grade12PersonalityQuestions: [
+            "I enjoy meeting new people",
+            "I like to plan before doing things"
+          ],
+          grade12AptitudeQuestions: [
+            "In a group project, what role do you like to take?",
+            "What subject do you like the most?"
+          ]
         },
         th: {
           introTitle: "แบบทดสอบความฉลาดด้านบุคคล",
@@ -268,34 +368,88 @@
             grade9Aptitude: "แบบทดสอบความถนัด ชั้นม.3",
             grade12Personality: "แบบทดสอบบุคลิกภาพ ชั้นม.6",
             grade12Aptitude: "แบบทดสอบความถนัด ชั้นม.6"
-          }
+          },
+          grade9PersonalityQuestions: [
+            "ฉันสนุกกับการพบปะผู้คนใหม่ๆ",
+            "ฉันชอบวางแผนก่อนลงมือทำ",
+            "ฉันชอบช่วยเพื่อนร่วมชั้นเรียนในงานของพวกเขา",
+            "ฉันสงบเมื่อเกิดปัญหา",
+            "ฉันสนุกกับกิจกรรมสร้างสรรค์ เช่น วาดรูปหรือเขียน",
+            "ฉันมั่นใจในการพูดต่อหน้ากลุ่ม",
+            "ฉันชอบแก้ปริศนาหรือปัญหาเชิงตรรกะ",
+            "ฉันทำงานได้ดีภายใต้ความกดดัน",
+            "ฉันสนุกกับการเป็นผู้นำในกลุ่ม",
+            "ฉันชอบจัดระเบียบเวลาและงานของตัวเอง",
+            "ฉันสนุกกับการลองสิ่งใหม่ๆ",
+            "ฉันรู้สึกสบายใจเมื่อต้องตัดสินใจให้กลุ่ม"
+          ],
+          grade9AptitudeQuestions: [
+            "เวลามีงานกลุ่ม คุณชอบทำหน้าที่อะไร?",
+            "คุณชอบวิชาอะไรที่สุด?",
+            "เวลาว่างคุณชอบทำอะไร?",
+            "คุณมักแก้ปัญหาแบบไหน?",
+            "เพื่อนมักบอกว่าคุณเป็น...",
+            "งานในอนาคตที่คุณสนใจคือ...",
+            "คุณรู้สึกดีเมื่อ...",
+            "คุณถนัดการทำงานแบบไหน?",
+            "ถ้าเลือกได้คุณอยาก...",
+            "คุณภูมิใจเมื่อ...",
+            "คุณชอบกิจกรรมแบบ...",
+            "ถ้ามีปัญหาคุณจะ..."
+          ],
+          grade12PersonalityQuestions: [
+            "ฉันสนุกกับการพบปะผู้คนใหม่ๆ",
+            "ฉันชอบวางแผนก่อนลงมือทำ"
+          ],
+          grade12AptitudeQuestions: [
+            "เวลามีงานกลุ่ม คุณชอบทำหน้าที่อะไร?",
+            "คุณชอบวิชาอะไรที่สุด?"
+          ]
         }
       };
-      document.getElementById("introTitle").textContent = translations[lang].introTitle;
-      document.getElementById("introText").textContent = translations[lang].introText;
-      document.querySelector("#grade9Personality h2").textContent = translations[lang].grade9PersonalityTitle;
-      document.querySelector("#grade9Aptitude h2").textContent = translations[lang].grade9AptitudeTitle;
-      document.querySelector("#grade12Personality h2").textContent = translations[lang].grade12PersonalityTitle;
-      document.querySelector("#grade12Aptitude h2").textContent = translations[lang].grade12AptitudeTitle;
-      document.querySelector("#grade9Personality button:nth-of-type(1)").textContent = translations[lang].personalityButton;
-      document.querySelector("#grade9Aptitude button:nth-of-type(1)").textContent = translations[lang].aptitudeButton;
-      document.querySelector("#grade12Personality button:nth-of-type(1)").textContent = translations[lang].personalityButton;
-      document.querySelector("#grade12Aptitude button:nth-of-type(1)").textContent = translations[lang].aptitudeButton;
-      document.querySelector("#grade9Personality button:nth-of-type(2)").textContent = translations[lang].shareButton;
-      document.querySelector("#grade9Aptitude button:nth-of-type(2)").textContent = translations[lang].shareButton;
-      document.querySelector("#grade12Personality button:nth-of-type(2)").textContent = translations[lang].shareButton;
-      document.querySelector("#grade12Aptitude button:nth-of-type(2)").textContent = translations[lang].shareButton;
-      document.querySelector(".test-selector button[onclick=\"showTest('grade9Personality')\"]").textContent = translations[lang].testSelector.grade9Personality;
-      document.querySelector(".test-selector button[onclick=\"showTest('grade9Aptitude')\"]").textContent = translations[lang].testSelector.grade9Aptitude;
-      document.querySelector(".test-selector button[onclick=\"showTest('grade12Personality')\"]").textContent = translations[lang].testSelector.grade12Personality;
-      document.querySelector(".test-selector button[onclick=\"showTest('grade12Aptitude')\"]").textContent = translations[lang].testSelector.grade12Aptitude;
+      if (document.getElementById("introTitle")) document.getElementById("introTitle").textContent = translations[lang].introTitle;
+      if (document.getElementById("introText")) document.getElementById("introText").textContent = translations[lang].introText;
+      if (document.querySelector("#grade9Personality h2")) document.querySelector("#grade9Personality h2").textContent = translations[lang].grade9PersonalityTitle;
+      if (document.querySelector("#grade9Aptitude h2")) document.querySelector("#grade9Aptitude h2").textContent = translations[lang].grade9AptitudeTitle;
+      if (document.querySelector("#grade12Personality h2")) document.querySelector("#grade12Personality h2").textContent = translations[lang].grade12PersonalityTitle;
+      if (document.querySelector("#grade12Aptitude h2")) document.querySelector("#grade12Aptitude h2").textContent = translations[lang].grade12AptitudeTitle;
+      if (document.querySelector("#grade9Personality button:nth-of-type(1)")) document.querySelector("#grade9Personality button:nth-of-type(1)").textContent = translations[lang].personalityButton;
+      if (document.querySelector("#grade9Aptitude button:nth-of-type(1)")) document.querySelector("#grade9Aptitude button:nth-of-type(1)").textContent = translations[lang].aptitudeButton;
+      if (document.querySelector("#grade12Personality button:nth-of-type(1)")) document.querySelector("#grade12Personality button:nth-of-type(1)").textContent = translations[lang].personalityButton;
+      if (document.querySelector("#grade12Aptitude button:nth-of-type(1)")) document.querySelector("#grade12Aptitude button:nth-of-type(1)").textContent = translations[lang].aptitudeButton;
+      if (document.querySelector("#grade9Personality button:nth-of-type(2)")) document.querySelector("#grade9Personality button:nth-of-type(2)").textContent = translations[lang].shareButton;
+      if (document.querySelector("#grade9Aptitude button:nth-of-type(2)")) document.querySelector("#grade9Aptitude button:nth-of-type(2)").textContent = translations[lang].shareButton;
+      if (document.querySelector("#grade12Personality button:nth-of-type(2)")) document.querySelector("#grade12Personality button:nth-of-type(2)").textContent = translations[lang].shareButton;
+      if (document.querySelector("#grade12Aptitude button:nth-of-type(2)")) document.querySelector("#grade12Aptitude button:nth-of-type(2)").textContent = translations[lang].shareButton;
+      if (document.querySelector(".test-selector button[onclick=\"showTest('grade9Personality')\"]")) document.querySelector(".test-selector button[onclick=\"showTest('grade9Personality')\"]").textContent = translations[lang].testSelector.grade9Personality;
+      if (document.querySelector(".test-selector button[onclick=\"showTest('grade9Aptitude')\"]")) document.querySelector(".test-selector button[onclick=\"showTest('grade9Aptitude')\"]").textContent = translations[lang].testSelector.grade9Aptitude;
+      if (document.querySelector(".test-selector button[onclick=\"showTest('grade12Personality')\"]")) document.querySelector(".test-selector button[onclick=\"showTest('grade12Personality')\"]").textContent = translations[lang].testSelector.grade12Personality;
+      if (document.querySelector(".test-selector button[onclick=\"showTest('grade12Aptitude')\"]")) document.querySelector(".test-selector button[onclick=\"showTest('grade12Aptitude')\"]").textContent = translations[lang].testSelector.grade12Aptitude;
+      
+      // Update question text
+      const grade9PersonalityQuestions = document.querySelectorAll("#grade9Personality .question p");
+      grade9PersonalityQuestions.forEach((q, i) => {
+        if (translations[lang].grade9PersonalityQuestions[i]) q.textContent = translations[lang].grade9PersonalityQuestions[i];
+      });
+      const grade9AptitudeQuestions = document.querySelectorAll("#grade9Aptitude .question p");
+      grade9AptitudeQuestions.forEach((q, i) => {
+        if (translations[lang].grade9AptitudeQuestions[i]) q.textContent = translations[lang].grade9AptitudeQuestions[i];
+      });
+      const grade12PersonalityQuestions = document.querySelectorAll("#grade12Personality .question p");
+      grade12PersonalityQuestions.forEach((q, i) => {
+        if (translations[lang].grade12PersonalityQuestions[i]) q.textContent = translations[lang].grade12PersonalityQuestions[i];
+      });
+      const grade12AptitudeQuestions = document.querySelectorAll("#grade12Aptitude .question p");
+      grade12AptitudeQuestions.forEach((q, i) => {
+        if (translations[lang].grade12AptitudeQuestions[i]) q.textContent = translations[lang].grade12AptitudeQuestions[i];
+      });
     }
 
     function showTest(testId) {
       const sections = ['grade9Personality', 'grade9Aptitude', 'grade12Personality', 'grade12Aptitude'];
       sections.forEach(id => {
         const section = document.getElementById(id);
-        section.style.display = id === testId ? 'block' : 'none';
+        if (section) section.classList.toggle('active', id === testId);
       });
     }
 
@@ -310,30 +464,116 @@
         else if (ans.value === "D") score += 2;
         else if (ans.value === "E") score += 1;
       });
-      let result = "ผลลัพธ์แบบทดสอบบุคลิกภาพ\n";
+      let result = document.documentElement.lang === 'th' ? "ผลลัพธ์แบบทดสอบบุคลิกภาพ\n" : "Personality Test Results\n";
       result += "============================\n";
       
       if (score >= 48) {
-        result += "บุคลิกภาพของคุณ: มั่นใจและชอบเข้าสังคม\n";
-        result += "คุณเป็นคนที่สนุกกับการพบปะผู้คนใหม่ๆ และมีความมั่นใจในการแสดงออก คุณมักจะเป็นผู้นำในกลุ่มและสนุกกับการทำงานร่วมกับผู้อื่น คุณมีทักษะในการสื่อสารที่ดีและสามารถสร้างแรงบันดาลใจให้คนรอบข้างได้ คุณเหมาะกับสภาพแวดล้อมที่ต้องมีการโต้ตอบและการสร้างความสัมพันธ์\n\n";
-        result += "เส้นทางอาชีพที่เหมาะสม:\n";
-        result += "- นักการตลาดดิจิทัล: สร้างแคมเปญออนไลน์ที่น่าสนใจโดยใช้ทักษะการสื่อสารและความเข้าใจผู้คน\n";
-        result += "- ผู้จัดการอีเวนต์: วางแผนและจัดการงานイベント เช่น คอนเสิร์ตหรืองานแสดงสินค้า\n";
-        result += "- นักประชาสัมพันธ์: สร้างภาพลักษณ์ที่ดีให้องค์กรผ่านการสื่อสารที่มีประสิทธิภาพ\n";
-        result += "- ผู้ประกอบการ: เริ่มต้นธุรกิจของตัวเองด้วยความมั่นใจและทักษะการนำทีม\n\n";
-        result += "คำแนะนำ: พัฒนาทักษะการพูดในที่สาธารณะและการสร้างเครือข่าย ลองเข้าร่วมชมรมการโต้วาที งานอาสาสมัคร หรือฝึกการนำเสนอเพื่อเพิ่มความมั่นใจและทักษะการสื่อสาร\n";
+        result += document.documentElement.lang === 'th' ? 
+          "บุคลิกภาพของคุณ: มั่นใจและชอบเข้าสังคม\nคุณเป็นคนที่สนุกกับการพบปะผู้คนใหม่ๆ และมีความมั่นใจในการแสดงออก คุณมักจะเป็นผู้นำในกลุ่มและสนุกกับการทำงานร่วมกับผู้อื่น คุณมีทักษะในการสื่อสารที่ดีและสามารถสร้างแรงบันดาลใจให้คนรอบข้างได้ คุณเหมาะกับสภาพแวดล้อมที่ต้องมีการโต้ตอบและการสร้างความสัมพันธ์\n\n" +
+          "เส้นทางอาชีพที่เหมาะสม:\n" +
+          "- นักการตลาดดิจิทัล: สร้างแคมเปญออนไลน์ที่น่าสนใจโดยใช้ทักษะการสื่อสารและความเข้าใจผู้คน\n" +
+          "- ผู้จัดการอีเวนต์: วางแผนและจัดการงานイベント เช่น คอนเสิร์ตหรืองานแสดงสินค้า\n" +
+          "- นักประชาสัมพันธ์: สร้างภาพลักษณ์ที่ดีให้องค์กรผ่านการสื่อสารที่มีประสิทธิภาพ\n" +
+          "- ผู้ประกอบการ: เริ่มต้นธุรกิจของตัวเองด้วยความมั่นใจและทักษะการนำทีม\n\n" +
+          "คำแนะนำ: พัฒนาทักษะการพูดในที่สาธารณะและการสร้างเครือข่าย ลองเข้าร่วมชมรมการโต้วาที งานอาสาสมัคร หรือฝึกการนำเสนอเพื่อเพิ่มความมั่นใจและทักษะการสื่อสาร\n" :
+          "Your Personality: Confident and Social\nYou love meeting new people and feel confident expressing yourself. You often lead groups and enjoy working with others. Your strong communication skills inspire those around you, making you ideal for environments that involve interaction and relationship-building.\n\n" +
+          "Career Paths:\n" +
+          "- Digital Marketer: Create engaging online campaigns using communication and people skills.\n" +
+          "- Event Manager: Plan and manage events like concerts or fairs.\n" +
+          "- Public Relations Specialist: Build a positive image for organizations through effective communication.\n" +
+          "- Entrepreneur: Start your own business with confidence and leadership skills.\n\n" +
+          "Tip: Improve your public speaking and networking skills. Join a debate club, volunteer, or practice presentations to boost confidence and communication.\n";
       } else if (score >= 36) {
-        result += "บุคลิกภาพของคุณ: สมดุลและปรับตัวได้ดี\n";
-        result += "คุณมีความยืดหยุ่นและสามารถปรับตัวเข้ากับสถานการณ์ต่างๆ ได้ดี คุณทำงานได้ทั้งแบบเดี่ยวและเป็นทีม มีความสมดุลระหว่างการวางแผนและการลงมือทำ คุณเป็นคนที่คนอื่นไว้วางใจได้ และสามารถจัดการกับความท้าทายที่หลากหลายได้อย่างมีประสิทธิภาพ\n\n";
-        result += "เส้นทางอาชีพที่เหมาะสม:\n";
-        result += "- นักออกแบบผลิตภัณฑ์: รวมความคิดสร้างสรรค์และการแก้ปัญหาเชิงปฏิบัติเพื่อสร้างผลิตภัณฑ์ที่ใช้งานได้จริง\n";
-        result += "- นักพัฒนาซอฟต์แวร์: ออกแบบและพัฒนาโปรแกรมคอมพิวเตอร์โดยใช้ทั้งตรรกะและความยืดหยุ่น\n";
-        result += "- ผู้จัดการโครงการ: บริหารทีมและทรัพยากรเพื่อให้โครงการสำเร็จตามเป้าหมาย\n";
-        result += "- นักวางแผนเมือง: ออกแบบชุมชนที่ยั่งยืนโดยคำนึงถึงความสมดุลของสิ่งแวดล้อมและความต้องการของผู้คน\n\n";
-        result += "คำแนะนำ: ฝึกทักษะการจัดการเวลาและการแก้ปัญหาในสถานการณ์ที่หลากหลาย ลองเข้าร่วมโครงการที่ต้องใช้ทั้งความคิดสร้างสรรค์และการวิเคราะห์ เช่น การพัฒนาแอปพลิเคชันหรือการออกแบบงานศิลปะ\n";
+        result += document.documentElement.lang === 'th' ? 
+          "บุคลิกภาพของคุณ: สมดุลและปรับตัวได้ดี\nคุณมีความยืดหยุ่นและสามารถปรับตัวเข้ากับสถานการณ์ต่างๆ ได้ดี คุณทำงานได้ทั้งแบบเดี่ยวและเป็นทีม มีความสมดุลระหว่างการวางแผนและการลงมือทำ คุณเป็นคนที่คนอื่นไว้วางใจได้ และสามารถจัดการกับความท้าทายที่หลากหลายได้อย่างมีประสิทธิภาพ\n\n" +
+          "เส้นทางอาชีพที่เหมาะสม:\n" +
+          "- นักออกแบบผลิตภัณฑ์: รวมความคิดสร้างสรรค์และการแก้ปัญหาเชิงปฏิบัติเพื่อสร้างผลิตภัณฑ์ที่ใช้งานได้จริง\n" +
+          "- นักพัฒนาซอฟต์แวร์: ออกแบบและพัฒนาโปรแกรมคอมพิวเตอร์โดยใช้ทั้งตรรกะและความยืดหยุ่น\n" +
+          "- ผู้จัดการโครงการ: บริหารทีมและทรัพยากรเพื่อให้โครงการสำเร็จตามเป้าหมาย\n" +
+          "- นักวางแผนเมือง: ออกแบบชุมชนที่ยั่งยืนโดยคำนึงถึงความสมดุลของสิ่งแวดล้อมและความต้องการของผู้คน\n\n" +
+          "คำแนะนำ: ฝึกทักษะการจัดการเวลาและการแก้ปัญหาในสถานการณ์ที่หลากหลาย ลองเข้าร่วมโครงการที่ต้องใช้ทั้งความคิดสร้างสรรค์และการวิเคราะห์ เช่น การพัฒนาแอปพลิเคชันหรือการออกแบบงานศิลปะ\n" :
+          "Your Personality: Balanced and Adaptable\nYou are flexible and adapt well to different situations. You work effectively alone or in teams, balancing planning and action. Others trust you, and you handle diverse challenges efficiently.\n\n" +
+          "Career Paths:\n" +
+          "- Product Designer: Combine creativity and practical problem-solving to create useful products.\n" +
+          "- Software Developer: Design and build computer programs using logic and flexibility.\n" +
+          "- Project Manager: Lead teams and resources to achieve project goals.\n" +
+          "- Urban Planner: Design sustainable communities, balancing environmental and human needs.\n\n" +
+          "Tip: Practice time management and problem-solving in varied situations. Try projects that blend creativity and analysis, like app development or art design.\n";
       } else {
-        result += "บุคลิกภาพของคุณ: รอบคอบและสงบเสงี่ยม\n";
-        result += "คุณมักจะคิดอย่างรอบคอบก่อนตัดสินใจและชอบทำงานในสภาพแวดล้อมที่สงบและมีโครงสร้าง คุณมีทักษะในการวิเคราะห์และใส่ใจในรายละเอียด คุณทำงานได้ดีเมื่อมีเวลาในการวางแผนและมักจะให้ผลลัพธ์ที่มีคุณภาพสูง\n\n";
-        result += "เส้นทางอาชีพที่เหมาะสม:\n";
-        result += "- นักวิเคราะห์ข้อมูล: วิเคราะห์ข้อมูลเพื่อช่วยองค์กรตัดสินใจอย่างมีข้อมูล\n";
-        result += "- นักเขียนหรือบรรณาธิการ: สร้างเนื้อหาคุณภาพสูง เช่น
+        result += document.documentElement.lang === 'th' ? 
+          "บุคลิกภาพของคุณ: รอบคอบและสงบเสงี่ยม\nคุณมักจะคิดอย่างรอบคอบก่อนตัดสินใจและชอบทำงานในสภาพแวดล้อมที่สงบและมีโครงสร้าง คุณมีทักษะในการวิเคราะห์และใส่ใจในรายละเอียด คุณทำงานได้ดีเมื่อมีเวลาในการวางแผนและมักจะให้ผลลัพธ์ที่มีคุณภาพสูง\n\n" +
+          "เส้นทางอาชีพที่เหมาะสม:\n" +
+          "- นักวิเคราะห์ข้อมูล: วิเคราะห์ข้อมูลเพื่อช่วยองค์กรตัดสินใจอย่างมีข้อมูล\n" +
+          "- นักเขียนหรือบรรณาธิการ: สร้างเนื้อหาคุณภาพสูง เช่น หนังสือ บทความ หรือสื่อดิจิทัล\n" +
+          "- นักบัญชีหรือนักการเงิน: จัดการตัวเลขและวางแผนการเงินด้วยความแม่นยำ\n" +
+          "- นักวิจัยวิทยาศาสตร์: ศึกษาและทดลองเพื่อค้นพบความรู้ใหม่ในสภาพแวดล้อมที่เป็นระบบ\n\n" +
+          "คำแนะนำ: พัฒนาทักษะการวิเคราะห์และการจัดการข้อมูล ลองทำโปรเจกต์ที่ต้องใช้ความรอบคอบ เช่น การวิเคราะห์งบประมาณส่วนตัว การเขียนบทความวิชาการ หรือการทดลองทางวิทยาศาสตร์\n" :
+          "Your Personality: Cautious and Reflective\nYou think carefully before deciding and prefer calm, structured environments. You excel at analysis and attention to detail, producing high-quality results when given time to plan.\n\n" +
+          "Career Paths:\n" +
+          "- Data Analyst: Analyze data to help organizations make informed decisions.\n" +
+          "- Writer or Editor: Create high-quality content like books, articles, or digital media.\n" +
+          "- Accountant or Financial Planner: Manage numbers and plan finances with precision.\n" +
+          "- Scientific Researcher: Study and experiment to discover new knowledge in a structured setting.\n\n" +
+          "Tip: Develop analytical and data management skills. Try projects requiring precision, like budgeting, writing academic articles, or conducting science experiments.\n";
+      }
+      result += document.documentElement.lang === 'th' ? 
+        "\nการค้นพบตัวเอง: บุคลิกภาพของคุณเป็นจุดแข็งที่สามารถนำไปสู่ความสำเร็จในหลากหลายอาชีพ ไม่จำเป็นต้องจำกัดตัวเองอยู่แค่ครู ตำรวจ หรือทหาร ลองสำรวจความสนใจใหม่ๆ และพัฒนาทักษะที่เกี่ยวข้องเพื่อค้นพบโอกาสในโลกที่กว้างขวางยิ่งขึ้น!\n\nแชร์ผลลัพธ์ของคุณ: [yourwebsite.com/share]" :
+        "\nDiscover Yourself: Your personality is a strength that can lead to success in many careers. Don’t limit yourself to just teaching, police, or military—explore new interests and build skills to discover a wider world of opportunities!\n\nShare your results: [yourwebsite.com/share]";
+      document.getElementById(resultId).textContent = result;
+      downloadFile(filename, result);
+    }
+
+    function calculateAptitude(formId, resultId, filename) {
+      const form = document.getElementById(formId);
+      const answers = form.querySelectorAll("input:checked");
+      let counts = {Practical:0, Creative:0, Analytical:0, Social:0, Leadership:0};
+      answers.forEach(ans => counts[ans.value]++);
+      let top = Object.keys(counts).reduce((a, b) => counts[a] > counts[b] ? a : b);
+      const thaiTypes = {
+        Practical: "ปฏิบัติ",
+        Creative: "สร้างสรรค์",
+        Analytical: "วิเคราะห์",
+        Social: "สังคม",
+        Leadership: "ผู้นำ"
+      };
+      const englishTypes = {
+        Practical: "Practical",
+        Creative: "Creative",
+        Analytical: "Analytical",
+        Social: "Social",
+        Leadership: "Leadership"
+      };
+      let result = document.documentElement.lang === 'th' ? 
+        `ความถนัดที่เด่นที่สุดของคุณคือ: ${thaiTypes[top]}\n\nแชร์ผลลัพธ์ของคุณ: [yourwebsite.com/share]` :
+        `Your strongest aptitude is: ${englishTypes[top]}\n\nShare your results: [yourwebsite.com/share]`;
+      document.getElementById(resultId).textContent = result;
+      downloadFile(filename, result);
+    }
+
+    function downloadFile(filename, text) {
+      const element = document.createElement('a');
+      element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+      element.setAttribute('download', filename);
+      element.style.display = 'none';
+      document.body.appendChild(element);
+      element.click();
+      document.body.removeChild(element);
+    }
+
+    function shareResult(resultId) {
+      const resultText = document.getElementById(resultId).textContent;
+      const shareMessage = document.documentElement.lang === 'th' ? 
+        `พบกับบุคลิกภาพหรือความถนัดของฉันจาก People Smart Tests! ลองทำแบบทดสอบเพื่อค้นหาตัวคุณเอง: [yourwebsite.com]` :
+        `Discover my personality or aptitude with People Smart Tests! Try the test to find out about yourself: [yourwebsite.com]`;
+      alert(`Share this on LINE or Facebook: ${shareMessage}\n\n${resultText}`);
+      // Replace alert with actual sharing API (e.g., Web Share API or LINE/Facebook SDK) if needed
+    }
+
+    // Initialize default language and test visibility
+    window.onload = function() {
+      switchLang('en'); // Set default to English
+      showTest('grade9Personality'); // Show Grade 9 Personality Test by default
+    };
+  </script>
+</body>
+</html>
