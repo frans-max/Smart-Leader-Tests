@@ -299,8 +299,10 @@
     <div id="resultA12"></div>
   </section>
   <script>
+    let currentLang = 'th'; // Initialize default language to Thai
     function switchLang(lang) {
-      document.documentElement.lang = lang;
+      currentLang = lang; // Store selected language
+      document.documentElement.lang = lang; // Update HTML lang attribute
       const translations = {
         en: {
           introTitle: "People Smart Tests",
@@ -473,74 +475,94 @@
           }
         }
       };
-      if (document.getElementById("introTitle")) document.getElementById("introTitle").textContent = translations[lang].introTitle;
-      if (document.getElementById("introText")) document.getElementById("introText").textContent = translations[lang].introText;
-      if (document.querySelector("#grade9Personality h2")) document.querySelector("#grade9Personality h2").textContent = translations[lang].grade9PersonalityTitle;
-      if (document.querySelector("#grade9Aptitude h2")) document.querySelector("#grade9Aptitude h2").textContent = translations[lang].grade9AptitudeTitle;
-      if (document.querySelector("#grade12Personality h2")) document.querySelector("#grade12Personality h2").textContent = translations[lang].grade12PersonalityTitle;
-      if (document.querySelector("#grade12Aptitude h2")) document.querySelector("#grade12Aptitude h2").textContent = translations[lang].grade12AptitudeTitle;
-      if (document.querySelector("#grade9Personality button:nth-of-type(1)")) document.querySelector("#grade9Personality button:nth-of-type(1)").textContent = translations[lang].personalityButton;
-      if (document.querySelector("#grade9Aptitude button:nth-of-type(1)")) document.querySelector("#grade9Aptitude button:nth-of-type(1)").textContent = translations[lang].aptitudeButton;
-      if (document.querySelector("#grade12Personality button:nth-of-type(1)")) document.querySelector("#grade12Personality button:nth-of-type(1)").textContent = translations[lang].personalityButton;
-      if (document.querySelector("#grade12Aptitude button:nth-of-type(1)")) document.querySelector("#grade12Aptitude button:nth-of-type(1)").textContent = translations[lang].aptitudeButton;
-      if (document.querySelector("#grade9Personality button:nth-of-type(2)")) document.querySelector("#grade9Personality button:nth-of-type(2)").textContent = translations[lang].shareButton;
-      if (document.querySelector("#grade9Aptitude button:nth-of-type(2)")) document.querySelector("#grade9Aptitude button:nth-of-type(2)").textContent = translations[lang].shareButton;
-      if (document.querySelector("#grade12Personality button:nth-of-type(2)")) document.querySelector("#grade12Personality button:nth-of-type(2)").textContent = translations[lang].shareButton;
-      if (document.querySelector("#grade12Aptitude button:nth-of-type(2)")) document.querySelector("#grade12Aptitude button:nth-of-type(2)").textContent = translations[lang].shareButton;
-      const grade9PersonalityQuestions = document.querySelectorAll("#grade9Personality .question p");
-      grade9PersonalityQuestions.forEach((q, i) => {
-        if (translations[lang].grade9PersonalityQuestions[i]) q.textContent = translations[lang].grade9PersonalityQuestions[i];
-      });
-      grade9PersonalityQuestions.forEach((q, i) => {
-        const options = q.parentElement.querySelectorAll("label");
-        options.forEach((opt, j) => {
-          if (translations[lang].grade9PersonalityOptions[j]) opt.textContent = translations[lang].grade9PersonalityOptions[j];
+
+      // Update main titles and text
+      document.getElementById("introTitle").textContent = translations[lang].introTitle;
+      document.getElementById("introText").textContent = translations[lang].introText;
+      document.querySelector("#grade9Personality h2").textContent = translations[lang].grade9PersonalityTitle;
+      document.querySelector("#grade9Aptitude h2").textContent = translations[lang].grade9AptitudeTitle;
+      document.querySelector("#grade12Personality h2").textContent = translations[lang].grade12PersonalityTitle;
+      document.querySelector("#grade12Aptitude h2").textContent = translations[lang].grade12AptitudeTitle;
+
+      // Update buttons
+      document.querySelector("#grade9Personality button:nth-of-type(1)").textContent = translations[lang].personalityButton;
+      document.querySelector("#grade9Aptitude button:nth-of-type(1)").textContent = translations[lang].aptitudeButton;
+      document.querySelector("#grade12Personality button:nth-of-type(1)").textContent = translations[lang].personalityButton;
+      document.querySelector("#grade12Aptitude button:nth-of-type(1)").textContent = translations[lang].aptitudeButton;
+      document.querySelector("#grade9Personality button:nth-of-type(2)").textContent = translations[lang].shareButton;
+      document.querySelector("#grade9Aptitude button:nth-of-type(2)").textContent = translations[lang].shareButton;
+      document.querySelector("#grade12Personality button:nth-of-type(2)").textContent = translations[lang].shareButton;
+      document.querySelector("#grade12Aptitude button:nth-of-type(2)").textContent = translations[lang].shareButton;
+
+      // Update test selector buttons
+      document.querySelectorAll(".test-selector button")[0].textContent = translations[lang].testSelector.grade9Personality;
+      document.querySelectorAll(".test-selector button")[1].textContent = translations[lang].testSelector.grade9Aptitude;
+      document.querySelectorAll(".test-selector button")[2].textContent = translations[lang].testSelector.grade12Personality;
+      document.querySelectorAll(".test-selector button")[3].textContent = translations[lang].testSelector.grade12Aptitude;
+
+      // Helper function to update question and options
+      function updateQuestionsAndOptions(sectionId, questions, options, optionKey = null) {
+        const questionElements = document.querySelectorAll(`#${sectionId} .question p`);
+        questionElements.forEach((q, i) => {
+          if (questions[i]) q.textContent = questions[i];
         });
-      });
-      const grade9AptitudeQuestions = document.querySelectorAll("#grade9Aptitude .question p");
-      grade9AptitudeQuestions.forEach((q, i) => {
-        if (translations[lang].grade9AptitudeQuestions[i]) q.textContent = translations[lang].grade9AptitudeQuestions[i];
-      });
-      grade9AptitudeQuestions.forEach((q, i) => {
-        const options = q.parentElement.querySelectorAll("label");
-        const key = `aq${i + 1}`;
-        if (translations[lang].grade9AptitudeOptions[key]) {
-          options.forEach((opt, j) => {
-            if (translations[lang].grade9AptitudeOptions[key][j]) opt.textContent = translations[lang].grade9AptitudeOptions[key][j];
+
+        const questionContainers = document.querySelectorAll(`#${sectionId} .question`);
+        questionContainers.forEach((q, i) => {
+          const labels = q.querySelectorAll("label");
+          labels.forEach((label, j) => {
+            const input = label.querySelector("input");
+            const value = input.value;
+            const checked = input.checked;
+            const newText = optionKey ? translations[lang][optionKey][`aq${i + 1}`][j] : translations[lang][options][j];
+            // Create new label to avoid DOM issues
+            const newLabel = document.createElement("label");
+            const newInput = document.createElement("input");
+            newInput.type = "radio";
+            newInput.name = input.name;
+            newInput.value = value;
+            if (checked) newInput.checked = true;
+            newInput.setAttribute("margin-right", "10px");
+            newLabel.appendChild(newInput);
+            newLabel.appendChild(document.createTextNode(newText));
+            label.parentNode.replaceChild(newLabel, label);
           });
-        }
-      });
-      const grade12PersonalityQuestions = document.querySelectorAll("#grade12Personality .question p");
-      grade12PersonalityQuestions.forEach((q, i) => {
-        if (translations[lang].grade12PersonalityQuestions[i]) q.textContent = translations[lang].grade12PersonalityQuestions[i];
-      });
-      grade12PersonalityQuestions.forEach((q, i) => {
-        const options = q.parentElement.querySelectorAll("label");
-        options.forEach((opt, j) => {
-          if (translations[lang].grade12PersonalityOptions[j]) opt.textContent = translations[lang].grade12PersonalityOptions[j];
         });
-      });
-      const grade12AptitudeQuestions = document.querySelectorAll("#grade12Aptitude .question p");
-      grade12AptitudeQuestions.forEach((q, i) => {
-        if (translations[lang].grade12AptitudeQuestions[i]) q.textContent = translations[lang].grade12AptitudeQuestions[i];
-      });
-      grade12AptitudeQuestions.forEach((q, i) => {
-        const options = q.parentElement.querySelectorAll("label");
-        const key = `aq${i + 1}`;
-        if (translations[lang].grade12AptitudeOptions[key]) {
-          options.forEach((opt, j) => {
-            if (translations[lang].grade12AptitudeOptions[key][j]) opt.textContent = translations[lang].grade12AptitudeOptions[key][j];
-          });
-        }
+      }
+
+      // Update Grade 9 Personality Test
+      updateQuestionsAndOptions("grade9Personality", translations[lang].grade9PersonalityQuestions, "grade9PersonalityOptions");
+
+      // Update Grade 9 Aptitude Test
+      updateQuestionsAndOptions("grade9Aptitude", translations[lang].grade9AptitudeQuestions, "grade9AptitudeOptions", "grade9AptitudeOptions");
+
+      // Update Grade 12 Personality Test
+      updateQuestionsAndOptions("grade12Personality", translations[lang].grade12PersonalityQuestions, "grade12PersonalityOptions");
+
+      // Update Grade 12 Aptitude Test
+      updateQuestionsAndOptions("grade12Aptitude", translations[lang].grade12AptitudeQuestions, "grade12AptitudeOptions", "grade12AptitudeOptions");
+
+      // Ensure language persists on input changes
+      document.querySelectorAll("input[type='radio']").forEach(input => {
+        input.addEventListener("change", () => {
+          switchLang(currentLang); // Reapply current language on radio button change
+        });
       });
     }
+
+    // Initialize page with Thai language
+    switchLang('th');
+
     function showTest(testId) {
       const sections = ['grade9Personality', 'grade9Aptitude', 'grade12Personality', 'grade12Aptitude'];
       sections.forEach(id => {
         const section = document.getElementById(id);
         if (section) section.classList.toggle('active', id === testId);
       });
+      // Reapply current language to ensure consistency
+      switchLang(currentLang);
     }
+
     function calculatePersonality(formId, resultId, filename) {
       let score = 0;
       const form = document.getElementById(formId);
@@ -552,10 +574,10 @@
         else if (ans.value === "D") score += 2;
         else if (ans.value === "E") score += 1;
       });
-      let result = document.documentElement.lang === 'th' ? "ผลลัพธ์แบบทดสอบบุคลิกภาพ\n" : "Personality Test Results\n";
+      let result = currentLang === 'th' ? "ผลลัพธ์แบบทดสอบบุคลิกภาพ\n" : "Personality Test Results\n";
       result += "============================\n";
       if (score >= 48) {
-        result += document.documentElement.lang === 'th' ? 
+        result += currentLang === 'th' ? 
           "บุคลิกภาพของคุณ: มั่นใจและชอบเข้าสังคม\nคุณเป็นคนที่สนุกกับการพบปะผู้คนใหม่ๆ และมีความมั่นใจในการแสดงออก คุณมักจะเป็นผู้นำในกลุ่มและสนุกกับการทำงานร่วมกับผู้อื่น คุณมีทักษะในการสื่อสารที่ดีและสามารถสร้างแรงบันดาลใจให้คนรอบข้างได้ คุณเหมาะกับสภาพแวดล้อมที่ต้องมีการโต้ตอบและการสร้างความสัมพันธ์\n\n" +
           "เส้นทางอาชีพที่เหมาะสม:\n" +
           "- นักการตลาดดิจิทัล: สร้างแคมเปญออนไลน์ที่น่าสนใจโดยใช้ทักษะการสื่อสารและความเข้าใจผู้คน\n" +
@@ -571,7 +593,7 @@
           "- Entrepreneur: Start your own business with confidence and leadership skills.\n\n" +
           "Tip: Improve your public speaking and networking skills. Join a debate club, volunteer, or practice presentations to boost confidence and communication.\n";
       } else if (score >= 36) {
-        result += document.documentElement.lang === 'th' ? 
+        result += currentLang === 'th' ? 
           "บุคลิกภาพของคุณ: สมดุลและปรับตัวได้ดี\nคุณมีความยืดหยุ่นและสามารถปรับตัวเข้ากับสถานการณ์ต่างๆ ได้ดี คุณทำงานได้ทั้งแบบเดี่ยวและเป็นทีม มีความสมดุลระหว่างการวางแผนและการลงมือทำ คุณเป็นคนที่คนอื่นไว้วางใจได้ และสามารถจัดการกับความท้าทายที่หลากหลายได้อย่างมีประสิทธิภาพ\n\n" +
           "เส้นทางอาชีพที่เหมาะสม:\n" +
           "- นักออกแบบผลิตภัณฑ์: รวมความคิดสร้างสรรค์และการแก้ปัญหาเชิงปฏิบัติเพื่อสร้างผลิตภัณฑ์ที่ใช้งานได้จริง\n" +
@@ -587,7 +609,7 @@
           "- Urban Planner: Design sustainable communities, balancing environmental and human needs.\n\n" +
           "Tip: Practice time management and problem-solving in varied situations. Try projects that blend creativity and analysis, like app development or art design.\n";
       } else {
-        result += document.documentElement.lang === 'th' ? 
+        result += currentLang === 'th' ? 
           "บุคลิกภาพของคุณ: รอบคอบและสงบเสงี่ยม\nคุณมักจะคิดอย่างรอบคอบก่อนตัดสินใจและชอบทำงานในสภาพแวดล้อมที่สงบและมีโครงสร้าง คุณมีทักษะในการวิเคราะห์และใส่ใจในรายละเอียด คุณทำงานได้ดีเมื่อมีเวลาในการวางแผนและมักจะให้ผลลัพธ์ที่มีคุณภาพสูง\n\n" +
           "เส้นทางอาชีพที่เหมาะสม:\n" +
           "- นักวิเคราะห์ข้อมูล: วิเคราะห์ข้อมูลเพื่อช่วยองค์กรตัดสินใจอย่างมีข้อมูล\n" +
@@ -603,12 +625,13 @@
           "- Scientific Researcher: Study and experiment to discover new knowledge in a structured setting.\n\n" +
           "Tip: Develop analytical and data management skills. Try projects requiring precision, like budgeting, writing academic articles, or conducting science experiments.\n";
       }
-      result += document.documentElement.lang === 'th' ? 
+      result += currentLang === 'th' ? 
         "\nการค้นพบตัวเอง: บุคลิกภาพของคุณเป็นจุดแข็งที่สามารถนำไปสู่ความสำเร็จในหลากหลายอาชีพ ไม่จำเป็นต้องจำกัดตัวเองอยู่แค่ครู ตำรวจ หรือทหาร ลองสำรวจความสนใจใหม่ๆ และพัฒนาทักษะที่เกี่ยวข้องเพื่อค้นพบโอกาสในโลกที่กว้างขวางยิ่งขึ้น!\n\nแชร์ผลลัพธ์ของคุณ: [yourwebsite.com/share]" :
         "\nDiscover Yourself: Your personality is a strength that can lead to success in many careers. Don’t limit yourself to just teaching, police, or military—explore new interests and build skills to discover a wider world of opportunities!\n\nShare your results: [yourwebsite.com/share]";
       document.getElementById(resultId).textContent = result;
       downloadFile(filename, result);
     }
+
     function calculateAptitude(formId, resultId, filename) {
       const form = document.getElementById(formId);
       const answers = form.querySelectorAll("input:checked");
@@ -629,12 +652,13 @@
         Social: "Social",
         Leadership: "Leadership"
       };
-      let result = document.documentElement.lang === 'th' ? 
+      let result = currentLang === 'th' ? 
         `ความถนัดที่เด่นที่สุดของคุณคือ: ${thaiTypes[top]}\n\nแชร์ผลลัพธ์ของคุณ: [yourwebsite.com/share]` :
         `Your strongest aptitude is: ${englishTypes[top]}\n\nShare your results: [yourwebsite.com/share]`;
       document.getElementById(resultId).textContent = result;
       downloadFile(filename, result);
     }
+
     function downloadFile(filename, text) {
       const element = document.createElement('a');
       element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
@@ -644,9 +668,10 @@
       element.click();
       document.body.removeChild(element);
     }
+
     function shareResult(resultId) {
       const resultText = document.getElementById(resultId).textContent;
-      const shareMessage = document.documentElement.lang === 'th' ? 
+      const shareMessage = currentLang === 'th' ? 
         `พบกับบุคลิกภาพหรือความถนัดของฉันจากแบบทดสอบความฉลาดด้านบุคคล! ลองทำแบบทดสอบเพื่อค้นหาตัวคุณเอง: [yourwebsite.com]` :
         `Discover my personality or aptitude with People Smart Tests! Try the test to find out about yourself: [yourwebsite.com]`;
       alert(`Share this on LINE or Facebook: ${shareMessage}\n\n${resultText}`);
@@ -654,4 +679,3 @@
   </script>
 </body>
 </html>
- 
