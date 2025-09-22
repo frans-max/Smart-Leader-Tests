@@ -2,131 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>People Smart Tests</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #1C2526;
-      color: #FFD700;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background: #000000;
-      color: #FFD700;
-      text-align: center;
-      position: relative;
-      padding-bottom: 20px;
-    }
-    header img {
-      width: 100%;
-      max-height: 300px;
-      object-fit: cover;
-      display: block;
-    }
-    h1 {
-      font-size: 2rem;
-      margin: 15px 0;
-    }
-    section {
-      padding: 20px;
-      margin: 20px auto;
-      background: #000000;
-      max-width: 900px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-      color: #FFD700;
-      display: none; /* Hide all test sections by default */
-    }
-    section.active {
-      display: block; /* Show only the active test section */
-    }
-    h2 {
-      color: #FFD700;
-      font-size: 1.5rem;
-    }
-    .question {
-      margin: 20px 0;
-      font-size: 1.2rem; /* Larger font for questions */
-    }
-    label {
-      display: block;
-      margin: 10px 15px;
-      color: #FFD700;
-      font-size: 1.1rem; /* Larger font for options */
-    }
-    button {
-      margin: 15px 5px;
-      padding: 12px 25px;
-      background: #FFD700;
-      color: #000000;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 1.1rem; /* Larger button text */
-    }
-    button:hover {
-      background: #E6C200;
-    }
-    .lang-switch {
-      text-align: center;
-      margin: 15px 0;
-    }
-    .lang-switch button {
-      padding: 10px 20px; /* Larger buttons for mobile */
-      background: #FFD700;
-      color: #000000;
-      border-radius: 5px;
-      cursor: pointer;
-      border: none;
-      font-weight: bold;
-      font-size: 1.1rem;
-      margin: 0 10px;
-    }
-    .lang-switch button:hover {
-      background: #E6C200;
-    }
-    .test-selector {
-      text-align: center;
-      margin: 20px auto;
-      max-width: 900px;
-      padding: 0 10px;
-    }
-    .test-selector button {
-      width: 100%;
-      max-width: 300px;
-      margin: 10px auto;
-      padding: 15px;
-      font-size: 1.2rem;
-    }
-    #introText {
-      font-size: 1.1rem;
-      padding: 0 20px;
-      text-align: center;
-    }
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 1.8rem;
-      }
-      h2 {
-        font-size: 1.3rem;
-      }
-      .question {
-        font-size: 1.1rem;
-      }
-      label {
-        font-size: 1rem;
-      }
-      button, .lang-switch button, .test-selector button {
-        font-size: 1rem;
-        padding: 10px 15px;
-      }
-      header img {
-        max-height: 200px; /* Smaller banner on mobile */
-      }
-    }
+    .question { margin: 20px 0; }
+    .test-selector { text-align: center; }
+    section { display: none; }
+    section.active { display: block; }
+    button { padding: 10px 20px; margin: 10px; }
+    .lang-switch { text-align: center; }
+    img { width: 100%; height: auto; }
   </style>
 </head>
 <body>
@@ -223,6 +107,7 @@
         <label><input type="radio" name="q12" value="E"> ไม่เห็นด้วยอย่างยิ่ง</label></div>
     </form>
     <button type="button" onclick="calculatePersonality('quizFormP9', 'resultP9', 'Grade_9_Personality_Results.txt')">แสดงและดาวน์โหลดผลลัพธ์</button>
+    <button type="button" onclick="shareResult('resultP9')">แชร์ผลลัพธ์</button>
     <div id="resultP9"></div>
   </section>
   <!-- Grade 9 Aptitude Test -->
@@ -303,6 +188,7 @@
         <label><input type="radio" name="aq12" value="Leadership"> ตัดสินใจเอง</label></div>
     </form>
     <button type="button" onclick="calculateAptitude('quizFormA9', 'resultA9', 'Grade_9_Aptitude_Results.txt')">แสดงและดาวน์โหลดผลลัพธ์</button>
+    <button type="button" onclick="shareResult('resultA9')">แชร์ผลลัพธ์</button>
     <div id="resultA9"></div>
   </section>
   <!-- Grade 12 Personality Test (Placeholder) -->
@@ -315,7 +201,6 @@
         <label><input type="radio" name="q1" value="C"> เป็นกลาง</label>
         <label><input type="radio" name="q1" value="D"> ไม่เห็นด้วย</label>
         <label><input type="radio" name="q1" value="E"> ไม่เห็นด้วยอย่างยิ่ง</label></div>
-      <!-- Add more questions as needed -->
       <div class="question"><p>2. ฉันชอบวางแผนก่อนลงมือทำ</p>
         <label><input type="radio" name="q2" value="A"> เห็นด้วยอย่างยิ่ง</label>
         <label><input type="radio" name="q2" value="B"> เห็นด้วย</label>
@@ -324,6 +209,7 @@
         <label><input type="radio" name="q2" value="E"> ไม่เห็นด้วยอย่างยิ่ง</label></div>
     </form>
     <button type="button" onclick="calculatePersonality('quizFormP12', 'resultP12', 'Grade_12_Personality_Results.txt')">แสดงและดาวน์โหลดผลลัพธ์</button>
+    <button type="button" onclick="shareResult('resultP12')">แชร์ผลลัพธ์</button>
     <div id="resultP12"></div>
   </section>
   <!-- Grade 12 Aptitude Test (Placeholder) -->
@@ -336,7 +222,6 @@
         <label><input type="radio" name="aq1" value="Analytical"> วางแผนและแก้ปัญหา</label>
         <label><input type="radio" name="aq1" value="Social"> ดูแลเพื่อน</label>
         <label><input type="radio" name="aq1" value="Leadership"> นำกลุ่ม</label></div>
-      <!-- Add more questions as needed -->
       <div class="question"><p>2. คุณชอบวิชาอะไรที่สุด?</p>
         <label><input type="radio" name="aq2" value="Practical"> พละ/งานฝีมือ</label>
         <label><input type="radio" name="aq2" value="Creative"> ศิลปะ/ดนตรี</label>
@@ -345,141 +230,110 @@
         <label><input type="radio" name="aq2" value="Leadership"> กิจกรรมผู้นำ</label></div>
     </form>
     <button type="button" onclick="calculateAptitude('quizFormA12', 'resultA12', 'Grade_12_Aptitude_Results.txt')">แสดงและดาวน์โหลดผลลัพธ์</button>
+    <button type="button" onclick="shareResult('resultA12')">แชร์ผลลัพธ์</button>
     <div id="resultA12"></div>
   </section>
   <script>
-  function switchLang(lang) {
-  const translations = {
-    en: {
-      introTitle: "People Smart Tests",
-      introText: "Welcome to People Smart Tests, designed specifically for Grade 9 and Grade 12 students to explore their unique strengths, personality traits, and learning styles. These tests help identify your natural tendencies in areas such as creativity, analytical thinking, social skills, leadership, and practical abilities. Understanding these aspects of yourself is crucial for personal growth, academic success, and future career planning. By taking these tests, you gain insights into how you learn best, interact with others, and approach challenges, empowering you to make informed decisions about your education and aspirations. Start your journey of self-discovery today!",
-      grade9PersonalityTitle: "Personality Test (Grade 9)",
-      grade9AptitudeTitle: "Aptitude Test (Grade 9)",
-      grade12PersonalityTitle: "Personality Test (Grade 12)",
-      grade12AptitudeTitle: "Aptitude Test (Grade 12)",
-      personalityButton: "Show & Download Results",
-      aptitudeButton: "Show & Download Results",
-      testSelector: {
-        grade9Personality: "Grade 9 Personality Test",
-        grade9Aptitude: "Grade 9 Aptitude Test",
-        grade12Personality: "Grade 12 Personality Test",
-        grade12Aptitude: "Grade 12 Aptitude Test"
-      }
-    },
-    th: {
-      introTitle: "แบบทดสอบความฉลาดด้านบุคคล",
-      introText: "ยินดีต้อนรับสู่แบบทดสอบความฉลาดด้านบุคคล ที่ออกแบบมาโดยเฉพาะสำหรับนักเรียนชั้นมัธยมศึกษาปีที่ 3 และ 6 เพื่อสำรวจจุดแข็ง คุณลักษณะบุคลิกภาพ และรูปแบบการเรียนรู้ที่เป็นเอกลักษณ์ของคุณ แบบทดสอบเหล่านี้ช่วยระบุแนวโน้มตามธรรมชาติของคุณในด้านต่างๆ เช่น ความคิดสร้างสรรค์ การคิดวิเคราะห์ ทักษะการเข้าสังคม ความเป็นผู้นำ และความสามารถเชิงปฏิบัติ การทำความเข้าใจแง่มุมเหล่านี้ของตัวคุณเองมีความสำคัญต่อการเติบโตส่วนบุคคล ความสำเร็จทางการศึกษา และการวางแผนอาชีพในอนาคต การทำแบบทดสอบเหล่านี้จะช่วยให้คุณเข้าใจวิธีที่คุณเรียนรู้ได้ดีที่สุด มีปฏิสัมพันธ์กับผู้อื่น และจัดการกับความท้าทาย ทำให้คุณสามารถตัดสินใจได้อย่างมีข้อมูลเกี่ยวกับการศึกษาและความใฝ่ฝันของคุณ เริ่มต้นการเดินทางเพื่อค้นพบตัวเองวันนี้!",
-      grade9PersonalityTitle: "แบบทดสอบบุคลิกภาพ (ชั้นม.3)",
-      grade9AptitudeTitle: "แบบทดสอบความถนัด (ชั้นม.3)",
-      grade12PersonalityTitle: "แบบทดสอบบุคลิกภาพ (ชั้นม.6)",
-      grade12AptitudeTitle: "แบบทดสอบความถนัด (ชั้นม.6)",
-      personalityButton: "แสดงและดาวน์โหลดผลลัพธ์",
-      aptitudeButton: "แสดงและดาวน์โหลดผลลัพธ์",
-      testSelector: {
-        grade9Personality: "แบบทดสอบบุคลิกภาพ ชั้นม.3",
-        grade9Aptitude: "แบบทดสอบความถนัด ชั้นม.3",
-        grade12Personality: "แบบทดสอบบุคลิกภาพ ชั้นม.6",
-        grade12Aptitude: "แบบทดสอบความถนัด ชั้นม.6"
-      }
+    function switchLang(lang) {
+      const translations = {
+        en: {
+          introTitle: "People Smart Tests",
+          introText: "Welcome to People Smart Tests, designed specifically for Grade 9 and Grade 12 students to explore their unique strengths, personality traits, and learning styles. These tests help identify your natural tendencies in areas such as creativity, analytical thinking, social skills, leadership, and practical abilities. Understanding these aspects of yourself is crucial for personal growth, academic success, and future career planning. By taking these tests, you gain insights into how you learn best, interact with others, and approach challenges, empowering you to make informed decisions about your education and aspirations. Start your journey of self-discovery today!",
+          grade9PersonalityTitle: "Personality Test (Grade 9)",
+          grade9AptitudeTitle: "Aptitude Test (Grade 9)",
+          grade12PersonalityTitle: "Personality Test (Grade 12)",
+          grade12AptitudeTitle: "Aptitude Test (Grade 12)",
+          personalityButton: "Show & Download Results",
+          aptitudeButton: "Show & Download Results",
+          shareButton: "Share Results",
+          testSelector: {
+            grade9Personality: "Grade 9 Personality Test",
+            grade9Aptitude: "Grade 9 Aptitude Test",
+            grade12Personality: "Grade 12 Personality Test",
+            grade12Aptitude: "Grade 12 Aptitude Test"
+          }
+        },
+        th: {
+          introTitle: "แบบทดสอบความฉลาดด้านบุคคล",
+          introText: "ยินดีต้อนรับสู่แบบทดสอบความฉลาดด้านบุคคล ที่ออกแบบมาโดยเฉพาะสำหรับนักเรียนชั้นมัธยมศึกษาปีที่ 3 และ 6 เพื่อสำรวจจุดแข็ง คุณลักษณะบุคลิกภาพ และรูปแบบการเรียนรู้ที่เป็นเอกลักษณ์ของคุณ แบบทดสอบเหล่านี้ช่วยระบุแนวโน้มตามธรรมชาติของคุณในด้านต่างๆ เช่น ความคิดสร้างสรรค์ การคิดวิเคราะห์ ทักษะการเข้าสังคม ความเป็นผู้นำ และความสามารถเชิงปฏิบัติ การทำความเข้าใจแง่มุมเหล่านี้ของตัวคุณเองมีความสำคัญต่อการเติบโตส่วนบุคคล ความสำเร็จทางการศึกษา และการวางแผนอาชีพในอนาคต การทำแบบทดสอบเหล่านี้จะช่วยให้คุณเข้าใจวิธีที่คุณเรียนรู้ได้ดีที่สุด มีปฏิสัมพันธ์กับผู้อื่น และจัดการกับความท้าทาย ทำให้คุณสามารถตัดสินใจได้อย่างมีข้อมูลเกี่ยวกับการศึกษาและความใฝ่ฝันของคุณ เริ่มต้นการเดินทางเพื่อค้นพบตัวเองวันนี้!",
+          grade9PersonalityTitle: "แบบทดสอบบุคลิกภาพ (ชั้นม.3)",
+          grade9AptitudeTitle: "แบบทดสอบความถนัด (ชั้นม.3)",
+          grade12PersonalityTitle: "แบบทดสอบบุคลิกภาพ (ชั้นม.6)",
+          grade12AptitudeTitle: "แบบทดสอบความถนัด (ชั้นม.6)",
+          personalityButton: "แสดงและดาวน์โหลดผลลัพธ์",
+          aptitudeButton: "แสดงและดาวน์โหลดผลลัพธ์",
+          shareButton: "แชร์ผลลัพธ์",
+          testSelector: {
+            grade9Personality: "แบบทดสอบบุคลิกภาพ ชั้นม.3",
+            grade9Aptitude: "แบบทดสอบความถนัด ชั้นม.3",
+            grade12Personality: "แบบทดสอบบุคลิกภาพ ชั้นม.6",
+            grade12Aptitude: "แบบทดสอบความถนัด ชั้นม.6"
+          }
+        }
+      };
+      document.getElementById("introTitle").textContent = translations[lang].introTitle;
+      document.getElementById("introText").textContent = translations[lang].introText;
+      document.querySelector("#grade9Personality h2").textContent = translations[lang].grade9PersonalityTitle;
+      document.querySelector("#grade9Aptitude h2").textContent = translations[lang].grade9AptitudeTitle;
+      document.querySelector("#grade12Personality h2").textContent = translations[lang].grade12PersonalityTitle;
+      document.querySelector("#grade12Aptitude h2").textContent = translations[lang].grade12AptitudeTitle;
+      document.querySelector("#grade9Personality button:nth-of-type(1)").textContent = translations[lang].personalityButton;
+      document.querySelector("#grade9Aptitude button:nth-of-type(1)").textContent = translations[lang].aptitudeButton;
+      document.querySelector("#grade12Personality button:nth-of-type(1)").textContent = translations[lang].personalityButton;
+      document.querySelector("#grade12Aptitude button:nth-of-type(1)").textContent = translations[lang].aptitudeButton;
+      document.querySelector("#grade9Personality button:nth-of-type(2)").textContent = translations[lang].shareButton;
+      document.querySelector("#grade9Aptitude button:nth-of-type(2)").textContent = translations[lang].shareButton;
+      document.querySelector("#grade12Personality button:nth-of-type(2)").textContent = translations[lang].shareButton;
+      document.querySelector("#grade12Aptitude button:nth-of-type(2)").textContent = translations[lang].shareButton;
+      document.querySelector(".test-selector button[onclick=\"showTest('grade9Personality')\"]").textContent = translations[lang].testSelector.grade9Personality;
+      document.querySelector(".test-selector button[onclick=\"showTest('grade9Aptitude')\"]").textContent = translations[lang].testSelector.grade9Aptitude;
+      document.querySelector(".test-selector button[onclick=\"showTest('grade12Personality')\"]").textContent = translations[lang].testSelector.grade12Personality;
+      document.querySelector(".test-selector button[onclick=\"showTest('grade12Aptitude')\"]").textContent = translations[lang].testSelector.grade12Aptitude;
     }
-  };
-  document.getElementById("introTitle").textContent = translations[lang].introTitle;
-  document.getElementById("introText").textContent = translations[lang].introText;
-  document.querySelector("#grade9Personality h2").textContent = translations[lang].grade9PersonalityTitle;
-  document.querySelector("#grade9Aptitude h2").textContent = translations[lang].grade9AptitudeTitle;
-  document.querySelector("#grade12Personality h2").textContent = translations[lang].grade12PersonalityTitle;
-  document.querySelector("#grade12Aptitude h2").textContent = translations[lang].grade12AptitudeTitle;
-  document.querySelector("#grade9Personality button").textContent = translations[lang].personalityButton;
-  document.querySelector("#grade9Aptitude button").textContent = translations[lang].aptitudeButton;
-  document.querySelector("#grade12Personality button").textContent = translations[lang].personalityButton;
-  document.querySelector("#grade12Aptitude button").textContent = translations[lang].aptitudeButton;
-  document.querySelector(".test-selector button[onclick=\"showTest('grade9Personality')\"]").textContent = translations[lang].testSelector.grade9Personality;
-  document.querySelector(".test-selector button[onclick=\"showTest('grade9Aptitude')\"]").textContent = translations[lang].testSelector.grade9Aptitude;
-  document.querySelector(".test-selector button[onclick=\"showTest('grade12Personality')\"]").textContent = translations[lang].testSelector.grade12Personality;
-  document.querySelector(".test-selector button[onclick=\"showTest('grade12Aptitude')\"]").textContent = translations[lang].testSelector.grade12Aptitude;
-}
 
-function showTest(testId) {
-  const sections = ['grade9Personality', 'grade9Aptitude', 'grade12Personality', 'grade12Aptitude'];
-  sections.forEach(id => {
-    const section = document.getElementById(id);
-    section.style.display = id === testId ? 'block' : 'none';
-  });
-}
+    function showTest(testId) {
+      const sections = ['grade9Personality', 'grade9Aptitude', 'grade12Personality', 'grade12Aptitude'];
+      sections.forEach(id => {
+        const section = document.getElementById(id);
+        section.style.display = id === testId ? 'block' : 'none';
+      });
+    }
 
-function calculatePersonality(formId, resultId, filename) {
-  let score = 0;
-  const form = document.getElementById(formId);
-  const answers = form.querySelectorAll("input:checked");
-  answers.forEach(ans => {
-    if (ans.value === "A") score += 5;
-    else if (ans.value === "B") score += 4;
-    else if (ans.value === "C") score += 3;
-    else if (ans.value === "D") score += 2;
-    else if (ans.value === "E") score += 1;
-  });
-  let result = "ผลลัพธ์แบบทดสอบบุคลิกภาพ\n";
-  result += "============================\n";
-  result += "คะแนนของคุณ: " + score + "/60\n\n";
-  
-  if (score >= 48) {
-    result += "บุคลิกภาพของคุณ: มั่นใจและชอบเข้าสังคม\n";
-    result += "คุณเป็นคนที่สนุกกับการพบปะผู้คนใหม่ๆ และมีความมั่นใจในการแสดงออก คุณมักจะเป็นผู้นำในกลุ่มและสนุกกับการทำงานร่วมกับผู้อื่น คุณมีทักษะในการสื่อสารที่ดีและสามารถสร้างแรงบันดาลใจให้คนรอบข้างได้ คุณเหมาะกับสภาพแวดล้อมที่ต้องมีการโต้ตอบและการสร้างความสัมพันธ์\n\n";
-    result += "เส้นทางอาชีพที่เหมาะสม:\n";
-    result += "- นักการตลาดดิจิทัล: สร้างแคมเปญออนไลน์ที่น่าสนใจโดยใช้ทักษะการสื่อสารและความเข้าใจผู้คน\n";
-    result += "- ผู้จัดการอีเวนต์: วางแผนและจัดการงานイベント เช่น คอนเสิร์ตหรืองานแสดงสินค้า\n";
-    result += "- นักประชาสัมพันธ์: สร้างภาพลักษณ์ที่ดีให้องค์กรผ่านการสื่อสารที่มีประสิทธิภาพ\n";
-    result += "- ผู้ประกอบการ: เริ่มต้นธุรกิจของตัวเองด้วยความมั่นใจและทักษะการนำทีม\n\n";
-    result += "คำแนะนำ: พัฒนาทักษะการพูดในที่สาธารณะและการสร้างเครือข่าย ลองเข้าร่วมชมรมการโต้วาที งานอาสาสมัคร หรือฝึกการนำเสนอเพื่อเพิ่มความมั่นใจและทักษะการสื่อสาร\n";
-  } else if (score >= 36) {
-    result += "บุคลิกภาพของคุณ: สมดุลและปรับตัวได้ดี\n";
-    result += "คุณมีความยืดหยุ่นและสามารถปรับตัวเข้ากับสถานการณ์ต่างๆ ได้ดี คุณทำงานได้ทั้งแบบเดี่ยวและเป็นทีม มีความสมดุลระหว่างการวางแผนและการลงมือทำ คุณเป็นคนที่คนอื่นไว้วางใจได้ และสามารถจัดการกับความท้าทายที่หลากหลายได้อย่างมีประสิทธิภาพ\n\n";
-    result += "เส้นทางอาชีพที่เหมาะสม:\n";
-    result += "- นักออกแบบผลิตภัณฑ์: รวมความคิดสร้างสรรค์และการแก้ปัญหาเชิงปฏิบัติเพื่อสร้างผลิตภัณฑ์ที่ใช้งานได้จริง\n";
-    result += "- นักพัฒนาซอฟต์แวร์: ออกแบบและพัฒนาโปรแกรมคอมพิวเตอร์โดยใช้ทั้งตรรกะและความยืดหยุ่น\n";
-    result += "- ผู้จัดการโครงการ: บริหารทีมและทรัพยากรเพื่อให้โครงการสำเร็จตามเป้าหมาย\n";
-    result += "- นักวางแผนเมือง: ออกแบบชุมชนที่ยั่งยืนโดยคำนึงถึงความสมดุลของสิ่งแวดล้อมและความต้องการของผู้คน\n\n";
-    result += "คำแนะนำ: ฝึกทักษะการจัดการเวลาและการแก้ปัญหาในสถานการณ์ที่หลากหลาย ลองเข้าร่วมโครงการที่ต้องใช้ทั้งความคิดสร้างสรรค์และการวิเคราะห์ เช่น การพัฒนาแอปพลิเคชันหรือการออกแบบงานศิลปะ\n";
-  } else {
-    result += "บุคลิกภาพของคุณ: รอบคอบและสงบเสงี่ยม\n";
-    result += "คุณมักจะคิดอย่างรอบคอบก่อนตัดสินใจและชอบทำงานในสภาพแวดล้อมที่สงบและมีโครงสร้าง คุณมีทักษะในการวิเคราะห์และใส่ใจในรายละเอียด คุณทำงานได้ดีเมื่อมีเวลาในการวางแผนและมักจะให้ผลลัพธ์ที่มีคุณภาพสูง\n\n";
-    result += "เส้นทางอาชีพที่เหมาะสม:\n";
-    result += "- นักวิเคราะห์ข้อมูล: วิเคราะห์ข้อมูลเพื่อช่วยองค์กรตัดสินใจอย่างมีข้อมูล\n";
-    result += "- นักเขียนหรือบรรณาธิการ: สร้างเนื้อหาคุณภาพสูง เช่น หนังสือ บทความ หรือสื่อดิจิทัล\n";
-    result += "- นักบัญชีหรือนักการเงิน: จัดการตัวเลขและวางแผนการเงินด้วยความแม่นยำ\n";
-    result += "- นักวิจัยวิทยาศาสตร์: ศึกษาและทดลองเพื่อค้นพบความรู้ใหม่ในสภาพแวดล้อมที่เป็นระบบ\n\n";
-    result += "คำแนะนำ: พัฒนาทักษะการวิเคราะห์และการจัดการข้อมูล ลองทำโปรเจกต์ที่ต้องใช้ความรอบคอบ เช่น การวิเคราะห์งบประมาณส่วนตัว การเขียนบทความวิชาการ หรือการทดลองทางวิทยาศาสตร์\n";
-  }
-  result += "\nการค้นพบตัวเอง: บุคลิกภาพของคุณเป็นจุดแข็งที่สามารถนำไปสู่ความสำเร็จในหลากหลายอาชีพ ไม่จำเป็นต้องจำกัดตัวเองอยู่แค่ครู ตำรวจ หรือทหาร ลองสำรวจความสนใจใหม่ๆ และพัฒนาทักษะที่เกี่ยวข้องเพื่อค้นพบโอกาสในโลกที่กว้างขวางยิ่งขึ้น!";
-  document.getElementById(resultId).innerText = result;
-  downloadFile(filename, result);
-}
-
-function calculateAptitude(formId, resultId, filename) {
-  const form = document.getElementById(formId);
-  const answers = form.querySelectorAll("input:checked");
-  let counts = {Practical:0, Creative:0, Analytical:0, Social:0, Leadership:0};
-  answers.forEach(ans => counts[ans.value]++);
-  let top = Object.keys(counts).reduce((a, b) => counts[a] > counts[b] ? a : b);
-  const thaiTypes = {
-    Practical: "ปฏิบัติ",
-    Creative: "สร้างสรรค์",
-    Analytical: "วิเคราะห์",
-    Social: "สังคม",
-    Leadership: "ผู้นำ"
-  };
-  let result = "ความถนัดที่เด่นที่สุดของคุณคือ: " + thaiTypes[top];
-  document.getElementById(resultId).innerText = result;
-  downloadFile(filename, result);
-}
-
-function downloadFile(filename, text) {
-  const element = document.createElement('a');
-  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
-  element.setAttribute('download', filename);
-  element.style.display = 'none';
-  document.body.appendChild(element);
-  element.click();
-  document.body.removeChild(element);
-}
-</script>
+    function calculatePersonality(formId, resultId, filename) {
+      let score = 0;
+      const form = document.getElementById(formId);
+      const answers = form.querySelectorAll("input:checked");
+      answers.forEach(ans => {
+        if (ans.value === "A") score += 5;
+        else if (ans.value === "B") score += 4;
+        else if (ans.value === "C") score += 3;
+        else if (ans.value === "D") score += 2;
+        else if (ans.value === "E") score += 1;
+      });
+      let result = "ผลลัพธ์แบบทดสอบบุคลิกภาพ\n";
+      result += "============================\n";
+      
+      if (score >= 48) {
+        result += "บุคลิกภาพของคุณ: มั่นใจและชอบเข้าสังคม\n";
+        result += "คุณเป็นคนที่สนุกกับการพบปะผู้คนใหม่ๆ และมีความมั่นใจในการแสดงออก คุณมักจะเป็นผู้นำในกลุ่มและสนุกกับการทำงานร่วมกับผู้อื่น คุณมีทักษะในการสื่อสารที่ดีและสามารถสร้างแรงบันดาลใจให้คนรอบข้างได้ คุณเหมาะกับสภาพแวดล้อมที่ต้องมีการโต้ตอบและการสร้างความสัมพันธ์\n\n";
+        result += "เส้นทางอาชีพที่เหมาะสม:\n";
+        result += "- นักการตลาดดิจิทัล: สร้างแคมเปญออนไลน์ที่น่าสนใจโดยใช้ทักษะการสื่อสารและความเข้าใจผู้คน\n";
+        result += "- ผู้จัดการอีเวนต์: วางแผนและจัดการงานイベント เช่น คอนเสิร์ตหรืองานแสดงสินค้า\n";
+        result += "- นักประชาสัมพันธ์: สร้างภาพลักษณ์ที่ดีให้องค์กรผ่านการสื่อสารที่มีประสิทธิภาพ\n";
+        result += "- ผู้ประกอบการ: เริ่มต้นธุรกิจของตัวเองด้วยความมั่นใจและทักษะการนำทีม\n\n";
+        result += "คำแนะนำ: พัฒนาทักษะการพูดในที่สาธารณะและการสร้างเครือข่าย ลองเข้าร่วมชมรมการโต้วาที งานอาสาสมัคร หรือฝึกการนำเสนอเพื่อเพิ่มความมั่นใจและทักษะการสื่อสาร\n";
+      } else if (score >= 36) {
+        result += "บุคลิกภาพของคุณ: สมดุลและปรับตัวได้ดี\n";
+        result += "คุณมีความยืดหยุ่นและสามารถปรับตัวเข้ากับสถานการณ์ต่างๆ ได้ดี คุณทำงานได้ทั้งแบบเดี่ยวและเป็นทีม มีความสมดุลระหว่างการวางแผนและการลงมือทำ คุณเป็นคนที่คนอื่นไว้วางใจได้ และสามารถจัดการกับความท้าทายที่หลากหลายได้อย่างมีประสิทธิภาพ\n\n";
+        result += "เส้นทางอาชีพที่เหมาะสม:\n";
+        result += "- นักออกแบบผลิตภัณฑ์: รวมความคิดสร้างสรรค์และการแก้ปัญหาเชิงปฏิบัติเพื่อสร้างผลิตภัณฑ์ที่ใช้งานได้จริง\n";
+        result += "- นักพัฒนาซอฟต์แวร์: ออกแบบและพัฒนาโปรแกรมคอมพิวเตอร์โดยใช้ทั้งตรรกะและความยืดหยุ่น\n";
+        result += "- ผู้จัดการโครงการ: บริหารทีมและทรัพยากรเพื่อให้โครงการสำเร็จตามเป้าหมาย\n";
+        result += "- นักวางแผนเมือง: ออกแบบชุมชนที่ยั่งยืนโดยคำนึงถึงความสมดุลของสิ่งแวดล้อมและความต้องการของผู้คน\n\n";
+        result += "คำแนะนำ: ฝึกทักษะการจัดการเวลาและการแก้ปัญหาในสถานการณ์ที่หลากหลาย ลองเข้าร่วมโครงการที่ต้องใช้ทั้งความคิดสร้างสรรค์และการวิเคราะห์ เช่น การพัฒนาแอปพลิเคชันหรือการออกแบบงานศิลปะ\n";
+      } else {
+        result += "บุคลิกภาพของคุณ: รอบคอบและสงบเสงี่ยม\n";
+        result += "คุณมักจะคิดอย่างรอบคอบก่อนตัดสินใจและชอบทำงานในสภาพแวดล้อมที่สงบและมีโครงสร้าง คุณมีทักษะในการวิเคราะห์และใส่ใจในรายละเอียด คุณทำงานได้ดีเมื่อมีเวลาในการวางแผนและมักจะให้ผลลัพธ์ที่มีคุณภาพสูง\n\n";
+        result += "เส้นทางอาชีพที่เหมาะสม:\n";
+        result += "- นักวิเคราะห์ข้อมูล: วิเคราะห์ข้อมูลเพื่อช่วยองค์กรตัดสินใจอย่างมีข้อมูล\n";
+        result += "- นักเขียนหรือบรรณาธิการ: สร้างเนื้อหาคุณภาพสูง เช่น
