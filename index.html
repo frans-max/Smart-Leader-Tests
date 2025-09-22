@@ -76,11 +76,14 @@
       border-radius: 5px;
       color: #FFD700;
     }
+    img:not([src]) {
+      content: url('https://via.placeholder.com/800x200/FFD700/000000?text=People+Smart+Tests');
+    }
   </style>
 </head>
 <body>
   <header>
-    <img src="https://via.placeholder.com/800x200/FFD700/000000?text=People+Smart+Tests" alt="Banner">
+    <img src="https://raw.githubusercontent.com/frans-max/people-tests-image/main/banner.png" alt="People Smart Tests Banner" loading="lazy" onerror="this.src='https://via.placeholder.com/800x200/FFD700/000000?text=People+Smart+Tests'">
     <h1 id="introTitle">แบบทดสอบความฉลาดด้านบุคคล</h1>
     <p id="introText">ยินดีต้อนรับสู่แบบทดสอบความฉลาดด้านบุคคล ที่ออกแบบมาโดยเฉพาะสำหรับนักเรียนชั้นมัธยมศึกษาปีที่ 3 และ 6 เพื่อสำรวจจุดแข็ง คุณลักษณะบุคลิกภาพ และรูปแบบการเรียนรู้ที่เป็นเอกลักษณ์ของคุณ แบบทดสอบเหล่านี้ช่วยระบุแนวโน้มตามธรรมชาติของคุณในด้านต่างๆ เช่น ความคิดสร้างสรรค์ การคิดวิเคราะห์ ทักษะการเข้าสังคม ความเป็นผู้นำ และความสามารถเชิงปฏิบัติ การทำความเข้าใจแง่มุมเหล่านี้ของตัวคุณเองมีความสำคัญต่อการเติบโตส่วนบุคคล ความสำเร็จทางการศึกษา และการวางแผนอาชีพในอนาคต การทำแบบทดสอบเหล่านี้จะช่วยให้คุณเข้าใจวิธีที่คุณเรียนรู้ได้ดีที่สุด มีปฏิสัมพันธ์กับผู้อื่น และจัดการกับความท้าทาย ทำให้คุณสามารถตัดสินใจได้อย่างมีข้อมูลเกี่ยวกับการศึกษาและความใฝ่ฝันของคุณ เริ่มต้นการเดินทางเพื่อค้นพบตัวเองวันนี้!</p>
     <div class="lang-switch">
@@ -497,7 +500,6 @@
       grade9PersonalityQuestions.forEach((q, i) => {
         if (translations[lang].grade9PersonalityQuestions[i]) q.textContent = translations[lang].grade9PersonalityQuestions[i];
       });
-      const grade9PersonalityOptions = document.querySelectorAll("#grade9Personality .question label");
       grade9PersonalityQuestions.forEach((q, i) => {
         const options = q.parentElement.querySelectorAll("label");
         options.forEach((opt, j) => {
