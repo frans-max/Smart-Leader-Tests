@@ -80,7 +80,11 @@
 </head>
 <body>
   <header>
-    <img src="https://raw.githubusercontent.com/frans-max/banner-image/main/worker-female-uniform-sitting-desk-with-laptop-clipboard-high-quality-photo_114579-91884.jpg" alt="พนักงานหญิงในชุดยูนิฟอร์มนั่งที่โต๊ะพร้อมแล็ปท็อปและคลิปบอร์ด" loading="lazy">
+    <img src="https://raw.githubusercontent.com/frans-max/banner-image/main/banner.png" 
+         alt="People Smart Tests Banner" 
+         loading="lazy" 
+         onerror="this.src='https://via.placeholder.com/800x200/FFD700/000000?text=People+Smart+Tests'" 
+         onload="console.log('Banner loaded successfully')">
     <h1 id="introTitle">แบบทดสอบความฉลาดด้านบุคคล</h1>
     <p id="introText">ยินดีต้อนรับสู่แบบทดสอบความฉลาดด้านบุคคล ที่ออกแบบมาโดยเฉพาะสำหรับนักเรียนชั้นมัธยมศึกษาปีที่ 3 และ 6 เพื่อสำรวจจุดแข็ง คุณลักษณะบุคลิกภาพ และรูปแบบการเรียนรู้ที่เป็นเอกลักษณ์ของคุณ แบบทดสอบเหล่านี้ช่วยระบุแนวโน้มตามธรรมชาติของคุณในด้านต่างๆ เช่น ความคิดสร้างสรรค์ การคิดวิเคราะห์ ทักษะการเข้าสังคม ความเป็นผู้นำ และความสามารถเชิงปฏิบัติ การทำความเข้าใจแง่มุมเหล่านี้ของตัวคุณเองมีความสำคัญต่อการเติบโตส่วนบุคคล ความสำเร็จทางการศึกษา และการวางแผนอาชีพในอนาคต การทำแบบทดสอบเหล่านี้จะช่วยให้คุณเข้าใจวิธีที่คุณเรียนรู้ได้ดีที่สุด มีปฏิสัมพันธ์กับผู้อื่น และจัดการกับความท้าทาย ทำให้คุณสามารถตัดสินใจได้อย่างมีข้อมูลเกี่ยวกับการศึกษาและความใฝ่ฝันของคุณ เริ่มต้นการเดินทางเพื่อค้นพบตัวเองวันนี้!</p>
     <div class="lang-switch">
@@ -652,9 +656,92 @@
         Social: "Social",
         Leadership: "Leadership"
       };
-      let result = currentLang === 'th' ? 
-        `ความถนัดที่เด่นที่สุดของคุณคือ: ${thaiTypes[top]}\n\nแชร์ผลลัพธ์ของคุณ: [yourwebsite.com/share]` :
-        `Your strongest aptitude is: ${englishTypes[top]}\n\nShare your results: [yourwebsite.com/share]`;
+      let result = currentLang === 'th' ? "ผลลัพธ์แบบทดสอบความถนัด\n" : "Aptitude Test Results\n";
+      result += "============================\n";
+      if (top === "Practical") {
+        result += currentLang === 'th' ? 
+          "ความถนัดของคุณ: ปฏิบัติ\nคุณถนัดในการทำงานที่ต้องลงมือทำจริงและใช้ทักษะทางกายภาพ คุณสนุกกับการใช้เครื่องมือ อุปกรณ์ หรือการทำงานที่เห็นผลลัพธ์เป็นรูปธรรม คุณเหมาะกับงานที่ต้องการความแม่นยำและการแก้ปัญหาในสถานการณ์จริง\n\n" +
+          "เส้นทางอาชีพที่เหมาะสม:\n" +
+          "- ช่างยนต์: ซ่อมและบำรุงรักษารถยนต์ด้วยทักษะการปฏิบัติ\n" +
+          "- ช่างไม้: สร้างและออกแบบงานไม้ เช่น เฟอร์นิเจอร์\n" +
+          "- เกษตรกร: ปลูกพืชหรือเลี้ยงสัตว์โดยใช้ความรู้และทักษะการปฏิบัติ\n" +
+          "- นักกีฬา: ฝึกฝนร่างกายเพื่อแข่งขันในกีฬาต่างๆ\n\n" +
+          "คำแนะนำ: ลองฝึกทักษะการใช้เครื่องมือหรือเข้าร่วมกิจกรรมที่ต้องลงมือทำ เช่น ชมรมช่างฝีมือ การแข่งขันกีฬา หรือการทำสวน เพื่อพัฒนาความถนัดของคุณ\n" :
+          "Your Aptitude: Practical\nYou excel at hands-on work and physical skills. You enjoy using tools, equipment, or tasks with tangible results. You’re suited for roles requiring precision and real-world problem-solving.\n\n" +
+          "Career Paths:\n" +
+          "- Mechanic: Repair and maintain vehicles with practical skills.\n" +
+          "- Carpenter: Build and design wooden items like furniture.\n" +
+          "- Farmer: Grow crops or raise animals using hands-on knowledge.\n" +
+          "- Athlete: Train physically to compete in sports.\n\n" +
+          "Tip: Practice using tools or join hands-on activities like a crafting club, sports competitions, or gardening to enhance your skills.\n";
+      } else if (top === "Creative") {
+        result += currentLang === 'th' ? 
+          "ความถนัดของคุณ: สร้างสรรค์\nคุณมีความสามารถในการคิดนอกกรอบและสร้างสรรค์สิ่งใหม่ๆ คุณสนุกกับการใช้จินตนาการในงานศิลปะ ดนตรี หรือการออกแบบ คุณเหมาะกับงานที่ให้อิสระในการแสดงออกและสร้างนวัตกรรม\n\n" +
+          "เส้นทางอาชีพที่เหมาะสม:\n" +
+          "- นักออกแบบกราฟิก: สร้างภาพและสื่อดิจิทัลที่น่าสนใจ\n" +
+          "- นักแต่งเพลง: ประพันธ์ดนตรีสำหรับวงดนตรีหรือภาพยนตร์\n" +
+          "- ศิลปิน: วาดภาพหรือสร้างงานศิลปะในรูปแบบต่างๆ\n" +
+          "- นักเขียนนิยาย: สร้างเรื่องราวที่น่าสนใจสำหรับผู้อ่าน\n\n" +
+          "คำแนะนำ: พัฒนาความคิดสร้างสรรค์ด้วยการฝึกวาดภาพ แต่งเพลง หรือเขียนเรื่องราว ลองเข้าร่วมชมรมศิลปะหรือการแสดงเพื่อแสดงออกและเรียนรู้จากผู้อื่น\n" :
+          "Your Aptitude: Creative\nYou have a talent for thinking outside the box and creating new things. You enjoy using imagination in art, music, or design. You’re suited for roles that allow freedom of expression and innovation.\n\n" +
+          "Career Paths:\n" +
+          "- Graphic Designer: Create engaging visuals and digital media.\n" +
+          "- Songwriter: Compose music for bands or films.\n" +
+          "- Artist: Paint or create art in various forms.\n" +
+          "- Fiction Writer: Craft compelling stories for readers.\n\n" +
+          "Tip: Hone your creativity by practicing drawing, songwriting, or storytelling. Join an art or drama club to express yourself and learn from others.\n";
+      } else if (top === "Analytical") {
+        result += currentLang === 'th' ? 
+          "ความถนัดของคุณ: วิเคราะห์\nคุณเก่งในการคิดวิเคราะห์และแก้ปัญหาด้วยเหตุผล คุณสนุกกับการแก้ปริศนาและการทำงานที่ต้องใช้ตรรกะ คุณเหมาะกับงานที่ต้องการการวิเคราะห์ข้อมูลและการตัดสินใจอย่างรอบคอบ\n\n" +
+          "เส้นทางอาชีพที่เหมาะสม:\n" +
+          "- นักวิทยาศาสตร์: ทดลองและค้นพบความรู้ใหม่ในสาขาวิทยาศาสตร์\n" +
+          "- วิศวกร: ออกแบบและสร้างโครงสร้างหรือเครื่องจักรด้วยความแม่นยำ\n" +
+          "- นักวิเคราะห์ข้อมูล: วิเคราะห์ข้อมูลเพื่อช่วยตัดสินใจในธุรกิจ\n" +
+          "- นักคณิตศาสตร์: ศึกษาและแก้ปัญหาคณิตศาสตร์ที่ซับซ้อน\n\n" +
+          "คำแนะนำ: ฝึกทักษะการวิเคราะห์ด้วยการเล่นเกมปริศนา เรียนรู้การเขียนโปรแกรม หรือเข้าร่วมการแข่งขันคณิตศาสตร์เพื่อพัฒนาความสามารถของคุณ\n" :
+          "Your Aptitude: Analytical\nYou excel at critical thinking and solving problems with logic. You enjoy puzzles and tasks requiring reasoning. You’re suited for roles that involve data analysis and careful decision-making.\n\n" +
+          "Career Paths:\n" +
+          "- Scientist: Experiment and discover new knowledge in science.\n" +
+          "- Engineer: Design and build structures or machines with precision.\n" +
+          "- Data Analyst: Analyze data to aid business decisions.\n" +
+          "- Mathematician: Study and solve complex mathematical problems.\n\n" +
+          "Tip: Sharpen your analytical skills by playing puzzle games, learning to code, or joining math competitions to build your abilities.\n";
+      } else if (top === "Social") {
+        result += currentLang === 'th' ? 
+          "ความถนัดของคุณ: สังคม\nคุณถนัดในการทำงานกับผู้คนและสร้างความสัมพันธ์ คุณสนุกกับการช่วยเหลือผู้อื่นและการสื่อสาร คุณเหมาะกับงานที่ต้องมีปฏิสัมพันธ์และการดูแลผู้อื่น\n\n" +
+          "เส้นทางอาชีพที่เหมาะสม:\n" +
+          "- ครู: สอนและให้คำแนะนำแก่นักเรียน\n" +
+          "- พยาบาล: ดูแลสุขภาพและให้การสนับสนุนผู้ป่วย\n" +
+          "- นักสังคมสงเคราะห์: ช่วยเหลือชุมชนและบุคคลที่ต้องการความช่วยเหลือ\n" +
+          "- ที่ปรึกษา: ให้คำแนะนำด้านการเรียนหรือชีวิต\n\n" +
+          "คำแนะนำ: พัฒนาทักษะการสื่อสารและการเอาใจใส่ ลองเข้าร่วมงานอาสาสมัครหรือชมรมที่ช่วยเหลือชุมชนเพื่อฝึกฝนความสามารถของคุณ\n" :
+          "Your Aptitude: Social\nYou excel at working with people and building relationships. You enjoy helping others and communicating. You’re suited for roles involving interaction and supporting others.\n\n" +
+          "Career Paths:\n" +
+          "- Teacher: Educate and guide students.\n" +
+          "- Nurse: Care for patients’ health and provide support.\n" +
+          "- Social Worker: Assist communities and individuals in need.\n" +
+          "- Counselor: Offer guidance on academics or life challenges.\n\n" +
+          "Tip: Develop communication and empathy skills. Join volunteer work or community clubs to practice your abilities.\n";
+      } else if (top === "Leadership") {
+        result += currentLang === 'th' ? 
+          "ความถนัดของคุณ: ผู้นำ\nคุณถนัดในการนำทีมและตัดสินใจ คุณสนุกกับการบริหารจัดการและสร้างแรงบันดาลใจให้ผู้อื่น คุณเหมาะกับงานที่ต้องรับผิดชอบและกำหนดทิศทาง\n\n" +
+          "เส้นทางอาชีพที่เหมาะสม:\n" +
+          "- ผู้จัดการโครงการ: บริหารทีมเพื่อให้โครงการสำเร็จ\n" +
+          "- หัวหน้าทีมกีฬา: นำทีมกีฬาไปสู่ชัยชนะ\n" +
+          "- ผู้ประกอบการ: เริ่มต้นและบริหารธุรกิจของตัวเอง\n" +
+          "- ผู้นำชุมชน: จัดการและพัฒนากิจกรรมในชุมชน\n\n" +
+          "คำแนะนำ: ฝึกทักษะการเป็นผู้นำด้วยการเป็นประธานชมรม จัดงานโรงเรียน หรือนำทีมในโครงการกลุ่มเพื่อพัฒนาความมั่นใจและการบริหาร\n" :
+          "Your Aptitude: Leadership\nYou excel at leading teams and making decisions. You enjoy managing and inspiring others. You’re suited for roles that involve responsibility and setting direction.\n\n" +
+          "Career Paths:\n" +
+          "- Project Manager: Lead teams to complete projects successfully.\n" +
+          "- Sports Team Captain: Guide a sports team to victory.\n" +
+          "- Entrepreneur: Start and manage your own business.\n" +
+          "- Community Leader: Organize and improve community activities.\n\n" +
+          "Tip: Build leadership skills by heading a club, organizing school events, or leading group projects to gain confidence and management experience.\n";
+      }
+      result += currentLang === 'th' ? 
+        "\nการค้นพบตัวเอง: ความถนัดของคุณเป็นจุดแข็งที่สามารถนำไปสู่ความสำเร็จในหลากหลายอาชีพ ไม่จำเป็นต้องจำกัดตัวเองอยู่แค่ครู ตำรวจ หรือทหาร ลองสำรวจความสนใจใหม่ๆ และพัฒนาทักษะที่เกี่ยวข้องเพื่อค้นพบโอกาสในโลกที่กว้างขวางยิ่งขึ้น!\n\nแชร์ผลลัพธ์ของคุณ: [yourwebsite.com/share]" :
+        "\nDiscover Yourself: Your aptitude is a strength that can lead to success in many careers. Don’t limit yourself to just teaching, police, or military—explore new interests and build skills to discover a wider world of opportunities!\n\nShare your results: [yourwebsite.com/share]";
       document.getElementById(resultId).textContent = result;
       downloadFile(filename, result);
     }
